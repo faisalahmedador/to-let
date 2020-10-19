@@ -1,0 +1,26 @@
+#hero {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: $mainWhite;
+  font-weight: 400;
+  color: $mainBlack;
+  padding: 0rem 5.6rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url(../../../images/landingPage.jpg);
+  background-position: center;
+  background-size: cover;
+
+  @include respond(phone){
+      padding: 0rem $default-font-size;
+  }
+}
+
+#hero_components{
+  display: flex;
+  position: relative;
+  
+}

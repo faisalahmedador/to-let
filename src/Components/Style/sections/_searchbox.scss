@@ -1,0 +1,54 @@
+#search-box {  
+    margin-top: 25%;
+    background: $mainWhite;
+  border-radius: 5px 5px;
+  padding: 5% $default-font-size;
+
+  @include respond(phone) {
+    padding: 2% $default-font-size;
+  }
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+     
+}
+
+.search_input {
+  font-size: $mid-font-size;
+  border: 1px solid grey;
+  border-radius: 5px 5px;
+  width: 70%;
+
+  @include respond(phone) {
+    font-size: $default-font-size;
+  }
+}
+
+.button_input {
+  font-size: $mid-font-size;
+  width: 25%;
+  border: 1px solid grey;
+  border-radius: 5px 5px;
+  cursor: pointer;
+
+  @include respond(phone) {
+    font-size: $default-font-size;
+  }
+}
+
+.button_input:hover {
+  background: $primaryColor;
+}
+
+.all_dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem $default-font-size;
+  @include respond(phone) {
+  }
+}
