@@ -1,0 +1,45 @@
+
+
+#popular-search{
+    margin: auto;
+    width: 80%;
+    border-radius: $default-border-radius;   
+    background: $mainGray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    h2{
+        padding-top: 10px;
+    }
+
+    h3{
+        padding-top: 10px;
+        font-size: $mid-font-size;
+        font-weight: 600;
+        letter-spacing: $mainSpacing;
+    }
+    a{
+        color: $mainBlack;
+        letter-spacing: $bodySpacing;
+        font-size: $default-font-size;
+    }
+
+    @media (max-width: 1200px) {
+        display: block;
+        width: 100%;
+        padding-bottom: 10px;
+        h3,a{
+            padding-right: 50px;
+        }
+
+    }
+    
+}
+
+.popular-search-areas{
+    list-style: none;
+    
+    
+}
+

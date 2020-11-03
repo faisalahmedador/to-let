@@ -1,0 +1,31 @@
+html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: $mainBlack;
+    background-color: #ececec;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(255,255,255,255);
+}
+
+.title{
+  font-size: $mid-font-size;
+  font-weight: 600;
+  letter-spacing: $mainSpacing;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+
+  &--footer{
+    @extend .title;
+    text-decoration: underline;
+  }
+}
+
+.details{
+  background: $mainGray;
+}

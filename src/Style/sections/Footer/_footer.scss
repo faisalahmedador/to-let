@@ -1,0 +1,55 @@
+.footer-main{
+    width: 78%;
+    border-radius: $default-border-radius;
+    background: $mainGray;
+}
+
+
+
+.footer-link{
+    display: block;
+      
+    a{
+        color: $mainBlack;
+        letter-spacing: $bodySpacing;
+        font-size: $default-font-size;
+    }
+
+    a:hover{
+        font-size: $mid-font-size;
+    }
+
+    &--catagories{
+        @extend .footer-link;
+        
+    }
+
+    &--social{
+        @extend .footer-link;
+    }
+
+
+}
+
+
+
+.footerArea{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    align-items: flex-start;    
+    padding: 1px;
+    
+    &--catagories{
+        @extend .footerArea;
+        padding-left: 5rem;
+    }
+
+    &--social{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+
+}

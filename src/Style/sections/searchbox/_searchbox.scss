@@ -1,18 +1,27 @@
 #search-box {  
-    margin-top: 25%;
     background: $mainWhite;
-  border-radius: 5px 5px;
-  padding: 5% $default-font-size;
+    border-radius: 5px 5px;
+    padding: 5% $default-font-size;
+    //margin-top: 30%;
+    z-index: -1;
 
-  @include respond(phone) {
-    padding: 2% $default-font-size;
-  }
+    @media (min-width: 1201px) {
+      margin-top: 35%;
+    }
+
+    @media (max-width: 1200px) {
+      margin-top: 15%;
+      padding: 2%;
+    }
+
 }
 
 .search {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
      
 }
 
@@ -21,27 +30,14 @@
   border: 1px solid grey;
   border-radius: 5px 5px;
   width: 70%;
+  //z-index: 0;
 
   @include respond(phone) {
     font-size: $default-font-size;
   }
 }
 
-.button_input {
-  font-size: $mid-font-size;
-  width: 25%;
-  border: 1px solid grey;
-  border-radius: 5px 5px;
-  cursor: pointer;
 
-  @include respond(phone) {
-    font-size: $default-font-size;
-  }
-}
-
-.button_input:hover {
-  background: $primaryColor;
-}
 
 .all_dropdown {
   display: flex;
@@ -52,3 +48,4 @@
   @include respond(phone) {
   }
 }
+

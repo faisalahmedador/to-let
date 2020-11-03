@@ -11,32 +11,31 @@ const SearchBox = () => {
             type="text"
             placeholder="Enter Area Name.."
           />
-          <button type="submit" className="button_input ">
-            search
-          </button>
+          <input type="submit" value='Search' className="button-default" />
+            
         </div>
         <div className="all_dropdown">
-          <div class="Thanadown">
-            <button class="Thanabtn">Select Thana <FaChevronDown /></button>
-            <div class="Thanadown-content">
+          <div className="Thanadown">
+            <button className="Thanabtn">Select Thana <FaChevronDown /></button>
+            <div className="Thanadown-content">
               <a href="#">Mirpur</a>
               <a href="#">Uttora</a>
               <a href="#">Ajimpur</a>
             </div>
           </div>
 
-          <div class="Zilladown">
-            <button class="Zillabtn">Select Zilla <FaChevronDown /></button>
-            <div class="Zilladown-content">
+          <div className="Zilladown">
+            <button className="Zillabtn">Select Zilla <FaChevronDown /></button>
+            <div className="Zilladown-content">
               <a href="#">Link 1</a>
               <a href="#">Link 2</a>
               <a href="#">Link 3</a>
             </div>
           </div>
 
-          <div class="Typedown">
-            <button class="Typebtn">Select property Type <FaChevronDown /></button>
-            <div class="Typedown-content">
+          <div className="Typedown">
+            <button className="Typebtn">Select property Type <FaChevronDown /></button>
+            <div className="Typedown-content">
               <a href="#">Link 1</a>
               <a href="#">Link 2</a>
               <a href="#">Link 3</a>

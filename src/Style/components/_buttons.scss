@@ -1,27 +1,49 @@
-.button_input {
+.button-default {
   font-size: $mid-font-size;
-  font-weight: bold;
+  font-weight: 500;
   width: 25%;
   border: 1px solid grey;
   border-radius: 5px 5px;
   transition: $mainTransition;
   cursor: pointer;
 
+  
+
   @include respond(phone) {
     font-size: $default-font-size;
   }
+
+  &--card{
+    @extend .button-default;
+    color: $mainWhite;
+    background-color: $button-color;
+  }
+
+  &--footer{
+    font-size: $default-font-size;
+    border: 1px solid gray;
+    border-radius: 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: $mainTransition;
+    color: $mainWhite;
+    background-color: $button-color;
+    float: right;
+  }
 }
 
-.button_input:hover {
-  background: $primaryColor;
+.button-default:hover {
+  background: $mainGray;
 }
+
+
 
 
 
 /* thanadown Button */
 .Thanabtn {
   font-size: $mid-font-size;
-  font-weight: bold;
+  font-weight: 500;
   border: 1px solid grey;
   border-radius: 5px 5px;
   transition: $mainTransition;
@@ -63,7 +85,7 @@
 
 /* Change color of Thanadown links on hover */
 .Thanadown-content a:hover {
-  background-color: $primaryColor;
+  background-color: $mainGray;
   transition: $mainTransition;
 }
 
@@ -74,7 +96,7 @@
 
 /* Change the background color of the Thanadown button when the dropdown content is shown */
 .Thanadown:hover .Thanabtn {
-  background-color: $primaryColor;
+  background-color: $mainGray;
 }
 
 
@@ -84,7 +106,7 @@
   font-size: $mid-font-size;
   border: 1px solid grey;
   border-radius: 5px 5px;
-  font-weight: bold;
+  font-weight: 500;
   transition: $mainTransition;
   margin-right: 1rem;
   @include respond(phone) {
@@ -125,7 +147,7 @@
 
 /* Change color of Zilladown links on hover */
 .Zilladown-content a:hover {
-  background-color: $primaryColor;
+  background-color: $mainGray;
   transition: $mainTransition;
 }
 
@@ -136,7 +158,7 @@
 
 /* Change the background color of the Zilladown button when the dropdown content is shown */
 .Zilladown:hover .Zillabtn {
-  background-color: $primaryColor;
+  background-color: $mainGray;
 }
 
 
@@ -146,7 +168,7 @@
     border: 1px solid grey;
     border-radius: 5px 5px;
     transition: $mainTransition;
-    font-weight: bold;
+    font-weight: 500;
     @include respond(phone) {
       font-size: $default-font-size;
       
@@ -185,7 +207,7 @@
   
   /* Change color of Typedown links on hover */
   .Typedown-content a:hover {
-    background-color: $primaryColor;
+    background-color: $mainGray;
     transition: $mainTransition;
   }
   
@@ -196,6 +218,6 @@
   
   /* Change the background color of the Typedown button when the dropdown content is shown */
   .Typedown:hover .Typebtn {
-    background-color: $primaryColor;
+    background-color: $mainGray;
   }
   
