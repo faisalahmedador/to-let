@@ -36,6 +36,7 @@ class LandingPage extends Component {
         {addDetails.map((data) => {
           return (
             <CardAds
+              id={data.id}
               description={data.description}
               area={data.area}
               location={data.location}

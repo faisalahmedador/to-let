@@ -20,6 +20,7 @@ function controlPopup() {
 }
 
 const CardAds = ({
+  id,
   description,
   area,
   location,
@@ -93,7 +94,7 @@ const CardAds = ({
                       <a
                         className=""
                         href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
-                        data-lightbox="image-1"
+                        data-lightbox={id}
                         data-title="Click the right half of the image to move forward."
                         onClick={controlPopup()}
                       >
@@ -106,7 +107,7 @@ const CardAds = ({
                       <a
                         className=""
                         href={house}
-                        data-lightbox="image-2"
+                        data-lightbox={id}
                         data-title="Or press the right arrow on your keyboard."
                         onClick={controlPopup()}
                       >
@@ -119,7 +120,7 @@ const CardAds = ({
                       <a
                         className=""
                         href="http://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg"
-                        data-lightbox="image-3"
+                        data-lightbox={id}
                         data-title="The next image in the set is preloaded as you're viewing."
                         onClick={controlPopup()}
                       >
@@ -132,7 +133,7 @@ const CardAds = ({
                       <a
                         className=""
                         href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg"
-                        data-lightbox="image-4"
+                        data-lightbox={id}
                         data-title="Click anywhere outside the image or the X to the right to close."
                         onClick={controlPopup()}
                       >

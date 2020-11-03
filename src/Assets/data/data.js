@@ -15,6 +15,7 @@ export const addDetails = [
   },
 
   {
+    id: 2,
     description: "3000 squre feet flat in Niketon for rent",
     area: "2000 sq.ft",
     location: "House No. 98-100, Road No. 10, Block-C, Niketon, Dhaka",
@@ -29,6 +30,7 @@ export const addDetails = [
   },
 
   {
+    id:3,
     description: "2000 squre feet flat in Badda for rent",
     area: "1500 sq.ft",
     location: "House No. 98-100, Road No. 10, Block-C, Badda, Dhaka",

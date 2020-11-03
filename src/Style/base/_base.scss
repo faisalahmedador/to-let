@@ -21,7 +21,9 @@ html {
   text-transform: uppercase;
 
   &--footer{
-    @extend .title;
+    font-size: $big-font-size;
+    font-weight: 600;
+    padding: 1rem;
     text-decoration: underline;
   }
 }

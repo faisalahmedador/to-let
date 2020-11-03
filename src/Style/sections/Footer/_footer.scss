@@ -49,6 +49,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        img{
+            height: 40px;
+            width: 40px;
+        }
+
+        a:hover{
+            img{
+                width: 70px;
+                height: 70px;
+            }
+        }
     }
     
 
