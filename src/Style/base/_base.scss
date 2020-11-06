@@ -26,6 +26,12 @@ html {
     padding: 1rem;
     text-decoration: underline;
   }
+
+  &--range{
+    font-size: $default-font-size;
+    font-weight: 600; 
+    padding-bottom: 1rem;
+  }
 }
 
 .details{

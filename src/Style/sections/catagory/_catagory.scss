@@ -1,7 +1,8 @@
 #catagory{
-  background: $mainWhite;
+  background: $mainGray;
   border-radius: 5px 5px;
-  padding: 5% $default-font-size;
+  opacity: 0.8;
+  padding: 2% $default-font-size;
   //margin-top: 50%;
   z-index: -1;
 
@@ -17,16 +18,18 @@
 
 .catagory-links{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  //opacity: 1.0;
 
   p,a{
     color: $mainBlack;
     font-size: $default-font-size;
     font-weight: 600;  
+    opacity: 1;
   }
   a:hover{
-    background: $mainGray;
+    background: $mainWhite;
   }
   @include respond(tab-land){
     //justify-content: start;
@@ -40,14 +43,15 @@
 
 #sublet{
   
-  @include respond(tab-land){
-    padding-left: 10px;
+  @media(max-width: 1200px){
+    padding-left: 20px;
   }
 }
 
 #bachelor{
   
-  @include respond(tab-land){
-    padding-left: 10px;
+  
+  @media(max-width: 1200px){
+    padding-left: 20px;
   }
 }

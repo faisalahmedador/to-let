@@ -1,7 +1,8 @@
 #search-box {  
-    background: $mainWhite;
+    background: $mainGray;
     border-radius: 5px 5px;
-    padding: 5% $default-font-size;
+    padding: 2% $default-font-size;
+    opacity: 1.0;
     //margin-top: 30%;
     z-index: -1;
 
@@ -18,10 +19,9 @@
 
 .search {
     display: flex;
-    position: relative;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    opacity: 1;
      
 }
 
@@ -41,9 +41,8 @@
 
 .all_dropdown {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 1rem $default-font-size;
   @include respond(phone) {
   }

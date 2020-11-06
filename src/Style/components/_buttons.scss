@@ -7,19 +7,17 @@
   transition: $mainTransition;
   cursor: pointer;
 
-  
-
   @include respond(phone) {
     font-size: $default-font-size;
   }
 
-  &--card{
+  &--card {
     @extend .button-default;
     color: $mainWhite;
     background-color: $button-color;
   }
 
-  &--footer{
+  &--footer {
     font-size: $default-font-size;
     border: 1px solid gray;
     border-radius: 5px 5px;
@@ -36,188 +34,179 @@
   background: $mainGray;
 }
 
-
-
-
-
-/* thanadown Button */
-.Thanabtn {
-  font-size: $mid-font-size;
-  font-weight: 500;
-  border: 1px solid grey;
-  border-radius: 5px 5px;
-  transition: $mainTransition;
-  margin-right: 1rem;
-  @include respond(phone) {
-    font-size: $default-font-size;
-    margin-right: .5rem;
-  }
-}
-
-/* The container <div> - needed to position the Thanadown content */
-.Thanadown {
+.price-button {
   position: relative;
   display: inline-block;
 }
 
-/* Thanadown Content (Hidden by Default) */
-.Thanadown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the Thanadown */
-.Thanadown-content a {
-  color: $mainBlack;
+.price-button--button {
   font-size: $mid-font-size;
-  text-decoration: none;
-  display: block;
+  border: 1px solid gray;
   border-radius: 5px 5px;
-  @include respond(phone) {
-    font-size: $default-font-size;
-  }
-
-}
-
-/* Change color of Thanadown links on hover */
-.Thanadown-content a:hover {
-  background-color: $mainGray;
   transition: $mainTransition;
-}
-
-/* Show the Thanadown menu on hover */
-.Thanadown:hover .Thanadown-content {
-  display: block;
-}
-
-/* Change the background color of the Thanadown button when the dropdown content is shown */
-.Thanadown:hover .Thanabtn {
-  background-color: $mainGray;
-}
-
-
-
-/* Zilladown Button */
-.Zillabtn {
-  font-size: $mid-font-size;
-  border: 1px solid grey;
-  border-radius: 5px 5px;
   font-weight: 500;
-  transition: $mainTransition;
-  margin-right: 1rem;
-  @include respond(phone) {
-    font-size: $default-font-size;
-    margin-right: .5rem;
+  width: 200px;
+
+  @include respond(tab-land) {
+    width: 150px;
   }
+  @include respond(phone) {
+    width: 120px;
+  }
+
+
+  
 }
 
-/* The container <div> - needed to position the Zilladown content */
-.Zilladown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Zilladown Content (Hidden by Default) */
-.Zilladown-content {
+.price-button--dropdown {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 100%;
+  background-color: $mainGray;
+  //width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-/* Links inside the Zilladown */
-.Zilladown-content a {
-  color: $mainBlack;
-  font-size: $mid-font-size;
-  text-decoration: none;
+.price-button:hover .price-button--dropdown {
   display: block;
-  border-radius: 5px 5px;
+}
+
+.price-button--content {
+  display: block;
+  width: 80px;
+  
+  @include respond(tab-land) {
+    width: 60px;
+  }
   @include respond(phone) {
-    font-size: $default-font-size;
-    
+    width: 40px;
   }
 
-}
-
-/* Change color of Zilladown links on hover */
-.Zilladown-content a:hover {
-  background-color: $mainGray;
-  transition: $mainTransition;
-}
-
-/* Show the Zilladown menu on hover */
-.Zilladown:hover .Zilladown-content {
-  display: block;
-}
-
-/* Change the background color of the Zilladown button when the dropdown content is shown */
-.Zilladown:hover .Zillabtn {
-  background-color: $mainGray;
-}
-
-
-/* Typedown Button */
-.Typebtn {
-    font-size: $mid-font-size;
-    border: 1px solid grey;
-    border-radius: 5px 5px;
-    transition: $mainTransition;
-    font-weight: 500;
-    @include respond(phone) {
-      font-size: $default-font-size;
-      
-    }
-  }
   
-  /* The container <div> - needed to position the Typedown content */
-  .Typedown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Typedown Content (Hidden by Default) */
-  .Typedown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 
-  }
-  
-  /* Links inside the Typedown */
-  .Typedown-content a {
+  option {
     color: $mainBlack;
     font-size: $mid-font-size;
     text-decoration: none;
-    display: block;
-    border-radius: 5px 5px;
+
     @include respond(phone) {
       font-size: $default-font-size;
     }
-  
   }
-  
-  /* Change color of Typedown links on hover */
-  .Typedown-content a:hover {
-    background-color: $mainGray;
-    transition: $mainTransition;
+}
+
+.location-button {
+  position: relative;
+  display: inline-block;
+}
+
+.location-button--button {
+  font-size: $mid-font-size;
+  border: 1px solid gray;
+  border-radius: 5px 5px;
+  transition: $mainTransition;
+  font-weight: 500;
+  width: 120px;
+
+  @include respond(tab-land){
+    width: 90px;
   }
-  
-  /* Show the Typedown menu on hover */
-  .Typedown:hover .Typedown-content {
-    display: block;
+  @include respond(phone) {
+    width: 60px;
   }
+
   
-  /* Change the background color of the Typedown button when the dropdown content is shown */
-  .Typedown:hover .Typebtn {
-    background-color: $mainGray;
+}
+
+.location-button--dropdown {
+  display: none;
+  position: absolute;
+  background-color: $mainGray;
+  //width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.location-button:hover .location-button--dropdown {
+  display: block;
+}
+
+.location-button--content {
+  display: block;
+  width: 120px;
+
+  @include respond(tab-land) {
+    width: 80px;
   }
+  @include respond(phone) {
+    width: 50px;
+  }
+
   
+
+  option {
+    color: $mainBlack;
+    font-size: $mid-font-size;
+    text-decoration: none;
+
+    @include respond(phone) {
+      font-size: $default-font-size;
+    }
+  }
+}
+
+/* Typedown Button */
+.Typebtn {
+  font-size: $mid-font-size;
+  border: 1px solid grey;
+  border-radius: 5px 5px;
+  transition: $mainTransition;
+  font-weight: 500;
+  @include respond(phone) {
+    font-size: $default-font-size;
+  }
+}
+
+/* The container <div> - needed to position the Typedown content */
+.Typedown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Typedown Content (Hidden by Default) */
+.Typedown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the Typedown */
+.Typedown-content a {
+  color: $mainBlack;
+  font-size: $mid-font-size;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px 5px;
+  @include respond(phone) {
+    font-size: $default-font-size;
+  }
+}
+
+/* Change color of Typedown links on hover */
+.Typedown-content a:hover {
+  background-color: $mainGray;
+  transition: $mainTransition;
+}
+
+/* Show the Typedown menu on hover */
+.Typedown:hover .Typedown-content {
+  display: block;
+}
+
+/* Change the background color of the Typedown button when the dropdown content is shown */
+.Typedown:hover .Typebtn {
+  background-color: $mainGray;
+}
