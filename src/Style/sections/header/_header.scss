@@ -1,5 +1,5 @@
 #nav-header{
-    background: $mainGray;
+    background: transparent;
     position: -webkit-sticky;
     position: sticky;
     padding: 1rem 1.5rem;
@@ -21,8 +21,34 @@
       }
 }
 
+#floating-nav-header{
+  background: $mainGray;
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 1rem 1.5rem;
+  top:0;
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 1px 1px 15px #999;
+
+  @include respond(phone){
+      padding: .5rem 1rem;
+      
+    }
+    @include respond(phone-xs){
+      padding: .5rem 1rem;
+    }
+    @include respond(tab-port){
+      padding: .5rem 1rem;
+    }
+    @include respond(tab-land ){
+      padding: .5rem 1rem;
+    }
+}
+
 .nav-elements{
- 
+  
+  
   font-size: $mid-font-size;
   font-weight: 700;
   
@@ -30,6 +56,7 @@
 
 .drop-location{
   margin: 2px 10px;
+  
 }
 
 .login{
