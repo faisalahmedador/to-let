@@ -1,14 +1,17 @@
+@import '../../Style/abstracts/variable';
+@import '../../Style/abstracts/mixins';
+
 #catagory{
-  background: $mainGray;
+  // background: $mainGray;
+  background-color: white;
   border-radius: 5px 5px;
   opacity: 0.8;
   padding: 2% $default-font-size;
-  //margin-top: 50%;
+  margin-top: 25%;
   z-index: -1;
+  box-shadow: -2px 1px 23px -5px #000000;
 
-    @media (min-width: 1201px) {
-      margin-top: 25%;
-    }
+    
 
     @media (max-width: 1200px) {
       margin-top: 15%;
@@ -19,8 +22,15 @@
 .catagory-links{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  //align-items: center;
   //opacity: 1.0;
+  span{
+    display: flex;
+    
+    color: $mainBlack;
+    font-size: $default-font-size;
+    font-weight: 600;
+  }
 
   p,a{
     color: $mainBlack;
@@ -42,15 +52,12 @@
 }
 
 #sublet{
-  
   @media(max-width: 1200px){
     padding-left: 20px;
   }
 }
 
-#bachelor{
-  
-  
+#bachelor{ 
   @media(max-width: 1200px){
     padding-left: 20px;
   }

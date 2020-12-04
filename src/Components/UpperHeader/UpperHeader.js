@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaLanguage, FaMapMarkerAlt } from "react-icons/fa";
+import './_upperheader.scss'
 
 const UpperHeader = () => {
   //title of language

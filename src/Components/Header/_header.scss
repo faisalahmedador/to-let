@@ -1,0 +1,70 @@
+@import "../../Style/abstracts/variable";
+
+ .header-div-main {
+  position: -webkit-sticky;
+   position: sticky;
+  .header-div {
+    // background: transparent;
+   
+    // position: sticky;
+    // position: absolute;
+    // padding: 1rem 1.5rem;
+    // margin-top: 40px;
+    // position: relative;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+
+    .logo-div {
+      color: white;
+      font-weight: bold;
+    }
+    &--hero {
+      background: transparent;
+      position: -webkit-sticky;
+      // position: sticky;
+      // padding: 1rem 1.5rem;
+      top: 0;
+      z-index: 10;
+    }
+
+    &--floating {
+      background: blue;
+      position: -webkit-sticky;
+      // position: sticky;
+      // padding: 1rem 1.5rem;
+      top: 0;
+      opacity: 1;
+      z-index: 10;
+      box-shadow: 1px 1px 15px #999;
+    }
+    &--nav-bar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-elements {
+      font-size: $mid-font-size;
+      font-weight: 700;
+    }
+
+    .drop-location {
+      margin: 2px 10px;
+    }
+
+    .login {
+      margin: 2px 10px;
+    }
+
+    .add-submit {
+      // background: $primaryColor;
+      box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.68);
+      border-radius: 5px 5px;
+      margin: 2px 10px;
+    }
+
+    .add-submit:active {
+      color: white !important;
+    }
+  }
+}

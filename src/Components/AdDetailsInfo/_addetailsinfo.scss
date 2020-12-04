@@ -1,0 +1,57 @@
+.adDetails-info{
+    background: honeydew;
+    width: 99%;
+    padding: 1%;   
+}
+
+.image-content{
+    
+    &--large{
+         .big-image{
+             width: 100%;
+         }
+         display: flex;
+         justify-content: center;
+          padding-bottom: 2%;  
+    }
+
+    &--small{
+        display: flex;
+        justify-content: space-between;
+        // padding-bottom: 2%;
+        .small-image{
+                width: 22%;
+                height: 50px;
+        }
+    }
+}
+
+.description-content{
+    // background-color: #c0c0c0;
+    tr{
+        background-color: gray;
+    }
+
+    td{
+        font-size: 1.4rem;
+         
+    }
+    // &--basic{
+    //     // padding: 1%;
+        
+    // }
+    // &--details{
+    //     // padding: 1%;
+    //     padding-top: 1%;
+        
+    // }
+    // &--utility{
+    //     // padding: 1%;
+    //     padding-top: 1%;
+        
+    // }
+    // &--conditionspricing{
+    //     padding-top: 1%;
+        
+    // }
+}

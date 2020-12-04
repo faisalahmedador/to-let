@@ -1,17 +1,23 @@
+@import '../../Style/abstracts/variable';
+@import '../../Style/abstracts/mixins';
+
+
 #search-box {  
-    background: $mainGray;
+    // background: $mainGray;
+    background-color: white;
     border-radius: 5px 5px;
     padding: 2% $default-font-size;
-    opacity: 1.0;
+    opacity: .8;
     //margin-top: 30%;
     z-index: -1;
+    box-shadow: -2px 1px 23px -5px #000000;
 
     @media (min-width: 1201px) {
       margin-top: 35%;
     }
 
     @media (max-width: 1200px) {
-      margin-top: 15%;
+       margin-top: 15%;
       padding: 2%;
     }
 

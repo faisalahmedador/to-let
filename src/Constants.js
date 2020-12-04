@@ -1,0 +1,13 @@
+
+//landing page
+export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD'
+export const CHANGE_LOCATION = 'CHANGE_LOCATION'
+export const CHANGE_LOWER_LIMIT = 'CHANGE_LOWER_LIMIT'
+export const CHANGE_UPPER_LIMIT = 'CHANGE_UPPER_LIMIT'
+export const CHANGE_PROPERTY_TYPE = 'CHANGE_PROPERTY_TYPE'
+
+
+//header
+
+export const SHADOW = 'SHADOW';
+export const POSITION = 'POSITION' 

@@ -1,0 +1,9 @@
+@import '../../Style/abstracts/variable';
+
+#parallax {
+  min-height: 100vh;
+  height: 100vh;
+  background-image: url(../../Assets/images/landingPage.jpg);
+  background-position: center;
+  background-size: cover;
+}

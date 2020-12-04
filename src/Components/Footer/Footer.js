@@ -8,6 +8,7 @@ import facebook from '../../Assets/images/facebook.jpg'
 import linkin from '../../Assets/images/linkin.png'
 import youtube from '../../Assets/images/youtube.png'
 import instragram from '../../Assets/images/instragram.png'
+import './_footer.scss'
 const Footer = () => {
   return (
     <>

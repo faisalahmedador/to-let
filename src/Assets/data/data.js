@@ -44,3 +44,31 @@ export const addDetails = [
     verified: false,
   },
 ];
+
+// export const catagory =[
+//   {
+//     id: 1,
+//     type: 'duplex',
+//   },
+//   {
+//     id: 2,
+//     type: 'apartment',
+//   },
+//   {
+//     id: 3,
+//     type: 'familyhouse',
+//   },
+//   {
+//     id: 4,
+//     type: 'sublet',
+//   },
+//   {
+//     id: 5,
+//     type: 'duplex',
+//   },
+//   {
+//     id: 6,
+//     type: 'duplex',
+//   }
+  
+// ]

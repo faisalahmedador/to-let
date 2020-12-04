@@ -6,42 +6,44 @@ import bachelorhouse from "../../Assets/images/bachelorhouse.png";
 import familyhouse from "../../Assets/images/familyhouse.png";
 import forsale from "../../Assets/images/forsale.png";
 import sublet from "../../Assets/images/sublet.png";
+import './_catagory.scss'
 
-const Catagory = () => {
+
+const Catagory = ({ setCatagory }) => {
   return (
     <>
-        
       <div id="catagory">
-      <h2 className='title'>Choose a catagory</h2>
-        <div className='catagory-links'>
-          <a href="#">
-            <img src={duplex} />
-            <p>Duplex House</p>
-          </a>
-          <a href="#">
-            <img src={apartment} />
-            <p>Apartment</p>
-          </a>
-          <a href="#">
-            <img src={familyhouse} />
-            <p>Family House</p>
-          </a>
-          
+        <h2 className="title">Choose a catagory</h2>
+        <div className="catagory-links">
+          <Link to="#" id="duplex"  onClick={() => setCatagory('duplex')}>
+            <span style={{ display: "flex", flexDirection: "column" }} >
+              <img src={duplex} /> duplex
+            </span>
+          </Link>
+          <Link to="#" onClick={() => setCatagory('apartment')}>
+          <span style={{ display: "flex", flexDirection: "column" }} >
+              <img src={apartment} /> apartment
+            </span>
+          </Link>
+          <Link to="#" onClick={() => setCatagory('familyhouse')}>
+          <span style={{ display: "flex", flexDirection: "column" }} >
+              <img src={familyhouse} /> familyhouse
+            </span>
+          </Link>
         </div>
-        <div className='catagory-links'>
-          <a href="#" id='sublet'>
+        <div className="catagory-links">
+          <Link to="#" id="sublet" onClick={() => setCatagory('sublet')}>
             <img src={sublet} />
             <p>sublet</p>
-          </a>
-          <a href="#" id='bachelor'>
+          </Link>
+          <Link to="#" id="bachelor" onClick={() => setCatagory('bachelor')}>
             <img src={bachelorhouse} />
             <p>Bachelor/Mass</p>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#" onClick={() => setCatagory('forsale')}>
             <img src={forsale} />
             <p>House for sale</p>
-          </a>
-          
+          </Link>
         </div>
       </div>
     </>

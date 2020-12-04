@@ -2,49 +2,96 @@ import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
+import { useCallback } from "react";
+import { connect } from "react-redux";
+import { setShadow, setPosition } from "../../Actions/HeaderActions";
+import "./_header.scss";
 
-const Header = () => {
-  const [shadow, setShadow] = useState(false);
+const mapStateToProps = (state) => {
+  //console.log(state.position);
+  return {
+    position: state.Header.position,
+    shadow: state.Header.shadow,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onSetposition: (text) => {
+    dispatch(setPosition(text));
+  },
+  onSetShadow: (text) => {
+    dispatch(setShadow(text));
+  },
+});
+
+const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
+  // const [shadow, setShadow] = useState(false);
+  // const [position, setposition] = useState("absolute");
+
+  const handleScroll = useCallback(() => {
+    if (window.scrollY < 76) {
+      onSetposition("absolute");
+      onSetShadow("false");
+    } 
+    // else if (window.scrollY > 76 && window.scrollY < 689) {
+    //   onSetShadow("false");
+    //   onSetposition("fixed");
+    // } 
+    else if (window.scrollY > 689) {
+      onSetShadow("true");
+      onSetposition("fixed");
+    }
+  }, [onSetShadow, onSetposition]);
 
   useEffect(() => {
-    window.addEventListener("scroll", function () {
-       if (window.pageYOffset > 80 && window.pageYOffset < 689) {
-        setShadow(false);
-      } else {
-        setShadow(true);
-      }
-      //console.log(window.pageYOffset, shadow);
-    });
-  });
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  // useEffect(() => {
+  //   window.scrollY > 76 ? setposition('sticky') : setposition('absolute');
+  // },[window.scrollY])
 
   return (
-    <>
-      <Navbar
-        collapseOnSelect
-        expand="md"
-        id={shadow ? "floating-nav-header" : "nav-header"}
+    <section className="header-div-main" style={{ position: "relative" }}>
+      <div
+        className={
+          shadow === "true"
+            ? "header-div header-div--floating"
+            : "header-div header-div--hero "
+        }
+        style={{ position }}
       >
-        <Navbar.Brand href="#home" className="text-title">
-          LOGO
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto nav-elements">
-            <NavDropdown title="Location" className="drop-location">
-              <NavDropdown.Item href="#action/3.1">Dhaka</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Chittagong</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Khulna</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#deets" className="login">
-              Log in
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" className="add-submit">
-              Submit An Add
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </>
+        <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
+          <Navbar.Brand href="#home" className="logo-div">
+            LOGO
+          </Navbar.Brand>
+
+          <div>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="ml-auto nav-elements">
+                <NavDropdown title="Location" className="drop-location">
+                  <NavDropdown.Item href="#action/3.1">Dhaka</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Chittagong
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Khulna</NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link href="#deets" className="login">
+                  Log in
+                </Nav.Link>
+                <Nav.Link href="#memes" className="add-submit">
+                  Submit An Add
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
+        </Navbar>
+      </div>
+    </section>
   );
 };
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

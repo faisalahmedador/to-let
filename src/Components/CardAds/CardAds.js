@@ -7,17 +7,19 @@ import { FcApproval } from "react-icons/fc";
 import { FcDisapprove } from "react-icons/fc";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "lightbox2/dist/js/lightbox-plus-jquery.js";
-import "lightbox2/dist/css/lightbox.css";
-import lightboxPlusJquery from "lightbox2/dist/js/lightbox-plus-jquery.js";
+// import "lightbox2/dist/js/lightbox-plus-jquery.js";
+// import "lightbox2/dist/css/lightbox.css";
+// import lightboxPlusJquery from "lightbox2/dist/js/lightbox-plus-jquery.js";
+import Cardads2 from "../Cardads2/Cardads2";
+import './_cardads.scss'
 
-function controlPopup() {
-  lightboxPlusJquery.option({
-    resizeDuration: 100,
-    wrapAround: true,
-    alwaysShowNavOnTouchDevices: true,
-  });
-}
+// function controlPopup() {
+//   lightboxPlusJquery.option({
+//     resizeDuration: 100,
+//     wrapAround: true,
+//     alwaysShowNavOnTouchDevices: true,
+//   });
+// }
 
 const CardAds = ({
   id,
@@ -90,7 +92,9 @@ const CardAds = ({
                 </ListGroup.Item>
                 <ListGroup.Item className="details">
                   <div className="specification-image">
-                    <div>
+                    <Cardads2 />
+
+                    {/* <div>
                       <a
                         className=""
                         href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
@@ -143,7 +147,7 @@ const CardAds = ({
                           alt="Small lighthouse at bottom with ocean behind"
                         />
                       </a>
-                    </div>
+                    </div> */}
                     <input
                       type="submit"
                       value="View Details"

@@ -2,7 +2,7 @@
   font-size: $mid-font-size;
   font-weight: 500;
   width: 25%;
-  border: 1px solid grey;
+  border: none;
   border-radius: 5px 5px;
   transition: $mainTransition;
   cursor: pointer;
@@ -13,8 +13,9 @@
 
   &--card {
     @extend .button-default;
-    color: $mainWhite;
-    background-color: $button-color;
+    font-weight: 600;
+    color: black;
+    background-color: white;
   }
 
   &--footer {
@@ -31,7 +32,8 @@
 }
 
 .button-default:hover {
-  background: $mainGray;
+  box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.68);
+  // background: $mainGray;
 }
 
 .price-button {
