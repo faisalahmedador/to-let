@@ -1,8 +1,7 @@
 @import "../../Style/abstracts/variable";
 
  .header-div-main {
-  position: -webkit-sticky;
-   position: sticky;
+  
   .header-div {
     // background: transparent;
    
@@ -16,11 +15,11 @@
     width: 100%;
 
     .logo-div {
-      color: white;
+      color: black;
       font-weight: bold;
     }
     &--hero {
-      background: transparent;
+      background: white;
       position: -webkit-sticky;
       // position: sticky;
       // padding: 1rem 1.5rem;
@@ -29,7 +28,7 @@
     }
 
     &--floating {
-      background: blue;
+      background: white;
       position: -webkit-sticky;
       // position: sticky;
       // padding: 1rem 1.5rem;

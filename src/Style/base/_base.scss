@@ -7,14 +7,13 @@ html {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: $mainBlack;
-    background-color: gray ;
+    // background-color: gray ;
   }
 
   .navbar-light .navbar-nav .nav-link {
-    color: rgba(255,255,255,255);
+    color: black;
 }
 .navbar-light .navbar-nav .nav-link:hover{
-  color: rgba(255,255,255,255);
   box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.68) !important;
 } 
 .active{

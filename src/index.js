@@ -6,6 +6,7 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import { Search } from "./reducers/landingpagereducers";
 import { Header } from "./reducers/headerreducers";
+import { Add } from "./reducers/addetailsreducers";
 //import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
@@ -14,7 +15,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./Style/main.scss";
 
 const logger = createLogger();
-const reducerCombined = combineReducers({ Search, Header });
+const reducerCombined = combineReducers({ Search, Header,Add });
 const store = createStore(
   reducerCombined,
   applyMiddleware(thunkMiddleware, logger)

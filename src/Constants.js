@@ -11,3 +11,11 @@ export const CHANGE_PROPERTY_TYPE = 'CHANGE_PROPERTY_TYPE'
 
 export const SHADOW = 'SHADOW';
 export const POSITION = 'POSITION' 
+
+//adDetials
+
+export const CHANGE_IMAGE_1 = 'CHANGE_IMAGE_1'
+export const CHANGE_IMAGE_2 = 'CHANGE_IMAGE_2'
+export const CHANGE_IMAGE_3 = 'CHANGE_IMAGE_3'
+export const CHANGE_IMAGE_4 = 'CHANGE_IMAGE_4'
+//export const UPDATE_IMAGE = 'UPDATE_IMAGE'

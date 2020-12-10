@@ -11,6 +11,7 @@ import Col from "react-bootstrap/Col";
 // import "lightbox2/dist/css/lightbox.css";
 // import lightboxPlusJquery from "lightbox2/dist/js/lightbox-plus-jquery.js";
 import Cardads2 from "../Cardads2/Cardads2";
+import {Link} from 'react-router-dom'
 import './_cardads.scss'
 
 // function controlPopup() {
@@ -148,11 +149,14 @@ const CardAds = ({
                         />
                       </a>
                     </div> */}
-                    <input
+                    {/* <input
                       type="submit"
                       value="View Details"
                       className="button-default--card"
-                    />
+                    /> */}
+                    <Link className='button-default--card' to='/addetails'>
+                    View details
+                    </Link>
                   </div>
                 </ListGroup.Item>
               </ListGroup>

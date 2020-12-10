@@ -1,0 +1,38 @@
+.nearbyproperty-main {
+  // background-color: white;
+  
+  margin-bottom: 1%;
+  
+    .main-div{
+        
+        margin-top: 2%;
+        margin-bottom: 2%;
+       
+        .image {
+          border-radius: 10px 10px 0px 0px;
+          width: 100%;
+        }
+
+        .details{
+          border-radius:  0px 0px 10px 10px;
+            background-color: gray;
+            .more-details{
+              display: flex;
+              justify-content: space-around;
+            }
+            .button{
+              background-color: white;
+              padding: 1%;
+              border-radius: 1px 1px;
+              color: black;
+              font-weight: 600;
+              margin-bottom: 5px;
+            }
+            .button:hover{
+              box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.68);
+            }
+            
+        }
+
+    }
+}
