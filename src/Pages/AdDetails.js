@@ -9,6 +9,7 @@ import {
   setImage_4,
   //setUpdate,
 } from "../Actions/AdDetailsActions";
+import {Link} from 'react-router-dom'
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import AdDetailsInfo from "../Components/AdDetailsInfo/AdDetailsInfo";
@@ -30,7 +31,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSetImage_1: (event) => {
-      console.log(event.target.src);
+      //console.log(event.target.src);
       dispatch(setImage_1(event.target.src));
     },
     onSetImage_2: (event) => {
@@ -63,6 +64,7 @@ class adDetails extends Component {
     
     return (
       <div style={{ marginTop: "42px" }}>
+      <Link to='/'><span>back to home</span></Link>
         <AdDetailsInfo
           setImage1={onSetImage_1}
           setImage2={onSetImage_2}
