@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header";
 import LandingPage from "./Pages/LandingPage";
 import AdDetails from "./Pages/AdDetails";
 import Default from "./Pages/Default";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 
@@ -14,13 +14,14 @@ class App extends Component {
     return (
       <>
         <UpperHeader />
-        
-          <Header />
+        <Header />
+        <BrowserRouter>
           <Switch>
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/addetails" exact component={AdDetails} />
-          <Route component={Default} />
-        </Switch>
+            <Route path="/" exact component={LandingPage} />
+            <Route path="/addetails" exact component={AdDetails} />
+            <Route component={Default} />
+          </Switch>
+        </BrowserRouter>
         <Footer />
       </>
     );

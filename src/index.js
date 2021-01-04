@@ -7,6 +7,7 @@ import thunkMiddleware from "redux-thunk";
 import { Search } from "./reducers/landingpagereducers";
 import { Header } from "./reducers/headerreducers";
 import { Add } from "./reducers/addetailsreducers";
+// import ScrollToTop from './ScrollToTop';
 //import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
@@ -23,6 +24,8 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    
+      {/* <ScrollToTop /> */}
       <Provider store={store}>
         <App />
       </Provider>

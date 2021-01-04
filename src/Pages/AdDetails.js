@@ -9,7 +9,8 @@ import {
   setImage_4,
   //setUpdate,
 } from "../Actions/AdDetailsActions";
-import {Link} from 'react-router-dom'
+// import ScrollToTop from '../ScrollToTop'
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import AdDetailsInfo from "../Components/AdDetailsInfo/AdDetailsInfo";
@@ -23,8 +24,7 @@ const mapStateToProps = (state) => {
       smallImage2: state.Add.smallImage2,
       smallImage3: state.Add.smallImage3,
       smallImage4: state.Add.smallImage4,
-
-    }
+    },
   };
 };
 
@@ -50,6 +50,16 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+class ScrollToTopOnMount extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  render() {
+    return null;
+  }
+}
+
 class adDetails extends Component {
   render() {
     const {
@@ -57,14 +67,15 @@ class adDetails extends Component {
       onSetImage_2,
       onSetImage_3,
       onSetImage_4,
-      imageFile
+      imageFile,
     } = this.props;
 
-    
-    
     return (
       <div style={{ marginTop: "42px" }}>
-      <Link to='/'><span>back to home</span></Link>
+        <ScrollToTopOnMount />
+        <Link to="/">
+          <span>back to home</span>
+        </Link>
         <AdDetailsInfo
           setImage1={onSetImage_1}
           setImage2={onSetImage_2}
