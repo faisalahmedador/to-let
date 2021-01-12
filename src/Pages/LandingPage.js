@@ -4,6 +4,8 @@ import {
   setPropertyType,
   setSearchField,
   setLocation,
+  setBath,
+  setBed,
   setLowerLimit,
   setUpperLimit,
 } from "../Actions/LandingPageActions";
@@ -30,7 +32,9 @@ const mapStateToProps = (state) => {
     location: state.Search.location,
     lower_limit: state.Search.lower_limit,
     upper_limit: state.Search.upper_limit,
-    priceUpdate: state.Search.priceUpdate
+    priceUpdate: state.Search.priceUpdate,
+    bed: state.Search.bed,
+    bath: state.Search.bath
   };
 };
 
@@ -45,6 +49,14 @@ const mapDispatchToProps = (dispatch) => {
 
     onSetLocation: (text) => {
       dispatch(setLocation(text));
+    },
+
+    onSetBed: (text) => {
+      dispatch(setBed(text));
+    },
+
+    onSetBath: (text) => {
+      dispatch(setBath(text));
     },
 
     onSetLowerLimit: (text) => {
@@ -65,6 +77,8 @@ class LandingPage extends Component {
       onSetLocation,
       onSetLowerLimit,
       onSetUpperLimit,
+      onSetBed,
+      onSetBath
     } = this.props;
     return (
       <>
@@ -73,17 +87,16 @@ class LandingPage extends Component {
           {/* <Header /> */}
           <Parallax>
             <Hero max="true">
-              <Container>
-                <Row>
-                  <Col lg={6} md={6} sm={12} xs={12}>
-                    <Catagory setCatagory={onSetCatagory} />
-                  </Col>
-
-                  <Col lg={6} md={6} sm={12} xs={12}>
-                    <SearchBox
+              <Container style={{width: "70%"}}>
+              <SearchBox
                       setSearch={onSetSearch}
                       locationRef={onSetLocation}
+                      bedRef={onSetBed}
+                      bathRef={onSetBath}
                       selectedLocation={this.props.location}
+                      selectedCatagory ={this.props.catagory}
+                      selectedBed={this.props.bed}
+                      selectedBath = {this.props.bath}
                       priceRefMin={onSetLowerLimit}
                       priceRefMax={onSetUpperLimit}
                       selectedLowerPrice ={this.props.lower_limit}
@@ -91,8 +104,15 @@ class LandingPage extends Component {
                       priceUpdate ={this.props.priceUpdate}
                       setCatagory = {onSetCatagory}
                     />
+                {/* <Row>
+                  <Col lg={6} md={6} sm={12} xs={12}>
+                    <Catagory setCatagory={onSetCatagory} />
                   </Col>
-                </Row>
+
+                  <Col lg={8} md={8} sm={12} xs={12}>
+                    
+                  </Col>
+                </Row> */}
               </Container>
             </Hero>
           </Parallax>
