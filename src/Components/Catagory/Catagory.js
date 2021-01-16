@@ -6,11 +6,12 @@ import bachelorhouse from "../../Assets/images/bachelorhouse.png";
 import familyhouse from "../../Assets/images/familyhouse.png";
 import forsale from "../../Assets/images/forsale.png";
 import sublet from "../../Assets/images/sublet.png";
+import Container from 'react-bootstrap/Container'
 import "./_catagory.scss";
 
 const Catagory = ({ setCatagory }) => {
   return (
-    <>
+    <Container fluid>
       <div id="catagory">
         <h2 className="title">Choose a catagory</h2>
         <div className="catagory-links">
@@ -48,7 +49,7 @@ const Catagory = ({ setCatagory }) => {
           </Link>
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 export default Catagory;

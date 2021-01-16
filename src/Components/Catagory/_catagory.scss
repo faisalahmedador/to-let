@@ -5,16 +5,13 @@
   // background: $mainGray;
   background-color: white;
   border-radius: 5px 5px;
-  opacity: 0.8;
-  padding: 2% $default-font-size;
-  margin-top: 25%;
+  margin: auto;
+  width: 80%;
+  padding: 2%;
   z-index: -1;
   box-shadow: -2px 1px 23px -5px #000000;
-
-  @media (max-width: 1200px) {
-    margin-top: 15%;
-    padding: 2%;
-  }
+  margin-bottom: 2%;
+ 
 }
 
 .catagory-links {

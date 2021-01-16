@@ -3,27 +3,32 @@
 
 #search-box {
   // background: $mainGray;
-  background-color: rgb(72, 72, 77);
-  border-radius: 5px 5px;
-  padding: 1%;
-  opacity: 0.8;
+  background: white;
+  background-color: white;
+
+  margin: auto;
+  margin-top: 20%;
+  border: 3px solid green;
+  padding: 10px;
+
   //margin-top: 30%;
   z-index: -1;
-  box-shadow: -2px 1px 23px -5px #000000;
+  //box-shadow: -2px 1px 23px -5px #000000;
 
-  @media (min-width: 1201px) {
-    margin-top: 20%;
-  }
+  // @media (min-width: 1201px) {
+  //   margin-top: 20%;
+  // }
 
-  @media (max-width: 1200px) {
-    margin-top: 15%;
-    padding: 2%;
-  }
+  // @media (max-width: 1200px) {
+  //   margin-top: 15%;
+  //   padding: 2%;
+  // }
 }
 
 .search {
   display: flex;
   justify-content: space-around;
+  padding: 1%;
 
   .search_input {
     font-size: 1.75rem;
@@ -32,228 +37,231 @@
     //width: 70%;
     //z-index: 0;
     width: 30%;
-    @include respond(phone) {
-      font-size: 1.5rem;
-    }
   }
 
   .location-button {
-    position: relative;
-    display: inline-block;
     width: 25%;
-    font-size: 1.75rem;
-    border: 1px solid gray;
-    border-radius: 5px 5px;
-    transition: $mainTransition;
-    font-weight: 500;
-    background-color: #fff;
-  }
 
-  
-
-  .location-button--dropdown {
-    display: none;
-    position: absolute;
-    background-color: $mainGray;
-    width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .location-button:hover .location-button--dropdown {
-    display: block;
-  }
-
-  .location-button--content {
-    display: block;
-    //width: 120px;
-
-    @include respond(tab-land) {
-      //width: 80px;
-    }
-    @include respond(phone) {
-      //width: 50px;
-    }
-
-    option {
-      color: $mainBlack;
-      font-size: $mid-font-size;
-      text-decoration: none;
-
-      @include respond(phone) {
-        font-size: $default-font-size;
-      }
+    &--content {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
     }
   }
+
+  .type-button {
+    width: 25%;
+    &--content {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
+    }
+  }
+  // .location-button {
+  //   position: relative;
+  //   display: inline-block;
+  //   width: 25%;
+  //   font-size: 1.75rem;
+  //   border: 1px solid gray;
+  //   border-radius: 5px 5px;
+  //   transition: $mainTransition;
+  //   font-weight: 500;
+  //   background-color: #fff;
+
+  //   &--button {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     align-items: center;
+  //   }
+  // }
+
+  // .location-button--dropdown {
+  //   display: none;
+  //   position: absolute;
+  //   background-color: $mainGray;
+  //   width: 100%;
+  //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  //   z-index: 1;
+  // }
+
+  // .location-button:hover .location-button--dropdown {
+  //   display: block;
+  // }
+
+  // .location-button--content {
+  //   display: block;
+  //   //width: 120px;
+
+  //   option {
+  //     color: $mainBlack;
+  //     font-size: $mid-font-size;
+  //     text-decoration: none;
+  //   }
+  // }
 
   /* Typedown Button */
-  .Typedown {
-    width: 30%;
-    font-size: 1.75rem;
-    border: 1px solid grey;
-    border-radius: 5px 5px;
-    transition: $mainTransition;
-    font-weight: 500;
-    background-color: #fff;
-  }
-  .Typebtn {
-    @include respond(phone) {
-      font-size: $default-font-size;
-    }
-  }
+  // .Typedown {
+  //   width: 30%;
+  //   font-size: 1.75rem;
+  //   border: 1px solid grey;
+  //   border-radius: 5px 5px;
+  //   transition: $mainTransition;
+  //   font-weight: 500;
+  //   background-color: #fff;
+  // }
+  // .Typebtn {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
 
-  /* The container <div> - needed to position the Typedown content */
-  .Typedown {
-    position: relative;
-    display: inline-block;
-  }
+  // /* The container <div> - needed to position the Typedown content */
+  // .Typedown {
+  //   position: relative;
+  //   display: inline-block;
+  // }
 
-  /* Typedown Content (Hidden by Default) */
-  .Typedown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    //min-width: 100%;
-    width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+  // /* Typedown Content (Hidden by Default) */
+  // .Typedown-content {
+  //   display: none;
+  //   position: absolute;
+  //   background-color: #f1f1f1;
+  //   //min-width: 100%;
+  //   width: 100%;
+  //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  //   z-index: 1;
+  // }
 
-  /* Links inside the Typedown */
-  .Typedown-content a {
-    color: $mainBlack;
-    font-size: $mid-font-size;
-    text-decoration: none;
-    display: block;
-    border-radius: 5px 5px;
-    @include respond(phone) {
-      font-size: $default-font-size;
-    }
-  }
+  // /* Links inside the Typedown */
+  // .Typedown-content a {
+  //   color: $mainBlack;
+  //   font-size: $mid-font-size;
+  //   text-decoration: none;
+  //   display: block;
+  //   border-radius: 5px 5px;
+  //   @include respond(phone) {
+  //     font-size: $default-font-size;
+  //   }
+  // }
 
-  /* Change color of Typedown links on hover */
-  .Typedown-content a:hover {
-    background-color: $mainGray;
-    transition: $mainTransition;
-  }
+  // /* Change color of Typedown links on hover */
+  // .Typedown-content a:hover {
+  //   background-color: $mainGray;
+  //   transition: $mainTransition;
+  // }
 
-  /* Show the Typedown menu on hover */
-  .Typedown:hover .Typedown-content {
-    display: block;
-  }
+  // /* Show the Typedown menu on hover */
+  // .Typedown:hover .Typedown-content {
+  //   display: block;
+  // }
 
-  /* Change the background color of the Typedown button when the dropdown content is shown */
-  .Typedown:hover .Typebtn {
-    background-color: $mainGray;
-  }
+  // /* Change the background color of the Typedown button when the dropdown content is shown */
+  // .Typedown:hover .Typebtn {
+  //   background-color: $mainGray;
+  // }
 }
 
 .all_dropdown {
   display: flex;
   justify-content: space-around;
-  
-  
+  padding: 1%;
+
   .bed-button {
-    position: relative;
-    display: inline-block;
     width: 25%;
-    font-size: 1.75rem;
-    border: 1px solid gray;
-    border-radius: 5px 5px;
-    transition: $mainTransition;
-    font-weight: 500;
-    background-color: #fff;
-  }
 
-  .bed-button--dropdown {
-    display: none;
-    position: absolute;
-    background-color: $mainGray;
-    width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .bed-button:hover .bed-button--dropdown {
-    display: block;
-  }
-
-  .bed-button--content {
-    display: block;
-    //width: 120px;
-
-    @include respond(tab-land) {
-      //width: 80px;
-    }
-    @include respond(phone) {
-      //width: 50px;
-    }
-
-    option {
-      color: $mainBlack;
-      font-size: $mid-font-size;
-      text-decoration: none;
-
-      @include respond(phone) {
-        font-size: $default-font-size;
-      }
+    &--content {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
     }
   }
 
-.price-button {
-  position: relative;
-  display: inline-block;
-}
+  .bath-button {
+    width: 25%;
 
-.price-button--button {
-  font-size: $mid-font-size;
-  border: 1px solid gray;
-  border-radius: 5px 5px;
-  transition: $mainTransition;
-  font-weight: 500;
-  width: 200px;
-
-  @include respond(tab-land) {
-    width: 150px;
-  }
-  @include respond(phone) {
-    width: 120px;
-  }
-}
-
-.price-button--dropdown {
-  display: none;
-  position: absolute;
-  background-color: $mainGray;
-  //width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.price-button:hover .price-button--dropdown {
-  display: block;
-}
-
-.price-button--content {
-  display: block;
-  width: 80px;
-
-  @include respond(tab-land) {
-    width: 60px;
-  }
-  @include respond(phone) {
-    width: 40px;
-  }
-
-  option {
-    color: $mainBlack;
-    font-size: $mid-font-size;
-    text-decoration: none;
-
-    @include respond(phone) {
-      font-size: $default-font-size;
+    &--content {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
     }
   }
-}
+  .price-button {
+    width: 45%;
+    &--content {
+      display: flex;
+      justify-content: space-between;
+    }
 
+    &--content1 {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
+      margin-right: 5%;
+    }
+    &--content2 {
+      font-size: 1.75rem;
+      border: 1px solid gray;
+      border-radius: 5px 5px;
+      transition: $mainTransition;
+      font-weight: 500;
+      background-color: #fff;
+    }
+  }
+
+  // .price-button {
+  //   position: relative;
+  //   display: inline-block;
+  //   width: 47%;
+  //   font-size: 1.75rem;
+  //   border: 1px solid gray;
+  //   border-radius: 5px 5px;
+  //   transition: $mainTransition;
+  //   font-weight: 500;
+  //   background-color: #fff;
+  // }
+
+  // .price-button--button {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
+
+  // .price-button--dropdown {
+  //   display: none;
+  //   position: absolute;
+  //   background-color: $mainGray;
+  //   width: 100%;
+  //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  //   z-index: 1;
+  // }
+
+  // .price-button:hover .price-button--dropdown {
+  //   display: block;
+  // }
+
+  // .price-button--content {
+  //   display: block;
+  //   // width: 100%;
+
+  //   option {
+  //     color: $mainBlack;
+  //     font-size: $mid-font-size;
+  //     text-decoration: none;
+  //   }
+  // }
 }

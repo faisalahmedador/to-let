@@ -28,9 +28,9 @@ export const Search = (state = initialSearch, action = {}) => {
     case CHANGE_LOCATION:
       return { ...state, location: action.payload };
       case CHANGE_BED:
-        return { ...state, location: action.payload };
+        return { ...state, bed: action.payload };
         case CHANGE_BATH:
-      return { ...state, location: action.payload };
+      return { ...state, bath: action.payload };
     case CHANGE_LOWER_LIMIT: 
         return {...state, lower_limit: action.payload, priceUpdate: true};
     case CHANGE_UPPER_LIMIT:

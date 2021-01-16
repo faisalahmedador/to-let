@@ -10,7 +10,6 @@ const PopularSearch = () => {
   return (
     <>
     <Container fluid>
-
       <div id="popular-search">
       <h2  className='title'>Popular Search</h2>
         <ul className="popular-search-areas">

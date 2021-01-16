@@ -102,7 +102,7 @@ class LandingPage extends Component {
                       selectedLowerPrice ={this.props.lower_limit}
                       selectedUpperPrice ={this.props.upper_limit}
                       priceUpdate ={this.props.priceUpdate}
-                      setCatagory = {onSetCatagory}
+                      typeRef = {onSetCatagory}
                     />
                 {/* <Row>
                   <Col lg={6} md={6} sm={12} xs={12}>
@@ -117,6 +117,7 @@ class LandingPage extends Component {
             </Hero>
           </Parallax>
           <PopularSearch />
+          <h1 style={{ paddingTop: '1%', display: 'flex', justifyContent: 'left', paddingLeft: '12%'}}>Recent Ads</h1>
           {addDetails.map((data) => {
             return (
               <CardAds
@@ -132,6 +133,7 @@ class LandingPage extends Component {
               />
             );
           })}
+          <Catagory setCatagory={onSetCatagory} />
 
           {/* <Footer /> */}
         </div>
