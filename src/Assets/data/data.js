@@ -1,3 +1,7 @@
+import adhouse from '../images/adhouse.jpg';
+import apartment from '../images/landingPage.jpg';
+import image1 from '../images/image2.jpg'
+
 export const addDetails = [
   {
     id: 1,
@@ -12,6 +16,7 @@ export const addDetails = [
     contact: "000000",
     price: 11000000,
     verified: true,
+    img:[{ img: adhouse }, { img: apartment } ]
   },
 
   {
@@ -27,6 +32,7 @@ export const addDetails = [
     contact: "000000",
     price: 25000,
     verified: true,
+    img:[{ img: image1 }, { img: adhouse }, {img: apartment}  ]
   },
 
   {
@@ -42,6 +48,7 @@ export const addDetails = [
     contact: "000000",
     price: 20000,
     verified: false,
+    img:[{ img: adhouse }, {img: apartment} , { img: image1 }]
   },
 ];
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import house from "../../Assets/images/duplex.png";
@@ -7,20 +7,11 @@ import { FcApproval } from "react-icons/fc";
 import { FcDisapprove } from "react-icons/fc";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import "lightbox2/dist/js/lightbox-plus-jquery.js";
-// import "lightbox2/dist/css/lightbox.css";
-// import lightboxPlusJquery from "lightbox2/dist/js/lightbox-plus-jquery.js";
 import Cardads2 from "../Cardads2/Cardads2";
 import {Link} from 'react-router-dom'
 import './_cardads.scss'
-
-// function controlPopup() {
-//   lightboxPlusJquery.option({
-//     resizeDuration: 100,
-//     wrapAround: true,
-//     alwaysShowNavOnTouchDevices: true,
-//   });
-// }
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 const CardAds = ({
   id,
@@ -32,14 +23,20 @@ const CardAds = ({
   available,
   contact,
   verified,
+  img
 }) => {
+
+  const [viewImg, setViewimg] = useState(img[0].img)
+  // const [photoIndex, setPhotoIndex] = useState(0);
+  // const [isOpen, setIsopen] = useState(false);
+
   return (
     <>
       <Container fluid id="card-container">
         <Card id="card-style">
-          <Row>
+          <Row  className="card-div" >
             <Col lg={3}>
-              <Card.Img variant="top" src={house} />
+              <Card.Img variant="top" src={viewImg}  style={{ minWidth: '36rem' }} />
             </Col>
 
             <Col lg={9}>
@@ -50,112 +47,66 @@ const CardAds = ({
                 <ListGroup.Item>
                   <div className="specification">
                     <p>
-                      <span>Location: </span>
-                      {location}
+                      Location:
+                      <span> {location}  </span>
                     </p>
                   </div>
                 </ListGroup.Item>
                 <ListGroup.Item className="details">
                   <div className="specification">
                     <p>
-                      <span>Bedroom: </span>
-                      {specification.bedroom}
+                      Bedroom: 
+                      <span>{specification.bedroom}</span>
                     </p>
                     <p>
-                      <span>Bathroom: </span>
-                      {specification.bathroom}
+                      Bathroom: 
+                      <span> {specification.bathroom}</span>
                     </p>
                     <p>
-                      <span>Area: </span>
-                      {area}
+                      Area: 
+                      <span> {area}</span>
                     </p>
                     <p>
-                      <span>Rent: </span>
-                      {price}
+                      Rent:
+                      <span> {price} </span>
                     </p>
                   </div>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="specification">
                     <p>
-                      <span>Available from: </span>
-                      {available}
+                      Available from: 
+                      <span>{available}</span>
                     </p>
                     <p>
-                      <span>User Verified: </span>
-                      {!verified ? <FcDisapprove /> : <FcApproval />}
+                      User Verified: 
+                      <span> {!verified ? <FcDisapprove style={{ fontSize: '15px' }}  /> : <FcApproval style={{ fontSize: '15px' }}  />}</span>
                     </p>
                     <p>
-                      <span>Contact No: </span>
-                      {contact}
+                      Contact No:
+                      <span> {contact} </span>
                     </p>
                   </div>
                 </ListGroup.Item>
                 <ListGroup.Item className="details">
                   <div className="specification-image">
-                    <Cardads2 />
-
-                    {/* <div>
-                      <a
-                        className=""
-                        href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
-                        data-lightbox={id}
-                        data-title="Click the right half of the image to move forward."
-                        onClick={controlPopup()}
-                      >
-                        <img
-                          className=""
-                          src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-3.jpg"
-                          alt="Golden Gate Bridge with San Francisco in distance"
-                        />
-                      </a>
-                      <a
-                        className=""
-                        href={house}
-                        data-lightbox={id}
-                        data-title="Or press the right arrow on your keyboard."
-                        onClick={controlPopup()}
-                      >
-                        <img
-                          className=""
-                          src={house}
-                          alt="Forest with mountains behind"
-                        />
-                      </a>
-                      <a
-                        className=""
-                        href="http://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg"
-                        data-lightbox={id}
-                        data-title="The next image in the set is preloaded as you're viewing."
-                        onClick={controlPopup()}
-                      >
-                        <img
-                          className=""
-                          src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-5.jpg"
-                          alt="Bicyclist looking out over hill at ocean"
-                        />
-                      </a>
-                      <a
-                        className=""
-                        href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg"
-                        data-lightbox={id}
-                        data-title="Click anywhere outside the image or the X to the right to close."
-                        onClick={controlPopup()}
-                      >
-                        <img
-                          className=""
-                          src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg"
-                          alt="Small lighthouse at bottom with ocean behind"
-                        />
-                      </a>
-                    </div> */}
-                    {/* <input
-                      type="submit"
-                      value="View Details"
-                      className="button-default--card"
-                    /> */}
+                    {/* <Cardads2  img={img} /> */}
+                    <div>
+                      {
+                        img.map((i, index) => {
+                            return(
+                              <a onClick={() => {setViewimg(i.img)}} style={{ cursor: 'pointer' }}>
+                                <img
+                                  src={i.img}
+                                  alt="img"
+                                />
+                              </a>                              
+                            )
+                        })
+                      }
+                    </div>
                     <Link className='button-default--card' to='/addetails'>
-                    View details
+                      View details
                     </Link>
                   </div>
                 </ListGroup.Item>

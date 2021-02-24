@@ -6,6 +6,12 @@
     @media (max-width: 1200px) {
         padding: 15px;
     }
+
+    .button-default--card:hover{
+        background-color: rgba(0,0,0,.55);
+        color: white;
+
+    }
 }
 
 #card-style{
@@ -14,9 +20,19 @@
     @media (max-width: 1200px) {
         width: 100%;
     }
+    @media(max-width: 500px){
+        overflow: hidden;
+    }
 }
 
+.card-div{
+    overflow: hidden; 
+    max-height: 23rem;
 
+    @media(max-width: 500px){
+        max-height: fit-content;
+    }
+}
 
 
 .specification{

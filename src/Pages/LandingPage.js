@@ -116,6 +116,7 @@ class LandingPage extends Component {
               </Container>
             </Hero>
           </Parallax>
+          <Catagory setCatagory={onSetCatagory} />
           <PopularSearch />
           <h1 style={{ paddingTop: '1%', display: 'flex', justifyContent: 'left', paddingLeft: '12%'}}>Recent Ads</h1>
           {addDetails.map((data) => {
@@ -130,10 +131,11 @@ class LandingPage extends Component {
                 available={data.available}
                 contact={data.contact}
                 verified={data.verified}
+                img={data.img}
               />
             );
           })}
-          <Catagory setCatagory={onSetCatagory} />
+          
 
           {/* <Footer /> */}
         </div>

@@ -37,7 +37,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
     //   onSetShadow("false");
     //   onSetposition("fixed");
     // } 
-    else if (window.scrollY > 689) {
+    else if (window.scrollY > 36) {
       onSetShadow("true");
       onSetposition("fixed");
     }
@@ -49,10 +49,6 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-
-  // useEffect(() => {
-  //   window.scrollY > 76 ? setposition('sticky') : setposition('absolute');
-  // },[window.scrollY])
 
   return (
     <section className="header-div-main" style={{ position: "relative" }}>
