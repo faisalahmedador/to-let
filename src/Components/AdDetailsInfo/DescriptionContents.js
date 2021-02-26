@@ -58,6 +58,30 @@ const DescriptionContents = () => {
         </Table>
       </div>
 
+      <div className='description-content--conditionspricing'>
+        <h2 className="title"> Pricing</h2>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Advance payment(month)</th>
+              <th>Gate closed at night</th>
+              <th>Gate opens at morning</th>
+              <th>Price/Rent</th>
+              <th>Service charge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>12 PM</td>
+              <td>5 AM</td>
+              <td>10000</td>
+              <td>1000</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
+
       <div className='description-content--utility'>
         <h2 className="title">Utilities</h2>
         <Table striped bordered hover>
@@ -84,29 +108,7 @@ const DescriptionContents = () => {
         </Table>
       </div>
 
-      <div className='description-content--conditionspricing'>
-        <h2 className="title">Conditions & Pricing</h2>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Advance payment(month)</th>
-              <th>Gate closed at night</th>
-              <th>Gate opens at morning</th>
-              <th>Price/Rent</th>
-              <th>Service charge</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2</td>
-              <td>12 PM</td>
-              <td>5 AM</td>
-              <td>10000</td>
-              <td>1000</td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
+
     </div>
   );
 };
