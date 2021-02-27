@@ -13,7 +13,7 @@ const AdDetailsInfo = ({ setImage1, setImage2, setImage3, setImage4, imageFile }
   return (
     <div className="adDetails-info">
       <Row>
-        <Col lg={6}>
+        <Col lg={12}>
           <ImageContents
             setImage1={setImage1}
             setImage2={setImage2}
@@ -23,7 +23,7 @@ const AdDetailsInfo = ({ setImage1, setImage2, setImage3, setImage4, imageFile }
           />
         </Col>
 
-        <Col lg={6}>
+        <Col lg={12}>
           <DescriptionContents />
         </Col>
       </Row>
