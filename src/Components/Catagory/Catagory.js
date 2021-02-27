@@ -13,40 +13,48 @@ const Catagory = ({ setCatagory }) => {
   return (
     <Container fluid>
       <div id="catagory">
-        <h2 className="title">Choose a catagory</h2>
+        <h5 style={{ fontWeight: 'bold' }} >Catagories</h5>
+        <div className="catagories-div">
         <div className="catagory-links">
           <Link to="#" className='link' onClick={() => setCatagory("duplex")}>
             <span>
-              <img src={duplex} /> duplex
+              {/* <img src={duplex} />  */}
+              duplex
             </span>
           </Link>
           <Link to="#" className='link' onClick={() => setCatagory("apartment")}>
             <span>
-              <img src={apartment} /> apartment
+              {/* <img src={apartment} />  */}
+              apartment
             </span>
           </Link>
           <Link to="#" className='link' onClick={() => setCatagory("familyhouse")}>
             <span>
-              <img src={familyhouse} /> familyhouse
+              {/* <img src={familyhouse} />  */}
+              Familyhouse
             </span>
           </Link>
         </div>
         <div className="catagory-links">
           <Link to="#" id="sublet" className='link' onClick={() => setCatagory("sublet")}>
             <span>
-              <img src={sublet} /> sublet
+              {/* <img src={sublet} />  */}
+              Sublet
             </span>
           </Link>
           <Link to="#" id="bachelor" className='link' onClick={() => setCatagory("bachelor")}>
             <span>
-              <img src={bachelorhouse} /> Bachelor/Mass
+              {/* <img src={bachelorhouse} />  */}
+              Bachelor/Mass
             </span>
           </Link>
           <Link to="#" className='link' onClick={() => setCatagory("forsale")}>
             <span>
-              <img src={forsale} /> House for sale
+              {/* <img src={forsale} />  */}
+              House for sale
             </span>
           </Link>
+        </div>
         </div>
       </div>
     </Container>
