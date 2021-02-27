@@ -8,6 +8,7 @@ import Default from "./Pages/Default";
 import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
+import AdSubmitPage from "./Pages/AdSubmitPage";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/addetails" exact component={AdDetails} />
+            <Route path='/submitads' exact component={AdSubmitPage} />
             <Route component={Default} />
           </Switch>
         </BrowserRouter>
