@@ -23,9 +23,10 @@ import { addDetails } from "../Assets/data/data";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useSelector } from "react-redux";
 
 const mapStateToProps = (state) => {
-  // console.log(state.searchField);
+   console.log(state.Search);
   return {
     searchField: state.Search.searchField,
     catagory: state.Search.catagory,
@@ -34,9 +35,11 @@ const mapStateToProps = (state) => {
     upper_limit: state.Search.upper_limit,
     priceUpdate: state.Search.priceUpdate,
     bed: state.Search.bed,
-    bath: state.Search.bath
+    bath: state.Search.bath,
   };
 };
+
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -78,8 +81,11 @@ class LandingPage extends Component {
       onSetLowerLimit,
       onSetUpperLimit,
       onSetBed,
-      onSetBath
+      onSetBath,
+      searchField
     } = this.props;
+
+   
     return (
       <>
         {/* <UpperHeader /> */}
@@ -87,23 +93,23 @@ class LandingPage extends Component {
           {/* <Header /> */}
           <Parallax>
             <Hero max="true">
-              <Container style={{width: "70%"}}>
-              <SearchBox
-                      setSearch={onSetSearch}
-                      locationRef={onSetLocation}
-                      bedRef={onSetBed}
-                      bathRef={onSetBath}
-                      selectedLocation={this.props.location}
-                      selectedCatagory ={this.props.catagory}
-                      selectedBed={this.props.bed}
-                      selectedBath = {this.props.bath}
-                      priceRefMin={onSetLowerLimit}
-                      priceRefMax={onSetUpperLimit}
-                      selectedLowerPrice ={this.props.lower_limit}
-                      selectedUpperPrice ={this.props.upper_limit}
-                      priceUpdate ={this.props.priceUpdate}
-                      typeRef = {onSetCatagory}
-                    />
+              <Container style={{ width: "70%" }}>
+                <SearchBox
+                  setSearch={onSetSearch}
+                  locationRef={onSetLocation}
+                  bedRef={onSetBed}
+                  bathRef={onSetBath}
+                  selectedLocation={this.props.location}
+                  selectedCatagory={this.props.catagory}
+                  selectedBed={this.props.bed}
+                  selectedBath={this.props.bath}
+                  priceRefMin={onSetLowerLimit}
+                  priceRefMax={onSetUpperLimit}
+                  selectedLowerPrice={this.props.lower_limit}
+                  selectedUpperPrice={this.props.upper_limit}
+                  priceUpdate={this.props.priceUpdate}
+                  typeRef={onSetCatagory}
+                />
                 {/* <Row>
                   <Col lg={6} md={6} sm={12} xs={12}>
                     <Catagory setCatagory={onSetCatagory} />
@@ -118,7 +124,16 @@ class LandingPage extends Component {
           </Parallax>
           <Catagory setCatagory={onSetCatagory} />
           <PopularSearch />
-          <h1 style={{ paddingTop: '1%', display: 'flex', justifyContent: 'left', paddingLeft: '12%'}}>Recent Ads</h1>
+          <h1
+            style={{
+              paddingTop: "1%",
+              display: "flex",
+              justifyContent: "left",
+              paddingLeft: "12%",
+            }}
+          >
+            Recent Ads
+          </h1>
           {addDetails.map((data) => {
             return (
               <CardAds

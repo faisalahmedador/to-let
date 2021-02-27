@@ -1,0 +1,36 @@
+@import "../../Style/abstracts/variable";
+.ad-submit-main {
+  .tabs {
+    .nav-tabs {
+      border-bottom: none;
+    }
+    .nav-link {
+      color: $mainBlack;
+      font-size: $mid-font-size;
+    //   padding: 10px;
+        padding: 10px 0px;
+      border: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      cursor: pointer;
+    }
+    .nav-link:hover {
+      border-color: none;
+    //   border-top: 2px solid $mainBlack;
+    }
+    .nav-item{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .nav-item:hover{
+        border-top: 2px solid $mainBlack;
+    }
+    
+  }
+
+  
+}
+
+.stay-focused{
+    border-top: 2px solid $mainBlack !important;
+}

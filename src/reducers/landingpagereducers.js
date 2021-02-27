@@ -19,6 +19,7 @@ const initialSearch = {
   priceUpdate: false
 };
 
+
 export const Search = (state = initialSearch, action = {}) => {
   switch (action.type) {
     case CHANGE_SEARCH_FIELD:
