@@ -8,7 +8,7 @@ import facebook from '../../Assets/images/facebook.jpg'
 import linkin from '../../Assets/images/linkin.png'
 import youtube from '../../Assets/images/youtube.png'
 import instragram from '../../Assets/images/instragram.png'
-import audio from '../../Assets/record1.amr'
+// import audio from '../../Assets/record1.amr'
 import './_footer.scss'
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
 
       <Container fluid className="footer-main">
    
-      <button onClick={ () => onClick() }> click </button>
+      {/* <button onClick={ () => onClick() }> click </button> */}
    
         <Row>
           <Col lg={3} className="footer-link-col">

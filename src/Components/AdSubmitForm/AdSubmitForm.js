@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./_adsubmitform.scss";
+import Residential from "./Forms/Residential";
+import Commercial from "./Forms/Commercial";
+import Bachelor from "./Forms/Bachelor";
+import Sell from "./Forms/Sell";
+// import Cookies from "js-cookie";
 
 const AdSubmitForm = () => {
   const [step, setStep] = useState(0);
+
+  let set = false;
 
   //   useEffect(() => {
   //     if (editProfile) {
@@ -13,6 +20,7 @@ const AdSubmitForm = () => {
   const handleStep = (value, id) => {
     setStep(value);
     document.getElementById(id).style.borderTop = "2px solid";
+    // Cookies.set("selected", { value, id });
 
     for (var i = 1; i <= 4; i++) {
       if (i !== value) {
@@ -31,6 +39,14 @@ const AdSubmitForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (!set) {
+      setStep(1);
+      document.getElementById("residential").style.borderTop = "2px solid";
+      set = true
+    }
+  }, [set]);
 
   return (
     <div className="p-3 ad-submit-main">
@@ -75,10 +91,12 @@ const AdSubmitForm = () => {
           </li>
         </ul>
       </div>
-        <div>
-            
-        </div>
-
+      <div>
+        {step === 1 && <Residential />}
+        {step === 2 && <Commercial />}
+        {step === 3 && <Bachelor />}
+        {step === 4 && <Sell />}
+      </div>
     </div>
   );
 };
