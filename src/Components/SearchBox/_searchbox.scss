@@ -27,10 +27,15 @@
   // }
 }
 
+
 .search {
   display: flex;
   justify-content: space-around;
   padding: 1%;
+
+  @media(max-width: 500px){
+    display: block;
+  }
 
   .button-default:hover{
     box-shadow: 0 0 11px 5px rgba(0,0,0,.2);
@@ -45,10 +50,18 @@
     //width: 70%;
     //z-index: 0;
     width: 30%;
+    margin: 5px 0; 
+    @media(max-width: 500px){
+      width: 95%;
+    }
   }
 
   .location-button {
     width: 25%;
+    margin: 5px 0;
+    @media(max-width: 500px){
+      width: 100%;
+    }
 
     &--content {
       font-size: 1.75rem;
@@ -62,6 +75,10 @@
 
   .type-button {
     width: 25%;
+    margin: 5px 0;
+    @media(max-width: 500px){
+      width: 100%;
+    }
     &--content {
       font-size: 1.75rem;
       border: 1px solid gray;
@@ -179,10 +196,16 @@
   display: flex;
   justify-content: space-around;
   padding: 1%;
-
+  margin: 5px 0;
+  @media(max-width: 500px ){
+    display: block;
+  }
   .bed-button {
     width: 25%;
-
+    margin: 5px 0;
+    @media(max-width: 500px){
+      width: 100%;
+    }
     &--content {
       font-size: 1.75rem;
       border: 1px solid gray;
@@ -195,7 +218,10 @@
 
   .bath-button {
     width: 25%;
-
+    margin: 5px 0;
+    @media(max-width: 500px){
+      width: 100%;
+    }
     &--content {
       font-size: 1.75rem;
       border: 1px solid gray;
@@ -207,6 +233,10 @@
   }
   .price-button {
     width: 45%;
+    margin: 5px 0;
+    @media(max-width: 500px){
+      width: 100%;
+    }
     &--content {
       display: flex;
       justify-content: space-between;
@@ -272,4 +302,16 @@
   //     text-decoration: none;
   //   }
   // }
+}
+
+.mobile-active{
+  display: none;
+}
+@media(max-width: 500px){
+  .mobile-active{
+       display: block;
+  }
+  .mobile-inactive{
+    display: none;
+  }
 }
