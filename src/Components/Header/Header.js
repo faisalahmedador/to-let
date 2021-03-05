@@ -61,7 +61,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
         style={{ position }}
       >
         <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
-          <Navbar.Brand href="#home" className="logo-div">
+          <Navbar.Brand href="/" className="logo-div">
             LOGO
           </Navbar.Brand>
 
@@ -79,7 +79,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
                 <Nav.Link href="#deets" className="login">
                   Log in
                 </Nav.Link>
-                <Nav.Link href="#memes" className="add-submit">
+                <Nav.Link href="/submitads" className="add-submit">
                   Submit An Add
                 </Nav.Link>
               </Nav>

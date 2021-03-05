@@ -4,8 +4,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import MultiImageInput from "react-multiple-image-input";
 
-
-const Commercial = () => {
+const Rent = () => {
   const crop = {
     unit: "px", // default, can be 'px' or '%'
     x: 200,
@@ -18,21 +17,43 @@ const Commercial = () => {
     "Description(optional)";
   const [images, setImages] = useState({});
   const { register, errors, handleSubmit } = useForm();
+
+  const onSubmit = (data) => console.log(data);
   return (
     <div className="form-main">
       <div className="container">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-details">
             <h2>Basic Information</h2>
+
             <div className="row">
-           
               <div className="col-md-3">
-                <label>Property Size(sq. ft)</label>
-                <input type="text" name="property_size" />
+                <label>Catagory</label>
+                <select name="catagory" ref={register({ required: true })}>
+                  <option>Choose a catagory</option>
+                  <option>Family House</option>
+                  <option>Office</option>
+                  <option>Shop</option>
+                  <option>Bachelor</option>
+                  <option>Hostel</option>
+                  <option>Sublet</option>
+                </select>
+              </div>
+              <div className="col-md-3">
+                <label>Size(sq. ft)</label>
+                <span className="price-input" ref={register}>
+                  <input
+                    type="text"
+                    name="property_size"
+                    className="price-input-text"
+                  />
+                  <label className="pr-2">sq.ft</label>
+                </span>
+                {/* <input type="text" name="property_size" /> */}
               </div>
               <div className="col-md-3">
                 <label>Facing</label>
-                <select name="facing">
+                <select name="facing" ref={register}>
                   <option>Choose a side</option>
                   <option>East</option>
                   <option>West</option>
@@ -42,7 +63,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-3">
                 <label>Rooms</label>
-                <select name="rooms">
+                <select name="rooms" ref={register}>
                   <option>Select number of rooms</option>
                   <option>1</option>
                   <option>2</option>
@@ -54,7 +75,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-3">
                 <label>Bedroom</label>
-                <select name="bedroom">
+                <select name="bedroom" ref={register}>
                   <option>Select number of bedrooms</option>
                   <option>1</option>
                   <option>2</option>
@@ -67,7 +88,7 @@ const Commercial = () => {
 
               <div className="col-md-3">
                 <label>Attached Bath room</label>{" "}
-                <select name="attached_bathroom">
+                <select name="attached_bathroom" ref={register}>
                   <option>Select number of bathrooms</option>
                   <option>1</option>
                   <option>2</option>
@@ -80,7 +101,7 @@ const Commercial = () => {
 
               <div className="col-md-3">
                 <label>Common Bath room</label>{" "}
-                <select name="common_bathroom">
+                <select name="common_bathroom" ref={register}>
                   <option>Select number of bathrooms</option>
                   <option>1</option>
                   <option>2</option>
@@ -92,7 +113,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-3">
                 <label>Balconies</label>{" "}
-                <select name="balconies">
+                <select name="balconies" ref={register}>
                   <option>Select number of balconies</option>
                   <option>N/A</option>
                   <option>1</option>
@@ -105,7 +126,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-3">
                 <label>Floor no</label>{" "}
-                <select name="floor_no">
+                <select name="floor_no" ref={register({ required: true })}>
                   <option>Choose a floor number</option>
                   <option>1</option>
                   <option>2</option>
@@ -117,7 +138,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-3">
                 <label>Floor type</label>{" "}
-                <select name="floor_type">
+                <select name="floor_type" ref={register}>
                   <option>Choose type of floor</option>
                   <option>Tiled</option>
                   <option>Mosaic</option>
@@ -126,8 +147,8 @@ const Commercial = () => {
                 </select>
               </div>
               <div className="col-md-3">
-                <label>Dining Position</label>{" "}
-                <select name="Dining position">
+                <label>Dining Type</label>{" "}
+                <select name="Dining type" ref={register}>
                   <option>Choose a type</option>
                   <option>Space</option>
                   <option>Room</option>
@@ -139,37 +160,58 @@ const Commercial = () => {
             <br />
             <h2>Detailed Information</h2>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-3">
                 <label>Price</label>
                 <span className="price-input">
                   <input
-                    type="text"
+                    type="number"
                     name="price"
                     className="price-input-text"
+                    ref={register({ required: true, min: 1000 })}
                   />
-                  <label>BDT</label>
+                  <label className="">BDT</label>
+                </span>
+              </div>
+
+              <div className="col-md-3">
+                <label>Service Charge</label>
+                <span className="price-input">
+                  <input
+                    type="number"
+                    name="price_service"
+                    className="price-input-text"
+                    ref={register}
+                  />
+                  <label className="">BDT</label>
                 </span>
               </div>
               <div className="col-md-6">
                 <label>Price Options</label>
                 <div className="row">
                   <div className="col-md-4 d-flex align-items-center justify-content-start">
-                    <input type="checkbox" name="negotiable" />
+                    <input type="checkbox" name="negotiable" ref={register} />
                     <span> price negotiable</span>
                   </div>
                   <div className="col-md-4 d-flex align-items-center justify-content-start">
-                    <input type="checkbox" name="electricity_included" />{" "}
+                    <input
+                      type="checkbox"
+                      name="electricity_included"
+                      ref={register}
+                    />{" "}
                     <span>Electricity bill included</span>
                   </div>
                   <div className="col-md-4 d-flex align-items-center justify-content-start">
-                    <input type="checkbox" name="gas_included" />
+                    <input type="checkbox" name="gas_included" ref={register} />
                     <span>Gas bill included</span>
                   </div>
                 </div>
               </div>
               <div className="col-md-6">
                 <label>Avialable from</label>{" "}
-                <select name="avialable_from">
+                <select
+                  name="avialable_from"
+                  ref={register({ required: true })}
+                >
                   <option>Choose a month</option>
                   <option>January</option>
                   <option>February</option>
@@ -187,7 +229,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-6">
                 <label>Preferred rental</label>
-                <select>
+                <select ref={register}>
                   <option>small family</option>
                   <option>male only</option>
                   <option>female only</option>
@@ -196,6 +238,7 @@ const Commercial = () => {
 
               <div className="col-md-12">
                 <CKEditor
+                  // ref={register}
                   editor={ClassicEditor}
                   data=""
                   onReady={(editor) => {
@@ -230,6 +273,7 @@ const Commercial = () => {
               <div className="col-md-12">
                 <label>Upload images</label>
                 <MultiImageInput
+                  // ref={register({ required: true})}
                   images={images}
                   setImages={setImages}
                   cropConfig={{ crop, ruleOfThirds: false }}
@@ -244,31 +288,31 @@ const Commercial = () => {
                 <input type="radio" name="lift" /> Lift facilities
               </div> */}
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="lift" />
+                <input type="checkbox" name="lift" ref={register} />
                 <span>Lift facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="generator" />
+                <input type="checkbox" name="generator" ref={register}/>
                 <span>Generator facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="guard" />
+                <input type="checkbox" name="guard" ref={register}/>
                 <span>Security guard</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="parking" />
+                <input type="checkbox" name="parking" ref={register}/>
                 <span>Parking facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="gas" />
+                <input type="checkbox" name="gas" ref={register}/>
                 <span>Gas line</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="cctv" />
+                <input type="checkbox" name="cctv" ref={register}/>
                 <span>CCTV facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="wifi" />
+                <input type="checkbox" name="wifi" ref={register}/>
                 <span>WIFI facilities</span>
               </div>
               {/* <div className="col-md-3">
@@ -294,7 +338,7 @@ const Commercial = () => {
             <div className="row">
               <div className="col-md-6">
                 <label>District</label>
-                <select name="district">
+                <select name="district" ref={register({ required: true})}>
                   <option>Dhaka</option>
                   <option>Chittagong</option>
                   <option>Khulna</option>
@@ -302,7 +346,7 @@ const Commercial = () => {
               </div>
               <div className="col-md-6">
                 <label>Area</label>
-                <select name="area">
+                <select name="area" ref={register({required: true})}>
                   <option>B.baria</option>
                   <option>Pirojpur</option>
                   <option>Asulia</option>
@@ -310,42 +354,42 @@ const Commercial = () => {
               </div>
               <div className="col-md-4">
                 <label>Sector no(optional)</label>
-                <input type="text" name="sector" />
+                <input type="text" name="sector" ref={register}/>
               </div>
               <div className="col-md-4">
                 <label>Road no(optional)</label>
-                <input type="text" name="road" />
+                <input type="text" name="road" ref={register}/>
               </div>
               <div className="col-md-4">
                 <label>House no(optional)</label>
-                <input type="text" name="house" />
+                <input type="text" name="house" ref={register}/>
               </div>
             </div>
             <h2>Contact details</h2>
             <div className="row">
               <div className="col-md-6">
                 <label>Name</label>
-                <input type="text" name="name" />
+                <input type="text" name="name" ref={register({required: true, maxLength: 20})}/>
               </div>
               <div className="col-md-6">
                 <label>Email</label>
-                <input type="text" name="email" />
+                <input type="text" name="email" ref={register({ required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/})}/>
               </div>
               <div className="col-md-6">
                 <label>Mobile number</label>
-                <input type="text" name="mobile1" />
+                <input type="text" name="mobile1" ref={register({ required: true, min: 11})} />
               </div>
               <div className="col-md-6">
                 <label>Mobile number(optional)</label>
-                <input type="text" name="mobile 2" />
+                <input type="text" name="mobile 2" ref={register}/>
               </div>
             </div>
           </div>
-          <input type="submit" name="submit" className='form_submit' />
+          <input type="submit" name="submit" className="form_submit" />
         </form>
       </div>
     </div>
   );
 };
 
-export default Commercial;
+export default Rent;
