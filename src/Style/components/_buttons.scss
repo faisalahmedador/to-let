@@ -1,15 +1,13 @@
 .button-default {
-  font-size: $mid-font-size;
-  font-weight: 500;
-  width: 25%;
-  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: black;
+  padding: 10px 10px;
+  border: 1px solid gray;
   border-radius: 5px 5px;
   transition: $mainTransition;
-  cursor: pointer;
-
-  @include respond(phone) {
-    font-size: $default-font-size;
-  }
+  font-weight: 700;
+  background-color: #fff;
 
   &--card {
     @extend .button-default;
@@ -30,7 +28,7 @@
     float: right;
   }
 
-  &--properties{
+  &--properties {
     width: 50%;
     font-weight: 500;
     border-radius: 5px 5px;
@@ -38,183 +36,7 @@
 }
 
 .button-default:hover {
-  box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.68);
+  -webkit-box-shadow: 0px 8px 15px 4px rgba(0,0,0,0.65); 
+  box-shadow: 0px 8px 15px 4px rgba(0,0,0,0.65);
   // background: $mainGray;
-}
-
-.price-button {
-  position: relative;
-  display: inline-block;
-}
-
-.price-button--button {
-  font-size: $mid-font-size;
-  border: 1px solid gray;
-  border-radius: 5px 5px;
-  transition: $mainTransition;
-  font-weight: 500;
-  width: 200px;
-
-  @include respond(tab-land) {
-    width: 150px;
-  }
-  @include respond(phone) {
-    width: 120px;
-  }
-
-
-  
-}
-
-.price-button--dropdown {
-  display: none;
-  position: absolute;
-  background-color: $mainGray;
-  //width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.price-button:hover .price-button--dropdown {
-  display: block;
-}
-
-.price-button--content {
-  display: block;
-  width: 80px;
-  
-  @include respond(tab-land) {
-    width: 60px;
-  }
-  @include respond(phone) {
-    width: 40px;
-  }
-
-  
-
-  option {
-    color: $mainBlack;
-    font-size: $mid-font-size;
-    text-decoration: none;
-
-    @include respond(phone) {
-      font-size: $default-font-size;
-    }
-  }
-}
-
-.location-button {
-  position: relative;
-  display: inline-block;
-}
-
-.location-button--button {
-  font-size: $mid-font-size;
-  border: 1px solid gray;
-  border-radius: 5px 5px;
-  transition: $mainTransition;
-  font-weight: 500;
-  width: 120px;
-
-  @include respond(tab-land){
-    width: 90px;
-  }
-  @include respond(phone) {
-    width: 60px;
-  }
-
-  
-}
-
-.location-button--dropdown {
-  display: none;
-  position: absolute;
-  background-color: $mainGray;
-  //width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.location-button:hover .location-button--dropdown {
-  display: block;
-}
-
-.location-button--content {
-  display: block;
-  width: 120px;
-
-  @include respond(tab-land) {
-    width: 80px;
-  }
-  @include respond(phone) {
-    width: 50px;
-  }
-
-  
-
-  option {
-    color: $mainBlack;
-    font-size: $mid-font-size;
-    text-decoration: none;
-
-    @include respond(phone) {
-      font-size: $default-font-size;
-    }
-  }
-}
-
-/* Typedown Button */
-.Typebtn {
-  font-size: $mid-font-size;
-  border: 1px solid grey;
-  border-radius: 5px 5px;
-  transition: $mainTransition;
-  font-weight: 500;
-  @include respond(phone) {
-    font-size: $default-font-size;
-  }
-}
-
-/* The container <div> - needed to position the Typedown content */
-.Typedown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Typedown Content (Hidden by Default) */
-.Typedown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the Typedown */
-.Typedown-content a {
-  color: $mainBlack;
-  font-size: $mid-font-size;
-  text-decoration: none;
-  display: block;
-  border-radius: 5px 5px;
-  @include respond(phone) {
-    font-size: $default-font-size;
-  }
-}
-
-/* Change color of Typedown links on hover */
-.Typedown-content a:hover {
-  background-color: $mainGray;
-  transition: $mainTransition;
-}
-
-/* Show the Typedown menu on hover */
-.Typedown:hover .Typedown-content {
-  display: block;
-}
-
-/* Change the background color of the Typedown button when the dropdown content is shown */
-.Typedown:hover .Typebtn {
-  background-color: $mainGray;
 }

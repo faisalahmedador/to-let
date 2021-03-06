@@ -3,7 +3,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import house from "../../Assets/images/duplex.png";
 
-const Cardads2 = () => {
+const Cardads2 = ({img}) => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsopen] = useState(false);
 
@@ -16,14 +16,10 @@ const Cardads2 = () => {
 
   return (
     <div>
-      {/* <button type="button" onClick={() =>{setIsopen(true)}}>
-                View all images in full size
-                </button> */}
-
       <a className="" href='#' onClick={() => {setIsopen(true)}}>
         <img
           className=""
-          src={house}
+          src={img.one}
           alt="Golden Gate Bridge with San Francisco in distance"
         />
       </a>
@@ -31,19 +27,10 @@ const Cardads2 = () => {
       <a className="" href='#' onClick={() => {setIsopen(true)}}>
         <img
           className=""
-          src={house}
+          src={img.two}
           alt="Golden Gate Bridge with San Francisco in distance"
         />
       </a>
-
-      <a className="" href='#' onClick={() => {setIsopen(true)}}>
-        <img
-          className=""
-          src={house}
-          alt="Golden Gate Bridge with San Francisco in distance"
-        />
-      </a>
-
       {isOpen && (
         <Lightbox
           mainSrc={images[photoIndex]}

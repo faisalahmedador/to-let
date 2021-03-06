@@ -72,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class LandingPage extends Component {
+class SearchResult extends Component {
   render() {
     const {
       onSetSearch,
@@ -91,9 +91,10 @@ class LandingPage extends Component {
         {/* <UpperHeader /> */}
         <div>
           {/* <Header /> */}
-          <Parallax>
+          {/* <Parallax>
             <Hero max="true">
-              <Container style={{ width: "70%", marginTop: '15%' }}>
+              <Container style={{ width: "70%" }}> */}
+              <Container style={{ marginTop: '5%' }}>>
                 <SearchBox
                   setSearch={onSetSearch}
                   locationRef={onSetLocation}
@@ -110,6 +111,7 @@ class LandingPage extends Component {
                   priceUpdate={this.props.priceUpdate}
                   typeRef={onSetCatagory}
                 />
+                </Container>
                 {/* <Row>
                   <Col lg={6} md={6} sm={12} xs={12}>
                     <Catagory setCatagory={onSetCatagory} />
@@ -119,20 +121,20 @@ class LandingPage extends Component {
                     
                   </Col>
                 </Row> */}
-              </Container>
+              {/* </Container>
             </Hero>
-          </Parallax>
-          <Catagory setCatagory={onSetCatagory} />
-          <PopularSearch />
+          </Parallax> */}
+          {/* <Catagory setCatagory={onSetCatagory} />
+          <PopularSearch /> */}
           <h1
             style={{
               paddingTop: "1%",
               display: "flex",
-              justifyContent: "left",
-              paddingLeft: "12%",
+              justifyContent: "center",
+            //   paddingLeft: "12%",    
             }}
           >
-            Recent Ads
+            Search result
           </h1>
           {addDetails.map((data) => {
             return (
@@ -159,4 +161,4 @@ class LandingPage extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);

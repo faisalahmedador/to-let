@@ -4,7 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import { useCallback } from "react";
 import { connect } from "react-redux";
-import { setShadow, setPosition } from "../../Actions/HeaderActions";
+import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
 import "./_header.scss";
 
 const mapStateToProps = (state) => {
@@ -37,7 +37,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
     //   onSetShadow("false");
     //   onSetposition("fixed");
     // } 
-    else if (window.scrollY > 689) {
+    else if (window.scrollY > 36) {
       onSetShadow("true");
       onSetposition("fixed");
     }
@@ -50,10 +50,6 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
     };
   }, [handleScroll]);
 
-  // useEffect(() => {
-  //   window.scrollY > 76 ? setposition('sticky') : setposition('absolute');
-  // },[window.scrollY])
-
   return (
     <section className="header-div-main" style={{ position: "relative" }}>
       <div
@@ -65,7 +61,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
         style={{ position }}
       >
         <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
-          <Navbar.Brand href="#home" className="logo-div">
+          <Navbar.Brand href="/" className="logo-div">
             LOGO
           </Navbar.Brand>
 
@@ -83,7 +79,7 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
                 <Nav.Link href="#deets" className="login">
                   Log in
                 </Nav.Link>
-                <Nav.Link href="#memes" className="add-submit">
+                <Nav.Link href="/submitads" className="add-submit">
                   Submit An Add
                 </Nav.Link>
               </Nav>

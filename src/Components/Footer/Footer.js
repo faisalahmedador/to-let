@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -8,11 +8,19 @@ import facebook from '../../Assets/images/facebook.jpg'
 import linkin from '../../Assets/images/linkin.png'
 import youtube from '../../Assets/images/youtube.png'
 import instragram from '../../Assets/images/instragram.png'
+// import audio from '../../Assets/record1.amr'
 import './_footer.scss'
+
 const Footer = () => {
+
+
   return (
     <>
+
       <Container fluid className="footer-main">
+   
+      {/* <button onClick={ () => onClick() }> click </button> */}
+   
         <Row>
           <Col lg={3} className="footer-link-col">
             <div className="footer-link">
@@ -72,7 +80,7 @@ const Footer = () => {
             <div className='footer-link--social'>
               <h2 className="title--footer">Social Links</h2>
               <div className='footerArea--social'>
-              <a href='#'><img src={facebook} /></a>
+              <a href='#' ><img src={facebook} /></a>
 
               <a href='#'> <img src={youtube} /> </a>
 
