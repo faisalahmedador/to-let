@@ -14,12 +14,12 @@
       
     a{
         color: $mainBlack;
-        letter-spacing: $bodySpacing;
+        // letter-spacing: $bodySpacing;
         font-size: $default-font-size;
     }
 
     a:hover{
-        font-size: $mid-font-size;
+        // font-size: $mid-font-size;
     }
 
     &--catagories{
@@ -29,6 +29,7 @@
 
     &--social{
         @extend .footer-link;
+        margin: 0 0 20px 0;
     }
 
 
@@ -46,12 +47,14 @@
     &--catagories{
         @extend .footerArea;
         padding-left: 5rem;
+        text-align: center;
     }
 
     &--social{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        // margin-bottom: 5px;
         img{
             height: 40px;
             width: 40px;
@@ -59,11 +62,18 @@
 
         a:hover{
             img{
-                width: 70px;
-                height: 70px;
+                width: 50px;
+                height: 50px;
             }
         }
+        
+        .footer-icon{
+            font-size: 30px;
+        }
+        .footer-icon:hover{
+            transition: .2s all linear;
+            width: 35px;
+            height: 35px;
+        }
     }
-    
-
 }

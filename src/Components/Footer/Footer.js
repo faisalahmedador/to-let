@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BsChevronRight } from "react-icons/bs";
+import { FaFacebook, FaYoutube, FaLinkedin, FaInstagramSquare } from 'react-icons/fa'
 import facebook from '../../Assets/images/facebook.jpg'
 import linkin from '../../Assets/images/linkin.png'
 import youtube from '../../Assets/images/youtube.png'
@@ -80,13 +81,25 @@ const Footer = () => {
             <div className='footer-link--social'>
               <h2 className="title--footer">Social Links</h2>
               <div className='footerArea--social'>
-              <a href='#' ><img src={facebook} /></a>
+              <a href='#' >
+                <FaFacebook className="footer-icon"  style={{  color: 'darkblue' }} />
+                {/* <img src={facebook} /> */}
+              </a>
 
-              <a href='#'> <img src={youtube} /> </a>
+              <a href='#'> 
+              {/* <img src={youtube} />  */}
+              <FaYoutube className="footer-icon" style={{  color: 'red' }}  />
+              </a>
 
-              <a href='#'> <img  src={linkin} /> </a>
+              <a href='#'> 
+              {/* <img  src={linkin} />  */}
+              <FaLinkedin className="footer-icon" style={{  color: '#0072b1' }}  />
+              </a>
 
-              <a href='#'> <img  src={instragram} /> </a>
+              <a href='#'> 
+              {/* <img  src={instragram} />  */}
+              <FaInstagramSquare className="footer-icon" style={{  color: '#8a3ab9' }}  />
+              </a>
 
               </div>
             </div>
