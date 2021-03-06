@@ -4,7 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import { useCallback } from "react";
 import { connect } from "react-redux";
-import { setShadow, setPosition } from "../../Actions/HeaderActions";
+import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
 import "./_header.scss";
 
 const mapStateToProps = (state) => {

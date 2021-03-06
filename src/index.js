@@ -4,9 +4,10 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
-import { Search } from "./reducers/landingpagereducers";
-import { Header } from "./reducers/headerreducers";
-import { Add } from "./reducers/addetailsreducers";
+import { Search } from "./redux/reducers/landingpagereducers";
+import { Header } from "./redux/reducers/headerreducers";
+import { Add } from "./redux/reducers/addetailsreducers";
+import {  adsubmitreducers} from './redux/reducers/adsubmitreducers'
 // import ScrollToTop from './ScrollToTop';
 //import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +17,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./Style/main.scss";
 
 const logger = createLogger();
-const reducerCombined = combineReducers({ Search, Header,Add });
+const reducerCombined = combineReducers({ Search, Header,Add,  adsubmitreducers });
 const store = createStore(
   reducerCombined,
   applyMiddleware(thunkMiddleware, logger)

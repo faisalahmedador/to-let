@@ -5,11 +5,11 @@ import {
   CHANGE_IMAGE_4,
   // UPDATE_IMAGE,
 } from "../Constants";
-import img1 from "../Assets/images/image1.jpg";
-import img2 from "../Assets/images/image2.jpg";
-import img3 from "../Assets/images/image3.jpg";
-import img4 from "../Assets/images/image4.jpg";
-import img5 from "../Assets/images/image5.jpg";
+import img1 from "../../Assets/images/image1.jpg";
+import img2 from "../../Assets/images/image2.jpg";
+import img3 from "../../Assets/images/image3.jpg";
+import img4 from "../../Assets/images/image4.jpg";
+import img5 from "../../Assets/images/image5.jpg";
 
 const initialImage = {
   bigImage: img1,

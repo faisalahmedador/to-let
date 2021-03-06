@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import MultiImageInput from "react-multiple-image-input";
+import { adSubmitAction } from "../../../redux/Actions/AdSubmitActions";
+import { useSelector, useDispatch } from "react-redux";
 
 const Rent = () => {
   const crop = {
@@ -18,7 +20,16 @@ const Rent = () => {
   const [images, setImages] = useState({});
   const { register, errors, handleSubmit } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(adSubmitAction(data));
+  };
+
+  const info = useSelector(state => state.adsubmitreducers)
+
+  if(info) console.log(info)
   return (
     <div className="form-main">
       <div className="container">
@@ -292,27 +303,27 @@ const Rent = () => {
                 <span>Lift facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="generator" ref={register}/>
+                <input type="checkbox" name="generator" ref={register} />
                 <span>Generator facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="guard" ref={register}/>
+                <input type="checkbox" name="guard" ref={register} />
                 <span>Security guard</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="parking" ref={register}/>
+                <input type="checkbox" name="parking" ref={register} />
                 <span>Parking facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="gas" ref={register}/>
+                <input type="checkbox" name="gas" ref={register} />
                 <span>Gas line</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="cctv" ref={register}/>
+                <input type="checkbox" name="cctv" ref={register} />
                 <span>CCTV facilities</span>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-start">
-                <input type="checkbox" name="wifi" ref={register}/>
+                <input type="checkbox" name="wifi" ref={register} />
                 <span>WIFI facilities</span>
               </div>
               {/* <div className="col-md-3">
@@ -338,7 +349,7 @@ const Rent = () => {
             <div className="row">
               <div className="col-md-6">
                 <label>District</label>
-                <select name="district" ref={register({ required: true})}>
+                <select name="district" ref={register({ required: true })}>
                   <option>Dhaka</option>
                   <option>Chittagong</option>
                   <option>Khulna</option>
@@ -346,7 +357,7 @@ const Rent = () => {
               </div>
               <div className="col-md-6">
                 <label>Area</label>
-                <select name="area" ref={register({required: true})}>
+                <select name="area" ref={register({ required: true })}>
                   <option>B.baria</option>
                   <option>Pirojpur</option>
                   <option>Asulia</option>
@@ -354,34 +365,49 @@ const Rent = () => {
               </div>
               <div className="col-md-4">
                 <label>Sector no(optional)</label>
-                <input type="text" name="sector" ref={register}/>
+                <input type="text" name="sector" ref={register} />
               </div>
               <div className="col-md-4">
                 <label>Road no(optional)</label>
-                <input type="text" name="road" ref={register}/>
+                <input type="text" name="road" ref={register} />
               </div>
               <div className="col-md-4">
                 <label>House no(optional)</label>
-                <input type="text" name="house" ref={register}/>
+                <input type="text" name="house" ref={register} />
               </div>
             </div>
             <h2>Contact details</h2>
             <div className="row">
               <div className="col-md-6">
                 <label>Name</label>
-                <input type="text" name="name" ref={register({required: true, maxLength: 20})}/>
+                <input
+                  type="text"
+                  name="name"
+                  ref={register({ required: true, maxLength: 20 })}
+                />
               </div>
               <div className="col-md-6">
                 <label>Email</label>
-                <input type="text" name="email" ref={register({ required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/})}/>
+                <input
+                  type="text"
+                  name="email"
+                  ref={register({
+                    required: true,
+                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                  })}
+                />
               </div>
               <div className="col-md-6">
                 <label>Mobile number</label>
-                <input type="text" name="mobile1" ref={register({ required: true, min: 11})} />
+                <input
+                  type="text"
+                  name="mobile1"
+                  ref={register({ required: true, min: 11 })}
+                />
               </div>
               <div className="col-md-6">
                 <label>Mobile number(optional)</label>
-                <input type="text" name="mobile 2" ref={register}/>
+                <input type="text" name="mobile 2" ref={register} />
               </div>
             </div>
           </div>

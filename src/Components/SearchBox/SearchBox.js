@@ -86,8 +86,8 @@ const SearchBox = ({
               </Link>
             </div>
           </div> */}
-
-          <input type="submit" value="Search" className="button-default mobile-inactive " />
+          <Link to='/searchresult' className="button-default mobile-inactive">Search</Link>
+          {/* <input type="submit" value="Search" className="button-default mobile-inactive " /> */}
         </div>
         {/* all 2nd line component */}
         <div className="all_dropdown">
@@ -118,7 +118,8 @@ const SearchBox = ({
 
             <PriceRange priceRefMin={priceRefMin} priceRefMax={priceRefMax} />
           </div>
-          <input type="submit" value="Search" className="button-default mobile-active " />
+          <Link to='/searchresult' className="button-default mobile-active">Search</Link>
+          {/* <input type="submit" value="Search" className="button-default mobile-active " /> */}
         </div>
       </div>
     </>

@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import MultiImageInput from "react-multiple-image-input";
+import { adSubmitAction } from "../../../redux/Actions/AdSubmitActions";
+import { useSelector, useDispatch } from "react-redux";
 
 const Sale = () => {
   const crop = {
@@ -18,7 +20,15 @@ const Sale = () => {
   const [images, setImages] = useState({});
   const { register, errors, handleSubmit } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(adSubmitAction(data));
+  };
+
+  const info = useSelector(state => state.adsubmitreducers)
+
+  if(info) console.log(info)
   return (
     <div className="form-main">
       <div className="container">
@@ -160,10 +170,7 @@ const Sale = () => {
             <div className="row">
               <div className="col-md-6">
                 <label>Selling Price</label>
-                <span
-                  className="price-input"
-                 
-                >
+                <span className="price-input">
                   <input
                     type="number"
                     name="price"
@@ -382,11 +389,19 @@ const Sale = () => {
               </div>
               <div className="col-md-6">
                 <label>Mobile number</label>
-                <input type="number" name="mobile1" ref={register({required: true, min: 11})}/>
+                <input
+                  type="number"
+                  name="mobile1"
+                  ref={register({ required: true, min: 11 })}
+                />
               </div>
               <div className="col-md-6">
                 <label>Mobile number(optional)</label>
-                <input type="number" name="mobile 2" ref={register({ min: 11})} />
+                <input
+                  type="number"
+                  name="mobile 2"
+                  ref={register({ min: 11 })}
+                />
               </div>
             </div>
           </div>

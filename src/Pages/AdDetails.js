@@ -8,7 +8,7 @@ import {
   setImage_3,
   setImage_4,
   //setUpdate,
-} from "../Actions/AdDetailsActions";
+} from "../redux/Actions/AdDetailsActions";
 // import ScrollToTop from '../ScrollToTop'
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";

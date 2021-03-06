@@ -1,6 +1,8 @@
 .button-default {
   cursor: pointer;
   font-size: 1.5rem;
+  color: black;
+  padding: 10px 10px;
   border: 1px solid gray;
   border-radius: 5px 5px;
   transition: $mainTransition;

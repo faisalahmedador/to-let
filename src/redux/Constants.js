@@ -21,3 +21,10 @@ export const CHANGE_IMAGE_2 = 'CHANGE_IMAGE_2'
 export const CHANGE_IMAGE_3 = 'CHANGE_IMAGE_3'
 export const CHANGE_IMAGE_4 = 'CHANGE_IMAGE_4'
 //export const UPDATE_IMAGE = 'UPDATE_IMAGE'
+
+
+//adsubmit
+
+export const SUBMIT_NEW_ADD = 'SUBMIT_NEW_ADD'
+
+
