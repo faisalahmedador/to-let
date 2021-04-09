@@ -5,11 +5,12 @@
     width: 78%;
     border-radius: $default-border-radius;
     background: $mainGray;
+
+.title--footer{
+    text-decoration: none;
 }
 
-
-
-.footer-link{
+    .footer-link{
     display: block;
       
     a{
@@ -69,6 +70,7 @@
         
         .footer-icon{
             font-size: 30px;
+            color: $btnColor;
         }
         .footer-icon:hover{
             transition: .2s all linear;
@@ -76,4 +78,5 @@
             height: 35px;
         }
     }
+}
 }

@@ -82,23 +82,23 @@ const Footer = () => {
               <h2 className="title--footer">Social Links</h2>
               <div className='footerArea--social'>
               <a href='#' >
-                <FaFacebook className="footer-icon"  style={{  color: 'darkblue' }} />
+                <FaFacebook className="footer-icon"   />
                 {/* <img src={facebook} /> */}
               </a>
 
               <a href='#'> 
               {/* <img src={youtube} />  */}
-              <FaYoutube className="footer-icon" style={{  color: 'red' }}  />
+              <FaYoutube className="footer-icon"   />
               </a>
 
               <a href='#'> 
               {/* <img  src={linkin} />  */}
-              <FaLinkedin className="footer-icon" style={{  color: '#0072b1' }}  />
+              <FaLinkedin className="footer-icon"   />
               </a>
 
               <a href='#'> 
               {/* <img  src={instragram} />  */}
-              <FaInstagramSquare className="footer-icon" style={{  color: '#8a3ab9' }}  />
+              <FaInstagramSquare className="footer-icon"   />
               </a>
 
               </div>
