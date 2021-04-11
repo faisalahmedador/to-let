@@ -73,9 +73,9 @@ class adDetails extends Component {
     return (
       <div style={{ marginTop: "42px" }}>
         <ScrollToTopOnMount />
-        <Link to="/">
+        {/* <Link to="/">
           <span>back to home</span>
-        </Link>
+        </Link> */}
         <AdDetailsInfo
           setImage1={onSetImage_1}
           setImage2={onSetImage_2}

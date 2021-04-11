@@ -184,7 +184,7 @@ const Rent = () => {
                 </span>
               </div>
 
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <label>Service Charge</label>
                 <span className="price-input">
                   <input
@@ -196,7 +196,7 @@ const Rent = () => {
                   <label className="">BDT</label>
                 </span>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-7">
                 <label>Price Options</label>
                 <div className="row">
                   <div className="col-md-4 d-flex align-items-center justify-content-start">
@@ -284,7 +284,8 @@ const Rent = () => {
               <div className="col-md-12">
                 <label>Upload images</label>
                 <MultiImageInput
-                  // ref={register({ required: true})}
+                style={{ border: '1px solid rgba(0,0,0,.3)' }}
+                // ref={register({ required: true})}
                   images={images}
                   setImages={setImages}
                   cropConfig={{ crop, ruleOfThirds: false }}
