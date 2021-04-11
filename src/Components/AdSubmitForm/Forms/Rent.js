@@ -284,7 +284,8 @@ const Rent = () => {
               <div className="col-md-12">
                 <label>Upload images</label>
                 <MultiImageInput
-                  // ref={register({ required: true})}
+                style={{ border: '1px solid rgba(0,0,0,.3)' }}
+                // ref={register({ required: true})}
                   images={images}
                   setImages={setImages}
                   cropConfig={{ crop, ruleOfThirds: false }}
