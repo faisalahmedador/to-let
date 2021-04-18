@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RangeSlider from "react-bootstrap-range-slider";
+import './_priceRange.scss'
 
 const PriceRange = ({ priceRefMin, priceRefMax }) => {
   // const [value1, setValue1] = useState(1000);
@@ -10,13 +11,12 @@ const PriceRange = ({ priceRefMin, priceRefMax }) => {
 
   return (
     <div className="price-button--content">
-      <Form.Control
+      <select
         as="select"
         onChange={(e) => {
           // setValue1(e.target.value);
           priceRefMin(e.target.value);
         }}
-        size="lg"
         className="price-button--content1"
       >
         <option>Min Price</option>
@@ -27,15 +27,14 @@ const PriceRange = ({ priceRefMin, priceRefMax }) => {
         <option>30000</option>
         <option>40000</option>
         <option>50000</option>
-      </Form.Control>
+      </select>
 
-      <Form.Control
+      <select
         as="select"
         onChange={(e) => {
           // setValue2(e.target.value);
           priceRefMax(e.target.value);
         }}
-        size="lg"
         className="price-button--content2"
       >
         <option>Max Price</option>
@@ -45,7 +44,7 @@ const PriceRange = ({ priceRefMin, priceRefMax }) => {
         <option>30000</option>
         <option>40000</option>
         <option>50000</option>
-      </Form.Control>
+      </select>
     </div>
   );
 };

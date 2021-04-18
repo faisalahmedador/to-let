@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import './_location.scss'
 
 const Location = ({ locationRef }) => {
   return (
-    <Form.Control
-      as="select"
+    <select
       onChange={(e) => {
         locationRef(e.target.value);
       }}
-      size="lg"
       className="location-button--content"
     >
 
@@ -23,7 +22,7 @@ const Location = ({ locationRef }) => {
       <option>Bogura</option>
       <option>Rangpur</option>
       <option>Barishal</option>
-    </Form.Control>
+    </select>
   );
 };
 

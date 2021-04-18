@@ -98,8 +98,8 @@ class adDetails extends Component {
         >
           <h2 className="title">Near by Properties</h2>
         </div>
-        <Container fluid>
-          <Row>
+        <div className='container'>
+          <div className='row'>
             {addDetails.map((data) => {
               return (
                 <NearByProperties
@@ -109,8 +109,8 @@ class adDetails extends Component {
                 />
               );
             })}
-          </Row>
-        </Container>
+          </div >
+        </div>
       </div>
     );
   }

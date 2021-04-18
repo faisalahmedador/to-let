@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './_bath.scss'
 import { Form } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,7 +8,7 @@ const Bath = ({ bathRef}) => {
   
   return (
         
-      <Form.Control
+      <select
         as="select"
         onChange={(e) => {
           bathRef(e.target.value);
@@ -22,7 +23,7 @@ const Bath = ({ bathRef}) => {
         <option>5</option>
         <option>6</option>
         <option>7</option>
-      </Form.Control>
+      </select>
     
   );
 };

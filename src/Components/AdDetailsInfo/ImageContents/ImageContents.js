@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import img1 from "../../Assets/images/image1.jpg";
-import img2 from "../../Assets/images/image2.jpg";
-import img3 from "../../Assets/images/image3.jpg";
-import img4 from "../../Assets/images/image4.jpg";
-import img5 from "../../Assets/images/image5.jpg";
-import "./_addetailsinfo.scss";
+import img1 from "../../../Assets/images/image1.jpg";
+import img2 from "../../../Assets/images/image2.jpg";
+import img3 from "../../../Assets/images/image3.jpg";
+import img4 from "../../../Assets/images/image4.jpg";
+import img5 from "../../../Assets/images/image5.jpg";
+import "./_imageContents.scss";
 const ImageContents = ({ setImage1, setImage2, setImage3, setImage4,imageFile }) => {
   return (
     <div className="image-content">

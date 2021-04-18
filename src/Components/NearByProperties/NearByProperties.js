@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 
 const NearByProperties = ({ area, location, price }) => {
   return (
-    <Col className="nearbyproperty-main" lg={4}>
+    <div className="nearbyproperty-main col-md-4">
       <div class="main-div">
         <Image src={img} className="image" alt="..." />
         <div className="details">
@@ -24,7 +24,7 @@ const NearByProperties = ({ area, location, price }) => {
           
         </div>
       </div>
-    </Col>
+    </div>
   );
 };
 

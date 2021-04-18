@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import './_type.scss'
 
 const Type = ({ typeRef }) => {
   return (
-    <Form.Control
+    <select
       as="select"
       onChange={(e) => {
         typeRef(e.target.value);
@@ -21,7 +22,7 @@ const Type = ({ typeRef }) => {
       <option>Bachelor</option>
       <option>Sublet</option>
       <option>Sell Property</option>
-    </Form.Control>
+    </select>
   );
 };
 

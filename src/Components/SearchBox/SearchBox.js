@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaLowVision, FaMedium } from "react-icons/fa";
-import PriceRange from "./PriceRange";
-import Location from "./Location";
-import Bed from "./Bed";
-import Bath from "./Bath";
-import Type from "./Type";
+import PriceRange from "./PriceRange/PriceRange";
+import Location from "./Location/Location";
+import Bed from "./Bed/Bed";
+import Bath from "./Bath/Bath";
+import Type from "./Type/Type";
 import { Link } from "react-router-dom";
 import "./_searchbox.scss";
 

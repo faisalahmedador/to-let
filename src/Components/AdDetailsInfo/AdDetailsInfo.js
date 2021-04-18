@@ -6,27 +6,27 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import img from "../../Assets/images/landingPage.jpg";
 
-import ImageContents from "./ImageContents";
-import DescriptionContents from "./DescriptionContents";
+import ImageContents from "./ImageContents/ImageContents";
+import DescriptionContents from "./DetailsContents/DescriptionContents";
 
-const AdDetailsInfo = ({ setImage1, setImage2, setImage3, setImage4, imageFile }) => {
+const AdDetailsInfo = ({
+  setImage1,
+  setImage2,
+  setImage3,
+  setImage4,
+  imageFile,
+}) => {
   return (
     <div className="adDetails-info">
-      <Row>
-        <Col lg={12}>
-          <ImageContents
-            setImage1={setImage1}
-            setImage2={setImage2}
-            setImage3={setImage3}
-            setImage4={setImage4}
-            imageFile={imageFile}
-          />
-        </Col>
+      <ImageContents
+        setImage1={setImage1}
+        setImage2={setImage2}
+        setImage3={setImage3}
+        setImage4={setImage4}
+        imageFile={imageFile}
+      />
 
-        <Col lg={12}>
-          <DescriptionContents />
-        </Col>
-      </Row>
+      <DescriptionContents />
     </div>
   );
 };
