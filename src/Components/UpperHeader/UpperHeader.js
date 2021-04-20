@@ -9,16 +9,16 @@ const UpperHeader = () => {
   //title of language
   let title = "language";
   let icon = (
-    <span>
-      <FaLanguage /> {title}
+    <span  >
+      <FaLanguage  /> {title}
     </span>
   );
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light nav-header">
-        <a class="navbar-brand" href="#">
-          <span>
+      <nav className="navbar navbar-expand-lg  bg-light nav-header">
+        <a  href="#">
+          <span style={{ color: 'white' }} >
             locate your area <FaMapMarkerAlt />
           </span>
         </a>
@@ -30,6 +30,7 @@ const UpperHeader = () => {
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          style={{ color: 'white'  }}
         >
           {icon}
         </a>

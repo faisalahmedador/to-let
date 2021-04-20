@@ -13,7 +13,7 @@ const Bath = ({ bathRef}) => {
         onChange={(e) => {
           bathRef(e.target.value);
         }}
-        className="bath-button--content"
+        className="bed-button--content"
       >
         <option>select bath</option>
         <option>1</option>

@@ -117,7 +117,7 @@ const CardAds = ({
                 </ListGroup.Item>
               </ListGroup>
             </div>
-            className='col-md-9'{" "}
+            {/* className='col-md-9'{" "} */}
           </div>
         </Card>
       </div>

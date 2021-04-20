@@ -1,3 +1,4 @@
+@import '../../Style/abstracts/variable';
 
 html {
     font-size: 62.5%;
@@ -15,6 +16,8 @@ html {
 }
 .navbar-light .navbar-nav .nav-link:hover{
   box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.68) !important;
+  background-color: $primaryColor;
+  color: white;
 } 
 .active{
   color: white;
