@@ -10,6 +10,7 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import AdSubmitPage from "./Pages/AdSubmitPage";
 import SearchResult from "./Pages/SearchResult";
+// import HeaderDiv from './Components/Header/HeaderDiv'
 
 class App extends Component {
   render() {
@@ -17,12 +18,13 @@ class App extends Component {
       <>
         <UpperHeader />
         <Header />
+        {/* <HeaderDiv /> */}
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={LandingPage} />
-            <Route path="/addetails" exact component={AdDetails} />
-            <Route path='/submitads' exact component={AdSubmitPage} />
-            <Route path= '/searchresult' exact component={SearchResult} />
+            <Route path="/addetails"  component={AdDetails} />
+            <Route path='/submitads'  component={AdSubmitPage} />
+            <Route path= '/searchresult'  component={SearchResult} />
             <Route component={Default} />
           </Switch>
         </BrowserRouter>

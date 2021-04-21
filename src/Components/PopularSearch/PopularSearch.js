@@ -9,7 +9,7 @@ import './_popularsearch.scss'
 const PopularSearch = () => {
   return (
     <>
-    <Container fluid>
+    <div className='container-fluid'>
       <div id="popular-search">
       <h2  className='title'>Popular Search</h2>
         <ul className="popular-search-areas">
@@ -106,7 +106,7 @@ const PopularSearch = () => {
           </li>
         </ul>
       </div>
-      </Container>
+      </div>
     </>
   );
 };

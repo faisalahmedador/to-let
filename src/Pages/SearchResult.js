@@ -94,7 +94,7 @@ class SearchResult extends Component {
           {/* <Parallax>
             <Hero max="true">
               <Container style={{ width: "70%" }}> */}
-              <Container style={{ marginTop: '5%' }}>>
+              <div style={{ marginTop: '5%' }}>
                 <SearchBox
                   setSearch={onSetSearch}
                   locationRef={onSetLocation}
@@ -111,7 +111,7 @@ class SearchResult extends Component {
                   priceUpdate={this.props.priceUpdate}
                   typeRef={onSetCatagory}
                 />
-                </Container>
+                </div>
                 {/* <Row>
                   <Col lg={6} md={6} sm={12} xs={12}>
                     <Catagory setCatagory={onSetCatagory} />

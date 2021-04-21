@@ -93,7 +93,7 @@ class LandingPage extends Component {
           {/* <Header /> */}
           <Parallax>
             <Hero max="true">
-              <Container style={{ width: "70%", marginTop: '15%' }}>
+              <div style={{ width: "70%", marginTop: '15%' }}>
                 <SearchBox
                   setSearch={onSetSearch}
                   locationRef={onSetLocation}
@@ -119,7 +119,7 @@ class LandingPage extends Component {
                     
                   </Col>
                 </Row> */}
-              </Container>
+              </div>
             </Hero>
           </Parallax>
           <Catagory setCatagory={onSetCatagory} />

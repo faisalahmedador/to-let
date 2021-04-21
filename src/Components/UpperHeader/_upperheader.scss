@@ -1,0 +1,14 @@
+@import '../../Style/abstracts/variable';
+
+.nav-header{
+    height: 30px;
+    background-color: $primaryColor !important;
+
+    .dropdown-menu{
+        left: 10%;
+
+        @media ( max-width: 500px ) {
+            left: 70%;
+        }
+    }
+}

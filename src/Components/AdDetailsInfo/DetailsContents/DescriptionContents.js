@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
-import "./_addetailsinfo.scss";
+import "./_descriptionContents.scss";
 import { FcApproval } from "react-icons/fc";
 import { FcDisapprove } from "react-icons/fc";
 

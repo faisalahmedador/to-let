@@ -5,6 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import { useCallback } from "react";
 import { connect } from "react-redux";
 import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
+import * as Auth from "../../helpers/auths";
+import { Link } from "react-router-dom";
 import "./_header.scss";
 
 const mapStateToProps = (state) => {
@@ -32,11 +34,11 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
     if (window.scrollY < 76) {
       onSetposition("absolute");
       onSetShadow("false");
-    } 
+    }
     // else if (window.scrollY > 76 && window.scrollY < 689) {
     //   onSetShadow("false");
     //   onSetposition("fixed");
-    // } 
+    // }
     else if (window.scrollY > 36) {
       onSetShadow("true");
       onSetposition("fixed");
@@ -86,6 +88,77 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
             </Navbar.Collapse>
           </div>
         </Navbar>
+
+        {/* <div class="navbar navbar-expand-lg navbar-light bg-light header-div--nav-bar">
+          <Link class="navbar-brand" to="/" className="logo-div">
+            Navbar
+          </Link>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto nav-elements">
+              <li class="nav-item">
+                <Link class="nav-link add-submit" to="/submitads">
+                  Submit an add
+                </Link>
+              </li>
+              {Auth.validAdmin() ? (
+                <Link to="/" className="login nav-link">
+                  Faisal Ahmed
+                </Link>
+              ) : (
+                <Link to="/" className="login nav-link">
+                  login
+                </Link>
+              )}
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Features
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Pricing
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown link
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="#">
+                    Action
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Another action
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> */}
       </div>
     </section>
   );

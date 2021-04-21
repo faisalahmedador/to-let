@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import './_bed.scss'
 
 const Bed = ({ bedRef }) => {
   return (
-    <Form.Control
-      as="select"
+    <select
       onChange={(e) => {
         bedRef(e.target.value);
       }}
@@ -21,7 +21,7 @@ const Bed = ({ bedRef }) => {
       <option>5</option>
       <option>6</option>
       <option>7</option>
-    </Form.Control>
+    </select>
   );
 };
 

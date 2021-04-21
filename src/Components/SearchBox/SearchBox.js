@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaLowVision, FaMedium } from "react-icons/fa";
-import PriceRange from "./PriceRange";
-import Location from "./Location";
-import Bed from "./Bed";
-import Bath from "./Bath";
-import Type from "./Type";
+import PriceRange from "./PriceRange/PriceRange";
+import Location from "./Location/Location";
+import Bed from "./Bed/Bed";
+import Bath from "./Bath/Bath";
+import Type from "./Type/Type";
 import { Link } from "react-router-dom";
 import "./_searchbox.scss";
 
@@ -49,43 +49,18 @@ const SearchBox = ({
           <input
             className="search_input "
             type="text"
-            placeholder="Enter Area Name.."
+            placeholder={   `Enter Area Name..`  }
             onChange={setSearch}
           />
 
           <div className="location-button">
-            <Location locationRef={locationRef} />
+            <Location locationRef={locationRef}   />
           </div>
 
           <div className="type-button">
             <Type typeRef={typeRef} />
           </div>
 
-          {/* <div className="Typedown">
-            <div className="Typebtn">
-              {selectedCatagory} <FaChevronDown size="12px" />
-            </div>
-            <div className="Typedown-content">
-              <Link to="#" onClick={() => setCatagory("duplex")}>
-                <span>duplex</span>
-              </Link>
-              <Link to="#" onClick={() => setCatagory("apartment")}>
-                <span>apartment</span>
-              </Link>
-              <Link to="#" onClick={() => setCatagory("familyHouse")}>
-                <span>family house</span>
-              </Link>
-              <Link to="#" onClick={() => setCatagory("sublet")}>
-                <span>sublet</span>
-              </Link>
-              <Link to="#" onClick={() => setCatagory("bachelor")}>
-                <span>bachelor</span>
-              </Link>
-              <Link to="#" onClick={() => setCatagory("forsale")}>
-                <span>house for sale</span>
-              </Link>
-            </div>
-          </div> */}
           <Link to='/searchresult' className="button-default mobile-inactive">Search</Link>
           {/* <input type="submit" value="Search" className="button-default mobile-inactive " /> */}
         </div>
@@ -95,26 +70,11 @@ const SearchBox = ({
             <Bed bedRef={bedRef} />
           </div>
 
-          {/* <div className="bath-button">
-            <div className="bath-button--button">
-              {selectedBath} <FaChevronDown size='12px'/>
-            </div>
-            <div className="bath-button--dropdown">
-              <Bath bathRef={bathRef} />
-            </div>
-          </div> */}
-
-          <div className="bath-button">
+          <div className="bed-button">
             <Bath bathRef={bathRef} />
           </div>
 
-          <div className="price-button">
-            {/* <div className="price-button--button">
-              {priceUpdate
-                ? `${selectedLowerPrice} to ${selectedUpperPrice}`
-                : "Price Range (BDT)"}{" "}
-              <FaChevronDown size="12px" />
-            </div> */}
+          <div className="bed-button">
 
             <PriceRange priceRefMin={priceRefMin} priceRefMax={priceRefMax} />
           </div>
