@@ -25,6 +25,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useSelector } from "react-redux";
 import SearchBox2 from "../Components/SearchBox/SearchBox2";
+import Catagory2 from "../Components/Catagory/Catagory2";
 
 const mapStateToProps = (state) => {
    console.log(state.Search);
@@ -117,7 +118,8 @@ class LandingPage extends Component {
               </div>
             </Hero>
           </Parallax>
-          <Catagory setCatagory={onSetCatagory} />
+          {/* <Catagory setCatagory={onSetCatagory} /> */}
+          <Catagory2 setCatagory={onSetCatagory}  />
           <PopularSearch />
           <h1
             style={{
