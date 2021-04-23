@@ -11,7 +11,7 @@ import "./_catagory.scss";
 
 const Catagory = ({ setCatagory }) => {
   return (
-    <Container fluid>
+    <Container fluid style={{ marginTop: '20px'  }} >
       <div id="catagory">
         <h5 style={{ fontWeight: 'bold' }} >Catagories</h5>
         <div className="catagories-div">
