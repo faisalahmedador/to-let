@@ -24,24 +24,7 @@ const SearchBox = ({
   priceUpdate,
   typeRef,
 }) => {
-  // const [value1, setValue1] = useState('Dhaka');
-  // const [min, setMin] = useState(null);
-  // const [max, setMax] = useState("any");
-  // const [priceUpdate, setPriceUpdate] = useState(false);
 
-  // function locationRef(value){
-  //   setValue1(value)
-  // }
-
-  // function priceRefMin(value){
-  //   setPriceUpdate(true)
-  //   setMin(value)
-  // }
-
-  // function priceRefMax(value){
-  //   setPriceUpdate(true)
-  //   setMax(value)
-  // }
   return (
     <>
       <div id="search-box">

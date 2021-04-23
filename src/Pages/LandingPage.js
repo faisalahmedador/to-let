@@ -24,6 +24,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useSelector } from "react-redux";
+import SearchBox2 from "../Components/SearchBox/SearchBox2";
 
 const mapStateToProps = (state) => {
    console.log(state.Search);
@@ -94,7 +95,7 @@ class LandingPage extends Component {
           <Parallax>
             <Hero max="true">
               <div style={{ width: "70%", marginTop: '15%' }}>
-                <SearchBox
+                {/* <SearchBox
                   setSearch={onSetSearch}
                   locationRef={onSetLocation}
                   bedRef={onSetBed}
@@ -109,16 +110,10 @@ class LandingPage extends Component {
                   selectedUpperPrice={this.props.upper_limit}
                   priceUpdate={this.props.priceUpdate}
                   typeRef={onSetCatagory}
-                />
-                {/* <Row>
-                  <Col lg={6} md={6} sm={12} xs={12}>
-                    <Catagory setCatagory={onSetCatagory} />
-                  </Col>
+                /> */}
 
-                  <Col lg={8} md={8} sm={12} xs={12}>
-                    
-                  </Col>
-                </Row> */}
+                <SearchBox2/>
+
               </div>
             </Hero>
           </Parallax>
