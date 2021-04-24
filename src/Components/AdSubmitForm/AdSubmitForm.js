@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./_adsubmitform.scss";
-import Rent from "./Forms/Rent";
+import Rent from "./Forms/RentPage/Rent";
 
 import Sale from "./Forms/Sale";
 // import Cookies from "js-cookie";
