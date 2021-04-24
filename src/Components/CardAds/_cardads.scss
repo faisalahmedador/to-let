@@ -9,9 +9,25 @@
 
     .button-default--card:hover{
         background-color: $primaryColor;
-        box-shadow: $btnShadow;
+        box-shadow:  0 0 11px 5px rgba(0,0,0,.2);
         color: white;
+        border: none;
+    }
 
+    // .title{
+    //     color: $primaryColor;
+    // }
+    .specification{
+        color: $primaryColor;
+        font-weight: bold;
+    }
+
+    .list-group-item{
+        background-color: rgba(#f3f3f3, .2);
+    }
+
+    .details{
+        background-color: $primaryColor;
     }
 }
 

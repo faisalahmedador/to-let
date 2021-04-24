@@ -2,7 +2,7 @@ import adhouse from '../images/adhouse.jpg';
 import apartment from '../images/landingPage.jpg';
 import image1 from '../images/image2.jpg'
 
-export const addDetails = [
+export const addDetails = [ 
   {
     id: 1,
     description: "2000 squre feet flat in Uttora for sell",
