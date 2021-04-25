@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaLanguage, FaMapMarkerAlt } from "react-icons/fa";
+import VidModal from '../VidModal/VidModal';
 import "./_upperheader.scss";
 
 const UpperHeader = () => {
@@ -17,6 +18,7 @@ const UpperHeader = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg  bg-light nav-header">
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         <a  href="#">
           <span style={{ color: 'white' }} >
             locate your area <FaMapMarkerAlt />
@@ -42,6 +44,9 @@ const UpperHeader = () => {
             English
           </a>
         </div>
+        </div>
+
+        <VidModal/>
       </nav>
     </>
   );
