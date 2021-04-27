@@ -3,6 +3,8 @@
 .nav-header{
     height: 30px;
     background-color: $primaryColor !important;
+    display: flex;
+    justify-content: space-between;
 
     .dropdown-menu{
         left: 10%;

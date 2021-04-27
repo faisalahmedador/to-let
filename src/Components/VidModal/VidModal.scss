@@ -1,0 +1,13 @@
+@import '../../Style/abstracts/variable';
+
+.vidmodal-div{
+
+    .btn-primary:active{
+        background-color: white !important;
+        color: $primaryColor !important;
+    }
+    .btn-primary:focus{
+        background-color: white !important;
+        color: $primaryColor !important;
+    }
+}

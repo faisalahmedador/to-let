@@ -26,6 +26,8 @@ import Col from "react-bootstrap/Col";
 import { useSelector } from "react-redux";
 import SearchBox2 from "../Components/SearchBox/SearchBox2";
 import Catagory2 from "../Components/Catagory/Catagory2";
+import PopularSearch2 from "../Components/PopularSearch/PopularSearch2";
+import AdCarousel from "../Components/AdCarousel/AdCarousel";
 
 const mapStateToProps = (state) => {
    console.log(state.Search);
@@ -120,8 +122,12 @@ class LandingPage extends Component {
           </Parallax>
           {/* <Catagory setCatagory={onSetCatagory} /> */}
           <Catagory2 setCatagory={onSetCatagory}  />
-          <PopularSearch />
-          <h1
+          {/* <PopularSearch /> */}
+          <PopularSearch2/>
+
+          <AdCarousel/>
+
+          {/* <h1
             style={{
               paddingTop: "1%",
               display: "flex",
@@ -146,7 +152,7 @@ class LandingPage extends Component {
                 img={data.img}
               />
             );
-          })}
+          })} */}
           
 
           {/* <Footer /> */}

@@ -73,9 +73,10 @@
             color: $btnColor;
         }
         .footer-icon:hover{
-            transition: .2s all linear;
+            transition: .1s all linear;
             width: 35px;
             height: 35px;
+            color: $primaryColor;
         }
     }
 }
