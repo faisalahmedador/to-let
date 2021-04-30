@@ -24,6 +24,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useSelector } from "react-redux";
+import SearchBox2 from "../Components/SearchBox/SearchBox2";
 
 const mapStateToProps = (state) => {
    console.log(state.Search);
@@ -94,8 +95,8 @@ class SearchResult extends Component {
           {/* <Parallax>
             <Hero max="true">
               <Container style={{ width: "70%" }}> */}
-              <div style={{ marginTop: '5%' }}>
-                <SearchBox
+              <div style={{ margin: '5% 10px 0 10px' }}>
+                {/* <SearchBox
                   setSearch={onSetSearch}
                   locationRef={onSetLocation}
                   bedRef={onSetBed}
@@ -110,7 +111,8 @@ class SearchResult extends Component {
                   selectedUpperPrice={this.props.upper_limit}
                   priceUpdate={this.props.priceUpdate}
                   typeRef={onSetCatagory}
-                />
+                /> */}
+                <SearchBox2/>
                 </div>
                 {/* <Row>
                   <Col lg={6} md={6} sm={12} xs={12}>
