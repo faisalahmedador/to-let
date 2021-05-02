@@ -1,9 +1,18 @@
 import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl, DropdownButton, Dropdown, Form, Button } from 'react-bootstrap'
+import { useHistory } from 'react-router';
 
 const SearchBox2 = () => {
+
+    const history = useHistory();
+
+    const onSubmit = (v) => {
+        console.log('onsubmit search', v );
+        history.push('/searchresult');
+    }
+
     return (
-        <Form>
+        <Form onSubmit={ onSubmit  } >
         <Container fluid 
         style={{ backgroundColor: 'rgba(113, 94, 241, .8)', padding: '10px 10px', borderRadius: '.5rem', boxShadow: '0 0 9px -2px rgba(0,0,0,.5)' }} >
 

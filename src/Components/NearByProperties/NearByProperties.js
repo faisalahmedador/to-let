@@ -12,7 +12,7 @@ const NearByProperties = ({ area, location, price }) => {
       <div class="main-div">
         <Image src={img} className="image" alt="..." />
         <div className="details">
-          <h5 className=""> Location:  <span style={{ fontWeight: 'bold', fontSize: '15px' }}> {location} </span> </h5>
+          <h5 className="" style={{ color: 'white' }} > Location:  <span style={{ fontWeight: 'bold', fontSize: '15px' }}> {location} </span> </h5>
           <div className='more-details'>
             <p class=""> Area: <span className='title'> {area} </span> </p>
             <p class=""> Rent: <span className='title'> {price} </span> </p>
