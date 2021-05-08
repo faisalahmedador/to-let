@@ -4,10 +4,14 @@ import Table from "react-bootstrap/Table";
 import "./_descriptionContents.scss";
 import { FcApproval } from "react-icons/fc";
 import { FcDisapprove } from "react-icons/fc";
+import { Row, Col } from 'react-bootstrap';
 
 const DescriptionContents = () => {
   return (
     <div className="description-content">
+      <Row>
+     
+      <Col lg={6} xs={12}>
       <div className='description-content--basic'>
         <h2 className="title">Basic</h2>
         <Table striped bordered hover>
@@ -31,7 +35,9 @@ const DescriptionContents = () => {
           </tbody>
         </Table>
       </div>
+      </Col>
 
+      <Col lg={6} xs={12} >
       <div className='description-content--details'>
         <h2 className="title">Details</h2>
         <Table striped bordered hover>
@@ -58,6 +64,14 @@ const DescriptionContents = () => {
         </Table>
       </div>
 
+      </Col>
+
+      </Row>
+
+      <Row>
+
+      <Col lg={6} xs={12} >
+
       <div className='description-content--conditionspricing'>
         <h2 className="title"> Pricing</h2>
         <Table striped bordered hover>
@@ -81,6 +95,10 @@ const DescriptionContents = () => {
           </tbody>
         </Table>
       </div>
+
+      </Col>
+
+      <Col lg={6} xs={12} >
 
       <div className='description-content--utility'>
         <h2 className="title">Utilities</h2>
@@ -107,7 +125,10 @@ const DescriptionContents = () => {
           </tbody>
         </Table>
       </div>
+      
+      </Col>
 
+      </Row>
 
     </div>
   );

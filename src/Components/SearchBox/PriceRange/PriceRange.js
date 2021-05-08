@@ -10,7 +10,7 @@ const PriceRange = ({ priceRefMin, priceRefMax }) => {
   // const [value2, setValue2] = useState(10000000);
 
   return (
-    <div className="price-button--content">
+    <div className="bed-button--content" style={{ border: 'none' }}  > 
       <select
         as="select"
         onChange={(e) => {
@@ -18,6 +18,7 @@ const PriceRange = ({ priceRefMin, priceRefMax }) => {
           priceRefMin(e.target.value);
         }}
         className="price-button--content1"
+        style={{ marginRight: '5px' }}
       >
         <option>Min Price</option>
         <option>1000</option>

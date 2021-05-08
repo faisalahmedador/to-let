@@ -3,22 +3,24 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaLanguage, FaMapMarkerAlt } from "react-icons/fa";
+import VidModal from '../VidModal/VidModal';
 import "./_upperheader.scss";
 
 const UpperHeader = () => {
   //title of language
   let title = "language";
   let icon = (
-    <span>
-      <FaLanguage /> {title}
+    <span  >
+      <FaLanguage  /> {title}
     </span>
   );
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light nav-header">
-        <a class="navbar-brand" href="#">
-          <span>
+      <nav className="navbar navbar-expand-lg  bg-light nav-header">
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <a  href="#">
+          <span style={{ color: 'white' }} >
             locate your area <FaMapMarkerAlt />
           </span>
         </a>
@@ -30,6 +32,7 @@ const UpperHeader = () => {
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          style={{ color: 'white'  }}
         >
           {icon}
         </a>
@@ -41,6 +44,9 @@ const UpperHeader = () => {
             English
           </a>
         </div>
+        </div>
+
+        <VidModal/>
       </nav>
     </>
   );

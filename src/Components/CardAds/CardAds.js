@@ -13,7 +13,7 @@ import "./_cardads.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
-const CardAds = ({
+const CardAds = ({ 
   id,
   description,
   area,
@@ -74,7 +74,7 @@ const CardAds = ({
                   <div className="specification">
                     <p>
                       Available from:
-                      <span>{available}</span>
+                      <span> {available} </span>
                     </p>
                     <p>
                       User Verified:
@@ -117,7 +117,7 @@ const CardAds = ({
                 </ListGroup.Item>
               </ListGroup>
             </div>
-            className='col-md-9'{" "}
+            {/* className='col-md-9'{" "} */}
           </div>
         </Card>
       </div>

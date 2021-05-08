@@ -1,0 +1,8 @@
+Base app url = http://to-let-back.herokuapp.com/api
+
+Post	=>/register
+Post	=>/login
+Post	=>/logout
+
+get	=>/residence (for viewing all residence)
+post 	=>/residence (for posting a residence)

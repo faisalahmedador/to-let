@@ -1,4 +1,16 @@
+@import '../../Style/abstracts/variable';
+
 .nav-header{
     height: 30px;
-    background-color: coral !important;
+    background-color: $primaryColor !important;
+    display: flex;
+    justify-content: space-between;
+
+    .dropdown-menu{
+        left: 10%;
+
+        @media ( max-width: 500px ) {
+            left: 70%;
+        }
+    }
 }
