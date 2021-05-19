@@ -1,0 +1,182 @@
+/*
+.go_top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #c3c4bd;
+  border: 2px solid #cfcfcf;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 650ms;
+  transition: all 650ms;
+}
+
+.go_top:hover {
+  background-color: transparent;
+  color: #000000;
+  cursor: pointer;
+}
+*/
+#login-section{
+  
+}
+
+.back_top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* ======================================================*/
+/*  login_form.html's css code */
+/* ======================================================*/
+/* login form */
+#login-section .login-form {
+  height: 450px;
+}
+
+#login-section .login-form .form-info {
+  max-width: 410px;
+  margin: 50px auto;
+}
+
+#login-section .login-form .form-info h2 {
+  margin: 10px 0;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+#login-section .login-form .form-info .form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f2994a;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+#login-section .login-form .form-info .form-input::-webkit-input-placeholder {
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+#login-section .login-form .form-info .form-input:-ms-input-placeholder {
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+#login-section .login-form .form-info .form-input::-ms-input-placeholder {
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+#login-section .login-form .form-info .form-input::placeholder {
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+#login-section .login-form .form-info .button {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+  text-align: center;
+  color: #fff;
+  -webkit-transition: background-color 650ms;
+  transition: background-color 650ms;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 4px;
+
+}
+
+#login-section .login-form .form-info .button:hover {
+  background-color: rgba(153, 153, 153, 0.659);
+}
+
+#login-section .login-form .form-info .forgot {
+  margin: 10px 0 5px;
+  text-align: end;
+  color: #000;
+  text-decoration: underline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-transform: capitalize;
+}
+
+#login-section .login-form .form-info .log {
+  background-color: #f2994a;
+}
+
+#login-section .login-form .form-info .fb {
+  background-color: #042580;
+}
+
+#login-section .login-form .form-info .sign {
+  border: 1px solid #f2994a;
+  color: #000;
+}
+
+#login-section .login-form .form-info .line {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+#login-section .login-form .form-info .line::before,
+#login-section .login-form .form-info .line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#login-section .login-form .form-info .line::after {
+  background-color: #000000;
+  width: 45%;
+  left: 0;
+}
+
+#login-section .login-form .form-info .line::before {
+  background-color: #000000;
+  width: 45%;
+  right: 0;
+}
