@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./_adsubmitform.scss";
 import Rent from "./Forms/RentPage/Rent";
 
-import Sale from "./Forms/Sale";
+import Sale from "./Forms/SalePage/Sale";
 // import Cookies from "js-cookie";
 
 const AdSubmitForm = () => {

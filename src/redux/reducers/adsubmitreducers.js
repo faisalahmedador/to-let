@@ -1,14 +1,23 @@
-import {SUBMIT_NEW_ADD} from '../Constants'
+import {
+  SUBMIT_NEW_ADD_REQUEST,
+  SUBMIT_NEW_ADD_SUCCESS,
+  SUBMIT_NEW_ADD_FAILED,
+} from "../Constants";
 
+function adsubmitreducers(state = {}, action) {
+  switch (action.type) {
+    case SUBMIT_NEW_ADD_REQUEST:
+      return { loading: true };
+    case SUBMIT_NEW_ADD_SUCCESS:
+      // SINGLEInfo(action.payload);
+      return { loading: false, add_post: action.payload };
 
-export const adsubmitreducers = (state = {}, action) =>{
+    case SUBMIT_NEW_ADD_FAILED:
+      return { loading: false, error: action.payload };
 
-    switch(action.type){
-        case SUBMIT_NEW_ADD: 
-        return { state: action.payload}
-
-        default:
-            return {}
-    }
-
+    default:
+      return state;
+  }
 }
+
+export {adsubmitreducers}

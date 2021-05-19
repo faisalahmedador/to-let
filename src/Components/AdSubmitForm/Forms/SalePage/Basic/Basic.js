@@ -1,15 +1,4 @@
 import React, { createRef, useEffect, useRef, useState } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  InputGroup,
-  FormControl,
-  DropdownButton,
-  Dropdown,
-  Form,
-  Button,
-} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const Basic = ({ handleNext }) => {
@@ -85,8 +74,8 @@ const Basic = ({ handleNext }) => {
   };
 
   const onSubmit = (data) => {
-    data["room_details"] = roomProperties;
-
+    data["room_details"] = roomProperties
+    
     handleNext(data);
     // dispatch(adSubmitAction(data));
   };
@@ -96,28 +85,19 @@ const Basic = ({ handleNext }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h2>Basic Information</h2>
-      <Form.Row>
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+      <div className="row">
+        <div className="col-md-3">
           <label>Catagory</label>
-
-          <Form.Control
-            as="select"
-            size="lg"
-            placeholder="Choose a catagory"
-            name="catagory"
-            ref={register({ required: true })}
-          >
+          <select name="catagory" ref={register({ required: true })}>
+            <option>Choose a catagory</option>
             <option>Family House</option>
             <option>Office</option>
             <option>Shop</option>
-            <option>Bachelor</option>
-            <option>Hostel</option>
-            <option>Sublet</option>
-          </Form.Control>
-        </Col>
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+          </select>
+        </div>
+        <div className="col-md-3">
           <label>Size(sq. ft)</label>
           <span className="price-input" ref={register}>
             <input
@@ -128,8 +108,8 @@ const Basic = ({ handleNext }) => {
             <label className="pr-2">sq.ft</label>
           </span>
           {/* <input type="text" name="property_size" /> */}
-        </Col>
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+        </div>
+        <div className="col-md-3">
           <label>Facing</label>
           <select name="facing" ref={register}>
             <option>Choose a side</option>
@@ -138,9 +118,9 @@ const Basic = ({ handleNext }) => {
             <option>North</option>
             <option>South</option>
           </select>
-        </Col>
+        </div>
 
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+        <div className="col-md-3">
           <label>Floor no</label>{" "}
           <select name="floor_no" ref={register({ required: true })}>
             <option>Choose a floor number</option>
@@ -151,8 +131,8 @@ const Basic = ({ handleNext }) => {
             <option>5</option>
             <option>6</option>
           </select>
-        </Col>
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+        </div>
+        <div className="col-md-3">
           <label>Floor type</label>{" "}
           <select name="floor_type" ref={register}>
             <option>Choose type of floor</option>
@@ -161,8 +141,8 @@ const Basic = ({ handleNext }) => {
             <option>Marble</option>
             <option>Other</option>
           </select>
-        </Col>
-        <Col lg={3} xs={12} style={{ margin: "5px 0" }}>
+        </div>
+        <div className="col-md-3">
           <label>Dining Type</label>{" "}
           <select name="Dining type" ref={register}>
             <option>Choose a type</option>
@@ -170,8 +150,8 @@ const Basic = ({ handleNext }) => {
             <option>Room</option>
             <option>No dining space/room</option>
           </select>
-        </Col>
-      </Form.Row>
+        </div>
+      </div>
 
       <h3 className="text-left">
         (Choose a room with its specification. This will help your client to
@@ -272,8 +252,8 @@ const Basic = ({ handleNext }) => {
       ))}
 
       <div className="row">
-        <div className="col-md-3">
-          <label>Price</label>
+        <div className="col-md-6">
+          <label>Selling Price</label>
           <span className="price-input">
             <input
               type="number"
@@ -285,7 +265,7 @@ const Basic = ({ handleNext }) => {
           </span>
         </div>
 
-        <div className="col-md-3">
+        {/* <div className="col-md-3">
           <label>Service Charge</label>
           <span className="price-input">
             <input
@@ -296,29 +276,9 @@ const Basic = ({ handleNext }) => {
             />
             <label className="">BDT</label>
           </span>
-        </div>
-        <div className="col-md-6">
-          <label>Price Options</label>
-          <div className="row">
-            <div className="col-md-4 d-flex align-items-center justify-content-start">
-              <input type="checkbox" name="negotiable" ref={register} />
-              <span> price negotiable</span>
-            </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-start">
-              <input
-                type="checkbox"
-                name="electricity_included"
-                ref={register}
-              />{" "}
-              <span>Electricity bill included</span>
-            </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-start">
-              <input type="checkbox" name="gas_included" ref={register} />
-              <span>Gas bill included</span>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
+        </div> */}
+       
+        <div className="col-md-3">
           <label>Avialable from</label>{" "}
           <select name="avialable_from" ref={register({ required: true })}>
             <option>Choose a month</option>
@@ -336,14 +296,36 @@ const Basic = ({ handleNext }) => {
             <option>December</option>
           </select>
         </div>
-        <div className="col-md-6">
+
+        <div className="col-md-3">
+          <label>Price Options</label>
+          <div className="row">
+            <div className="col-md-12 d-flex align-items-center justify-content-start">
+              <input type="checkbox" name="negotiable" ref={register} />
+              <span> price negotiable</span>
+            </div>
+            {/* <div className="col-md-4 d-flex align-items-center justify-content-start">
+              <input
+                type="checkbox"
+                name="electricity_included"
+                ref={register}
+              />{" "}
+              <span>Electricity bill included</span>
+            </div>
+            <div className="col-md-4 d-flex align-items-center justify-content-start">
+              <input type="checkbox" name="gas_included" ref={register} />
+              <span>Gas bill included</span>
+            </div> */}
+          </div>
+        </div>
+        {/* <div className="col-md-6">
           <label>Preferred rental</label>
           <select ref={register}>
             <option>small family</option>
             <option>male only</option>
             <option>female only</option>
           </select>
-        </div>
+        </div> */}
         <div className="col-md-12">
           <div className="d-flex justify-content-center mt-5">
             <label></label>
@@ -357,7 +339,7 @@ const Basic = ({ handleNext }) => {
           </div>
         </div>
       </div>
-    </Form>
+    </form>
   );
 };
 
