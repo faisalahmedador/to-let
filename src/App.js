@@ -10,6 +10,9 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import AdSubmitPage from "./Pages/AdSubmitPage";
 import SearchResult from "./Pages/SearchResult";
+import Login from './Components/LogIn/LogIn'
+
+
 // import HeaderDiv from './Components/Header/HeaderDiv'
 
 class App extends Component {
@@ -25,6 +28,7 @@ class App extends Component {
             <Route path="/addetails"  component={AdDetails} />
             <Route path='/submitads'  component={AdSubmitPage} />
             <Route path= '/searchresult'  component={SearchResult} />
+            <Route path='/login' component={Login} />
             <Route component={Default} />
           </Switch>
         </BrowserRouter>
