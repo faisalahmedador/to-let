@@ -1,3 +1,5 @@
+@import '../../Style/abstracts/variable';
+
 /*
 .go_top {
   position: fixed;
@@ -73,12 +75,13 @@
   margin: 10px 0;
   text-transform: capitalize;
   font-weight: 600;
+  color: $primaryColor;
 }
 
 #login-section .login-form .form-info .form-input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #f2994a;
+  border: 1px solid $primaryColor;
   border-radius: 4px;
   margin-bottom: 5px;
 }
@@ -120,7 +123,10 @@
 }
 
 #login-section .login-form .form-info .button:hover {
-  background-color: rgba(153, 153, 153, 0.659);
+  background-color: white;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
+  font-weight: 600;
 }
 
 #login-section .login-form .form-info .forgot {
@@ -138,7 +144,7 @@
 }
 
 #login-section .login-form .form-info .log {
-  background-color: #f2994a;
+  background-color: $primaryColor;
 }
 
 #login-section .login-form .form-info .fb {
@@ -146,8 +152,8 @@
 }
 
 #login-section .login-form .form-info .sign {
-  border: 1px solid #f2994a;
-  color: #000;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
 }
 
 #login-section .login-form .form-info .line {

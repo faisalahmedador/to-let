@@ -1,0 +1,35 @@
+@import '../../Style//abstracts/variable';
+
+.signup-div{
+
+    // display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 30vh;
+    // border: 1px solid $primaryColor;
+    box-shadow: 0 0 23px -6px $primaryColor;
+    border-radius: .5rem;
+    width: max-content;
+    padding: 10px;
+
+    .form-control{
+        border: 1px solid $primaryColor;
+    }
+
+    .react-date-picker{
+        border: .5px solid $primaryColor;
+
+        .react-date-picker__wrapper{
+            border: none;
+
+            .react-date-picker__inputGroup{
+                font-size: 10px;
+            }
+        }
+    }
+
+    .submit-btn{
+        background-color: $primaryColor;
+        color: white;
+    }
+}

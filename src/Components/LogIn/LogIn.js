@@ -63,12 +63,12 @@ const LogIn = () => {
           ) : (
             ""
           )} */}
-          <a className="button fb" href="#">
+          {/* <a className="button fb" href="#">
             {" "}
             facebook
-          </a>
+          </a> */}
           <span className="line">or</span>
-          <Link className="button sign" to="/">
+          <Link className="button sign" to="/signup">
             sign up
           </Link>
         </div>

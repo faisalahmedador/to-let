@@ -28,7 +28,6 @@ class App extends Component {
             <Route path="/addetails"  component={AdDetails} />
             <Route path='/submitads'  component={AdSubmitPage} />
             <Route path= '/searchresult'  component={SearchResult} />
-            <Route path='/login' component={Login} />
             <Route component={Default} />
           </Switch>
         </BrowserRouter>
