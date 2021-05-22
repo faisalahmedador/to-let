@@ -17,8 +17,10 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
+import Login from './Components/LogIn/LogIn';
 import "./Style/main.scss";
+import Signup from "./Components/Signup/Signup";
 
 const logger = createLogger();
 const reducerCombined = combineReducers({ Search, Header,Add,  adsubmitreducers });
@@ -28,13 +30,24 @@ const store = createStore(
 );
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    {/* <Router> */}
     
       {/* <ScrollToTop /> */}
       <Provider store={store}>
-        <App />
+        {/* <App /> */}
+
+        <BrowserRouter>
+        <Switch>
+
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
+          <Route path='/' component={App} />
+
+        </Switch>
+        </BrowserRouter>
+      
       </Provider>
-    </Router>
+    {/* </Router> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

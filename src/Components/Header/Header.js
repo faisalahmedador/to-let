@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
 import * as Auth from "../../helpers/auths";
 import { Link } from "react-router-dom";
+import { CgProfile } from 'react-icons/cg';
 import "./_header.scss";
 
 const mapStateToProps = (state) => {
@@ -85,6 +86,9 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
                 </Nav.Link>
                 <Nav.Link href="/submitads" className="add-submit">
                   Submit An Add
+                </Nav.Link>
+                <Nav.Link href={'/profile/'+'2'}  >
+                  <CgProfile style={{ fontSize: 'large' }} />
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
