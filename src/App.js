@@ -10,7 +10,6 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import AdSubmitPage from "./Pages/AdSubmitPage";
 import SearchResult from "./Pages/SearchResult";
-import Login from './Components/LogIn/LogIn'
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 
 

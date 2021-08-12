@@ -6,9 +6,9 @@ import { signupAction } from "../../redux/Actions/SigninActions";
 import { Container, Col, Row } from "react-bootstrap";
 import RentalHome from '../../Assets/images/RentalHome.jpg'
 import cookies from "js-cookie";
-import "./_signup.scss";
+import "./_forgotPassword.scss";
 
-const LogIn = () => {
+const ForgotPassword = () => {
   // let history = useHistory()
 
   const {
@@ -39,49 +39,34 @@ const LogIn = () => {
   // }, [success])
 
   return (
-    <section id="signup-section" 
+    <section id="forgot-section" 
     style={{ backgroundImage: `url(${RentalHome})` ,
      backgroundRepeat: 'no-repeat',
      backgroundSize: 'cover',
       width: '100%',
        height: '100vh'}}>
-      <section className="signup-form">
+      <section className="forgot-form">
         <div className="form-info">
-          <h2>sign up</h2>
+          <h2>Find your account</h2>
 
-          <h5>Its quick and easy.</h5>
+          <h5>Please enter your email address or mobile number to search for your account.</h5>
           <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-              className="form-input"
-              {...register("email", { required: true })}
-              // onChange={(e) => setUser(e.target.value)}
-              placeholder="User name"
-            />
-
             <input
               className="form-input"
               {...register("email", { required: true })}
               // onChange={(e) => setUser(e.target.value)}
-              placeholder="Mobile number or Email"
-            />
-
-            <input
-              className="form-input"
-              placeholder="New Password*"
-              {...register("password", { required: true })}
-              // onChange={(e) => setPass(e.target.value)}
+              placeholder="Mobile number"
             />
 
             {error && "invalid email or password"}
 
-
             {(errors.email || errors.password) && console.log(errors.email)}
-            <input className="button log" type="submit" value="Sign Up" />
+            <input className="button log" type="submit" value="Search" />
           </form>
 
           <span className="line">or</span>
           <Link className="button sign" to="/logIn">
-            Log In
+            Log in
           </Link>
         </div>
       </section>
@@ -91,4 +76,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default ForgotPassword;

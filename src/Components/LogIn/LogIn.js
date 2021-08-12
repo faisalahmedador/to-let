@@ -1,75 +1,81 @@
 import React, { useState, useEffect } from "react";
-// import Headers from "../layout/Header/Headers";
-// import Footers from "../layout/Footer/Footers";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-// import { loginRequest } from "../../redux/actions/loginActions";
-// import * as Auth from "../../helpers/auth";
+import { useForm } from "react-hook-form";
+import { signupAction } from "../../redux/Actions/SigninActions";
+import { Container, Col, Row } from "react-bootstrap";
+import RentalHome from '../../Assets/images/RentalHome.jpg'
+import cookies from "js-cookie";
 import "./_login.scss";
 
 const LogIn = () => {
   // let history = useHistory()
-  
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(signupAction(data));
+  };
+
+  const { loading, success, error } = useSelector(
+    (state) => state.signinReducer
+  );
+
+  if (error) {
+    console.log(error);
+  }
+
+  // useEffect(() =>{
+  //   if(success.token){
+  //     cookies.set('token', success.token)
+  //   }
+  // }, [success])
+
   return (
-    <section id="login-section">
-      {/* <div className="go_top">
-            <i className="fa fa-angle-double-up" aria-hidden="true"></i>
-          </div> */}
-
-      {/* <Headers /> */}
-
+    <section id="login-section" 
+    style={{ backgroundImage: `url(${RentalHome})` ,
+     backgroundRepeat: 'no-repeat',
+     backgroundSize: 'cover',
+      width: '100%',
+       height: '100vh'}}>
       <section className="login-form">
         <div className="form-info">
           <h2>Login to continue</h2>
-          <input
-            className="form-input"
-            type="text"
-            name="User name"
-            // onChange={(e) => setUser(e.target.value)}
-            placeholder="User name or Email Address*"
-          />
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Password*"
-            // onChange={(e) => setPass(e.target.value)}
-          />
-          <Link className="forgot" to="/login/forgotten">
-            forgotten password?
-          </Link>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="form-input"
+              {...register("email", { required: true })}
+              // onChange={(e) => setUser(e.target.value)}
+              placeholder="User name or Email or Phone"
+            />
 
-          <button className='button log'>
-            login
-          </button>
+            <input
+              className="form-input"
+              placeholder="Password*"
+              {...register("password", { required: true })}
+              // onChange={(e) => setPass(e.target.value)}
+            />
 
-          {/* <button className="button log" onClick={onSubmitHandler}>
-            {loading === true ? (
-              <span
-                class="spinner-grow spinner-grow-sm pr-2"
-                style={{ color: "#4f4f4f" }}
-                role="status"
-                aria-hidden="true"
-              ></span>
-            ) : (
-              ""
-            )}
-            login
-          </button> */}
+            {error && "invalid email or password"}
 
-          {/* {logged === false ? (
-            <h5 className="registration-header-p" style={{ color: "red" }}>
-              {loginInfo.response.data.message}
-            </h5>
-          ) : (
-            ""
-          )} */}
-          {/* <a className="button fb" href="#">
-            {" "}
-            facebook
-          </a> */}
+            <Link className="forgot" to="/forgotpassword">
+              forgotten password?
+            </Link>
+
+            {(errors.email || errors.password) && console.log(errors.email)}
+            <input className="button log" type="submit" value="Log In" />
+          </form>
+
           <span className="line">or</span>
           <Link className="button sign" to="/signup">
-            sign up
+            Create an acount
           </Link>
         </div>
       </section>

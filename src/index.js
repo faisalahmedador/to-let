@@ -7,6 +7,7 @@ import thunkMiddleware from "redux-thunk";
 import { Search } from "./redux/reducers/landingpagereducers";
 import { Header } from "./redux/reducers/headerreducers";
 import { Add } from "./redux/reducers/addetailsreducers";
+import {signinReducer} from "./redux/reducers/signinReducers"
 import {  adsubmitreducers} from './redux/reducers/adsubmitreducers'
 // import ScrollToTop from './ScrollToTop';
 //import './index.css';
@@ -21,9 +22,10 @@ import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 import Login from './Components/LogIn/LogIn';
 import "./Style/main.scss";
 import Signup from "./Components/Signup/Signup";
+import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 
 const logger = createLogger();
-const reducerCombined = combineReducers({ Search, Header,Add,  adsubmitreducers });
+const reducerCombined = combineReducers({ Search, Header,Add,  adsubmitreducers, signinReducer });
 const store = createStore(
   reducerCombined,
   applyMiddleware(thunkMiddleware, logger)
@@ -39,8 +41,10 @@ ReactDOM.render(
         <BrowserRouter>
         <Switch>
 
+        
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
+          <Route exact path='/forgotpassword' component={ForgotPassword}/>
           <Route path='/' component={App} />
 
         </Switch>
