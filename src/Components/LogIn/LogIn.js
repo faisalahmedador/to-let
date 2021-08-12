@@ -1,106 +1,108 @@
 import React, { useState, useEffect } from "react";
-// import Headers from "../layout/Header/Headers";
-// import Footers from "../layout/Footer/Footers";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { API } from '../../util/api';
+import { API } from "../../util/api";
+import { useForm } from "react-hook-form";
+import { signinAction } from "../../redux/Actions/SigninActions";
+import { Container, Col, Row } from "react-bootstrap";
+import RentalHome from "../../Assets/images/RentalHome.jpg";
+import cookies from "js-cookie";
+
 // import { loginRequest } from "../../redux/actions/loginActions";
 // import * as Auth from "../../helpers/auth";
 import "./_login.scss";
 
 const LogIn = () => {
-  let history = useHistory()
+  let history = useHistory();
 
-  const [logInfo, setLoginfo ] = useState({ number: '', pass: '' })
+  // const [logInfo, setLoginfo] = useState({ number: "", pass: "" });
 
-  console.log(logInfo );
-  
-  const loginFunc = async() => {
-    if( logInfo.number != '' && logInfo.pass != '' ){
-      if(logInfo.number.length === 11 ){
-        
-        try{
+  // console.log(logInfo);
+
+  // const loginFunc = async () => {
+  //   if (logInfo.number != "" && logInfo.pass != "") {
+  //     if (logInfo.number.length === 11) {
+  //       try {
+  //         const { data } = await API.post("/login", {
+  //           number: logInfo.number,
+  //           pass: logInfo.pass,
+  //         });
           
-          const { data } = await API.post('/login', { number: logInfo.number, pass: logInfo.pass  } );
-            console.log('its called');
-            console.log('data from  login', data );
-            localStorage.setItem('token', data.token )
-            history.push('/home')
+  //         history.push("/home");
+  //       } catch (err) {
+  //         alert(err?.response?.data?.message);
+  //       }
+  //     } else {
+  //       alert("Please give valid number of 11 digit, don't add +88 in front");
+  //     }
+  //   } else {
+  //     alert("You have to give both of your credentials");
+  //   }
+  // };
 
-        }
-        catch(err){
-          alert(err?.response?.data?.message)
-        }
-      }
-      else{
-        alert('Please give valid number of 11 digit, don\'t add +88 in front')
-      }
-    }
-    else{
-      alert('You have to give both of your credentials')
-    }
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(signinAction(data));
+  };
+
+  const { loading, success, error } = useSelector(
+    (state) => state.signinReducer
+  );
+
+  if (error) {
+    console.log(error);
   }
 
   return (
-    <section id="login-section">
-      {/* <div className="go_top">
-            <i className="fa fa-angle-double-up" aria-hidden="true"></i>
-          </div> */}
-
-      {/* <Headers /> */}
-
+    <section
+      id="login-section"
+      style={{
+        backgroundImage: `url(${RentalHome})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
       <section className="login-form">
         <div className="form-info">
           <h2>Login to continue</h2>
-          <input
-            className="form-input"
-            type="number"
-            name="User name"
-            onChange={(e) =>  setLoginfo({ ...logInfo, number:  e.target.value }) }
-            placeholder="enter your mobile number"
-          />
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Password*"
-            onChange={(e) => setLoginfo({ ...logInfo, pass: e.target.value  }) }
-          />
-          <Link className="forgot" to="/login/forgotten">
-            forgotten password?
-          </Link>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="form-input"
+              {...register("number", { required: true })}
+              // onChange={(e) => setUser(e.target.value)}
+              placeholder="User name or Email or Phone"
+            />
 
-          <button className='button log' onClick={ () => loginFunc() } >
-            login
-          </button>
+            <input
+              className="form-input"
+              placeholder="Password*"
+              {...register("pass", { required: true })}
+              // onChange={(e) => setPass(e.target.value)}
+            />
 
-          {/* <button className="button log" onClick={onSubmitHandler}>
-            {loading === true ? (
-              <span
-                class="spinner-grow spinner-grow-sm pr-2"
-                style={{ color: "#4f4f4f" }}
-                role="status"
-                aria-hidden="true"
-              ></span>
-            ) : (
-              ""
-            )}
-            login
-          </button> */}
+            {error && "invalid email or password"}
 
-          {/* {logged === false ? (
-            <h5 className="registration-header-p" style={{ color: "red" }}>
-              {loginInfo.response.data.message}
-            </h5>
-          ) : (
-            ""
-          )} */}
-          {/* <a className="button fb" href="#">
-            {" "}
-            facebook
-          </a> */}
+            <Link className="forgot" to="/forgotpassword">
+              forgotten password?
+            </Link>
+
+            {(errors.email || errors.password) && console.log(errors.email)}
+            <input className="button log" type="submit" value="Log In" />
+          </form>
+
           <span className="line">or</span>
           <Link className="button sign" to="/signup">
-            sign up
+            Create an acount
           </Link>
         </div>
       </section>

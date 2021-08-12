@@ -1,0 +1,59 @@
+@import '../../Style/abstracts/variable';
+
+.default_main{
+    margin-top: 50px;
+    height: 60vh;
+}
+
+.default_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 15rem;
+        font-weight: 700;
+        color: #4f4f4f;
+        margin: 5px auto;
+    }
+
+    h5{
+        font-size: 3rem;
+        font-weight: 700;
+        color: #4f4f4f;
+        margin: 5px auto;
+    }
+
+    p{
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4f4f4f;
+        margin: 5px auto;
+    }
+}
+
+.default_main .button {
+    padding: 5px;
+    margin: 10px 0;
+    text-align: center !important;
+    color: #fff;
+    -webkit-transition: background-color 650ms;
+    transition: background-color 650ms;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 4px;
+  
+  }
+  
+  .default_main .button:hover {
+    background-color: white;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
+    font-weight: 800;
+  }
+
+  .default_main .home {
+    background-color: $primaryColor;
+  }

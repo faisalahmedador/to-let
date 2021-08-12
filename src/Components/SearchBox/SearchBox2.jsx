@@ -1,6 +1,16 @@
-import React from 'react';
-import { Container, Row, Col, InputGroup, FormControl, DropdownButton, Dropdown, Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router';
+import React from "react";
+import {
+  Container,
+  Row,
+  Col,
+  InputGroup,
+  FormControl,
+  DropdownButton,
+  Dropdown,
+  Form,
+  Button,
+} from "react-bootstrap";
+import { useHistory } from "react-router";
 
 const SearchBox2 = () => {
 
@@ -111,13 +121,14 @@ const SearchBox2 = () => {
 
         </Form.Row>
 
-        <Form.Row style={{ display: 'flex', justifyContent: 'center' }} >
-        <Button type="submit" size="lg" >Search</Button>
+        <Form.Row style={{ display: "flex", justifyContent: "center" }}>
+          <Button type="submit" size="lg">
+            Search
+          </Button>
         </Form.Row>
-        
-        </Container>
-        </Form>
-    );
+      </Container>
+    </Form>
+  );
 };
 
 export default SearchBox2;
