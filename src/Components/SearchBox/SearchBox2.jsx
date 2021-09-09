@@ -14,17 +14,17 @@ const SearchBox2 = () => {
     return (
         <Form onSubmit={ onSubmit  } >
         <Container fluid 
-        style={{ backgroundColor: 'rgba(113, 94, 241, .8)', padding: '10px 10px', borderRadius: '.5rem', boxShadow: '0 0 9px -2px rgba(0,0,0,.5)' }} >
+        style={{ backgroundColor: 'rgba(255,255,255,.9)', padding: '10px 10px', borderRadius: '.5rem', boxShadow: '0 0 9px -2px rgba(0,0,0,.5)' }} >
 
 
         <Form.Row>
             <Col lg={4} xs={12} style={{ margin: '5px 0' }} >
-                <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Enter Area Name </p>
+                <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Enter Area Name </p>
                 <Form.Control placeholder={  `Enter Area Name` } size='lg' />
             </Col>
 
             <Col lg={4} xs={12} style={{ margin: '5px 0' }}  >
-                <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Select City </p>
+                <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Select City </p>
                 <Form.Control as="select" size="lg" placeholder='Select City'>
                     {/* <option> Select City </option> */}
                     <option> Dhaka </option>
@@ -37,7 +37,7 @@ const SearchBox2 = () => {
             </Col>
 
             <Col lg={4} xs={12} style={{ margin: '5px 0' }} >
-                <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Select Type </p>
+                <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Select Type </p>
                 <Form.Control as="select" size="lg" placeholder='Select Type'>
                     {/* <option> Select Type </option> */}
                     <option>Duplex</option>
@@ -55,7 +55,7 @@ const SearchBox2 = () => {
         <Form.Row>
 
         <Col lg={3} xs={12} style={{ margin: '5px 0' }} >
-        <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Select Bed </p>
+        <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Select Bed </p>
         <Form.Control as="select" size="lg" placeholder='Select Bed'>
             {/* <option> Select Bed </option> */}
             <option>1</option>
@@ -69,7 +69,7 @@ const SearchBox2 = () => {
         </Col>
 
         <Col lg={3} xs={12} style={{ margin: '5px 0' }} >
-        <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Select Bath </p>
+        <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Select Bath </p>
         <Form.Control as="select" size="lg" placeholder='Select Bath'>
             {/* <option> Select Bath </option> */}
             <option>1</option>
@@ -83,7 +83,7 @@ const SearchBox2 = () => {
         </Col>
 
         <Col lg={3} xs={12} style={{ margin: '5px 0' }} >
-        <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Minimum Price </p>
+        <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Minimum Price </p>
         <Form.Control as="select" size="lg" placeholder='Minimum Price'>
             {/* <option>Min Price</option> */}
             <option>1000</option>
@@ -97,7 +97,7 @@ const SearchBox2 = () => {
         </Col>
 
         <Col lg={3} xs={12} style={{ margin: '5px 0' }} >
-        <p style={{ margin: '0', color: 'white', textAlign: 'left' }} > Maximum Price </p>
+        <p style={{ margin: '0', color: '#715EF1',fontWeight: 'bold' , textAlign: 'left' }} > Maximum Price </p>
         <Form.Control as="select" size="lg" placeholder='Maximum Price'>
             {/* <option>Max Price</option> */}
             <option>5000</option>

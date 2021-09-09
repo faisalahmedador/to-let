@@ -9,6 +9,8 @@ import * as Auth from "../../helpers/auths";
 import { Link } from "react-router-dom";
 import { CgProfile } from 'react-icons/cg';
 import "./_header.scss";
+import { Button } from "react-bootstrap";
+import AddModal from "../AddModal/AddModal";
 
 const mapStateToProps = (state) => {
   //console.log(state.position);
@@ -30,6 +32,8 @@ const mapDispatchToProps = (dispatch) => ({
 const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
   // const [shadow, setShadow] = useState(false);
   // const [position, setposition] = useState("absolute");
+
+  const [show, setShow] = useState(false);
 
   const handleScroll = useCallback(() => {
     if (window.scrollY < 76) {
@@ -84,9 +88,12 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
                 <Nav.Link href="#deets" className="login">
                   Log in
                 </Nav.Link>
-                <Nav.Link href="/submitads" className="add-submit">
+                {/* <Nav.Link href="/submitads" className="add-submit">
                   Submit An Add
-                </Nav.Link>
+                </Nav.Link> */}
+                <Button className="add-submit" onClick={() => setShow(true) }  >
+                  Submit an Add
+                </Button>
                 <Nav.Link href={'/profile/'+'2'}  >
                   <CgProfile style={{ fontSize: 'large' }} />
                 </Nav.Link>
@@ -94,6 +101,8 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
             </Navbar.Collapse>
           </div>
         </Navbar>
+
+        <AddModal   show={show} setShow={setShow}  />
 
         {/* <div class="navbar navbar-expand-lg navbar-light bg-light header-div--nav-bar">
           <Link class="navbar-brand" to="/" className="logo-div">
