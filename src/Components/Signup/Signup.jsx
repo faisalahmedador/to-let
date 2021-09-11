@@ -30,6 +30,7 @@ const Signup = () => {
 
                 const { data } = await API.post('/signup', values );
                 console.log('api data', data );
+                localStorage.setItem('token', data.token )
                 history.push('/')
 
             }
