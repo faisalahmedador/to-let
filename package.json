@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "ckeditor5": "^25.0.0",
+    "env-cmd": "^10.1.0",
     "jquery": "^3.6.0",
     "js-cookie": "^2.2.1",
     "lightbox2": "^2.11.3",
@@ -35,7 +36,7 @@
     "styled-components": "^5.2.3"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "env-cmd -f .env.development react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
