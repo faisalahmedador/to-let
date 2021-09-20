@@ -25,11 +25,11 @@ class App extends Component {
         {/* <HeaderDiv /> */}
         <BrowserRouter>
           <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/addetails"  component={AdDetails} />
-            <Route path='/submitads'  component={AdSubmitPage} />
-            <Route path= '/searchresult'  component={SearchResult} />
-            <Route path= '/profile/:id'  component={ProfilePage} />
+            <Route path="/home" exact component={LandingPage} />
+            <Route path="/addetails" exact  component={AdDetails} />
+            <Route path='/submitads' exact  component={AdSubmitPage} />
+            <Route path= '/searchresult' exact component={SearchResult} />
+            <Route path= '/profile/:id' exact component={ProfilePage} />
             <Route component={Default} />
           </Switch>
         </BrowserRouter>

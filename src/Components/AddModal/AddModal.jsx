@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {  Modal, Button, Form, InputGroup, FormControl   } from 'react-bootstrap';
+import {  Modal, Button, Form, InputGroup, FormControl, Dropdown,DropdownButton, ButtonGroup   } from 'react-bootstrap';
+import { cities } from '../../util/dummyData'
 
 const AddModal = ({ show, setShow }) => {
 
@@ -82,6 +83,10 @@ const AddModal = ({ show, setShow }) => {
 
     }
     
+    const onSubmit = () => {
+
+    }
+    
     console.log('ques save', quesSave );
 
     return (
@@ -107,9 +112,32 @@ const AddModal = ({ show, setShow }) => {
                         }) }
                         </InputGroup>
                         :
-                        <InputGroup className="mb-3 " onChange={(e) => saveFunc(e.target.value, quesNo ) } >
+                        quesarr[quesNo].q == 'বাসার এড্রেস ?' ?
+                        <>
+                       <DropdownButton
+                            as={ButtonGroup}
+                            // key={city}
+                            id={`city`}
+                            // variant={city.toLowerCase()}
+                            title={'city'}
+                            onSelect={ e => saveFunc(e, quesNo ) }
+                        >
+                            {
+                                cities.map( val =>  {
+                                    return(
+                                        <Dropdown.Item eventKey={val}  > {val} </Dropdown.Item>
+                                    )
+                                })
+                            }
+
+                        </DropdownButton>
+                        </>
+                        :
+                        <InputGroup  className="mb-3 " onChange={(e) => saveFunc(e.target.value, quesNo ) } >
                             {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
                             <FormControl
+                            type='number'
+                            key={quesNo}
                             id={quesNo.toString()}
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
@@ -136,7 +164,7 @@ const AddModal = ({ show, setShow }) => {
                 <Button variant="primary" onClick={ () => setQuesno( quesNo-1 ) } >
                     Previous
                 </Button>
-                <Button variant="primary" onClick={ () => onHide() }  >
+                <Button variant="primary" onClick={ () => onSubmit() }  >
                     Done
                 </Button>
                 </>

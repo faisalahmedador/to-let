@@ -4,7 +4,7 @@ import { AiFillQuestionCircle } from 'react-icons/ai';
 import ReactDate from 'react-date-picker';
 import './Signup.scss';
 import { API } from '../../util/api';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 const Signup = () => {
 
@@ -31,7 +31,7 @@ const Signup = () => {
                 const { data } = await API.post('/signup', values );
                 console.log('api data', data );
                 localStorage.setItem('token', data.token )
-                history.push('/')
+                history.push('/home')
 
             }
             catch(err){
@@ -137,6 +137,11 @@ const Signup = () => {
             <Button variant="primary" className='submit-btn' type="submit">
                 Submit
             </Button>
+
+            <span className="line">or</span>
+            <Link className="button sign" to="/login">
+                Login
+            </Link>
             
             </Form>
         </div>

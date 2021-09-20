@@ -17,7 +17,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router, Redirect } from "react-router-dom";
 import Login from './Components/LogIn/LogIn';
 import "./Style/main.scss";
 import Signup from "./Components/Signup/Signup";
@@ -38,10 +38,10 @@ ReactDOM.render(
 
         <BrowserRouter>
         <Switch>
-
+          <Route exact path="/" render={() => <Redirect to="/login" />} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
-          <Route path='/' component={App} />
+          <Route path='/home' component={App} />
 
         </Switch>
         </BrowserRouter>

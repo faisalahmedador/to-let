@@ -3,13 +3,44 @@ import React, { useState, useEffect } from "react";
 // import Footers from "../layout/Footer/Footers";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { API } from '../../util/api';
 // import { loginRequest } from "../../redux/actions/loginActions";
 // import * as Auth from "../../helpers/auth";
 import "./_login.scss";
 
 const LogIn = () => {
-  // let history = useHistory()
+  let history = useHistory()
+
+  const [logInfo, setLoginfo ] = useState({ number: '', pass: '' })
+
+  console.log(logInfo );
   
+  const loginFunc = async() => {
+    if( logInfo.number != '' && logInfo.pass != '' ){
+      if(logInfo.number.length === 11 ){
+        
+        try{
+          
+          const { data } = await API.post('/login', { number: logInfo.number, pass: logInfo.pass  } );
+            console.log('its called');
+            console.log('data from  login', data );
+            localStorage.setItem('token', data.token )
+            history.push('/home')
+
+        }
+        catch(err){
+          alert(err?.response?.data?.message)
+        }
+      }
+      else{
+        alert('Please give valid number of 11 digit, don\'t add +88 in front')
+      }
+    }
+    else{
+      alert('You have to give both of your credentials')
+    }
+  }
+
   return (
     <section id="login-section">
       {/* <div className="go_top">
@@ -23,22 +54,22 @@ const LogIn = () => {
           <h2>Login to continue</h2>
           <input
             className="form-input"
-            type="text"
+            type="number"
             name="User name"
-            // onChange={(e) => setUser(e.target.value)}
-            placeholder="User name or Email Address*"
+            onChange={(e) =>  setLoginfo({ ...logInfo, number:  e.target.value }) }
+            placeholder="enter your mobile number"
           />
           <input
             className="form-input"
             type="password"
             placeholder="Password*"
-            // onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => setLoginfo({ ...logInfo, pass: e.target.value  }) }
           />
           <Link className="forgot" to="/login/forgotten">
             forgotten password?
           </Link>
 
-          <button className='button log'>
+          <button className='button log' onClick={ () => loginFunc() } >
             login
           </button>
 
