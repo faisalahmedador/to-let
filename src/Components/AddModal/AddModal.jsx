@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {  Modal, Button, Form, InputGroup, FormControl, Dropdown,DropdownButton, ButtonGroup   } from 'react-bootstrap';
 import { cities } from '../../util/dummyData'
+import { API } from '../../util/api';
 
 const AddModal = ({ show, setShow }) => {
 
@@ -11,7 +12,10 @@ const AddModal = ({ show, setShow }) => {
 
         },
         {
-            q: 'বাসার এড্রেস ?'
+            q: 'বাসার এড্রেস (শহর)?'
+        },
+        {
+            q: 'বাসার এড্রেস (এলাকা)?'
         },
         {
             q: 'কয় তলায় ?'
@@ -54,40 +58,55 @@ const AddModal = ({ show, setShow }) => {
     }
 
     const saveFunc = (val, quesNo) => {
-        console.log('value', val );
+        console.log('value', val, quesNo );
 
         switch(quesNo){
             case 0 : setQuesSave( { ...quesSave, type:val } );
             break ;
-            case 1 : setQuesSave( { ...quesSave, address:val } );
+            case 1 : setQuesSave( { ...quesSave, city:val } );
             break ;
-            case 2 : setQuesSave( { ...quesSave, floor:val } );
+            case 2 : setQuesSave( { ...quesSave, area:val } );
             break ;
-            case 3 : setQuesSave( { ...quesSave, toylet:val } );
+            case 3 : setQuesSave( { ...quesSave, floor:val } );
             break ;
-            case 4 : setQuesSave( { ...quesSave, attachtoylet:val } );
+            case 4 : setQuesSave( { ...quesSave, toylet:val } );
             break ;
-            case 5 : setQuesSave( { ...quesSave, varanda:val } );
+            case 5 : setQuesSave( { ...quesSave, attachtoylet:val } );
             break ;
-            case 6 : setQuesSave( { ...quesSave, roomattach:val } );
+            case 6 : setQuesSave( { ...quesSave, varanda:val } );
             break ;
-            case 7 : setQuesSave( { ...quesSave, gas:val } );
+            case 7 : setQuesSave( { ...quesSave, roomattach:val } );
             break ;
-            case 8 : setQuesSave( { ...quesSave, vara:val } );
+            case 8 : setQuesSave( { ...quesSave, gas:val } );
             break ;
-            case 9 : setQuesSave( { ...quesSave, advance:val } );
+            case 9 : setQuesSave( { ...quesSave, vara:val } );
             break ;
-            case 10 : setQuesSave( { ...quesSave, contact : val } );
+            case 10 : setQuesSave( { ...quesSave, advance:val } );
+            break ;
+            case 11 : setQuesSave( { ...quesSave, contact : val } );
             break ;
         }
 
     }
     
-    const onSubmit = () => {
+    const onSubmit = async() => {
+        if(Object.keys(quesSave).length === 12 ){
+            console.log('object', Object.keys(quesSave), quesSave );
+            setShow(false)
+            setQuesno(0)
+            setQuesSave({})
 
+          const { data } = await API.post('/add/submit', { quesSave  } );
+
+          console.log('data from submit add', data );
+
+        }
+        else{
+            alert('You have to fill all questions, please go back in previous questions & fill them up')
+        }
     }
     
-    console.log('ques save', quesSave );
+    // console.log('ques save', quesSave );
 
     return (
         <div>
@@ -112,8 +131,7 @@ const AddModal = ({ show, setShow }) => {
                         }) }
                         </InputGroup>
                         :
-                        quesarr[quesNo].q == 'বাসার এড্রেস ?' ?
-                        <>
+                        quesarr[quesNo].q == 'বাসার এড্রেস (শহর)?' ?
                        <DropdownButton
                             as={ButtonGroup}
                             // key={city}
@@ -131,7 +149,18 @@ const AddModal = ({ show, setShow }) => {
                             }
 
                         </DropdownButton>
-                        </>
+                        :
+                        quesarr[quesNo].q == 'বাসার এড্রেস (এলাকা)?' ?
+                        <InputGroup  className="mb-3 " onChange={(e) => saveFunc(e.target.value, quesNo ) } >
+                            {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
+                            <FormControl
+                            placeholder='Please write your correct area name'
+                            key={quesNo}
+                            id={quesNo.toString()}
+                            aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default"
+                            />
+                        </InputGroup>
                         :
                         <InputGroup  className="mb-3 " onChange={(e) => saveFunc(e.target.value, quesNo ) } >
                             {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
@@ -147,7 +176,7 @@ const AddModal = ({ show, setShow }) => {
                 </Modal.Body>
                 <Modal.Footer>
                 {
-                quesNo < 10 ?
+                quesNo < 11 ?
                 <>
                 {
                     quesNo > 0 &&
