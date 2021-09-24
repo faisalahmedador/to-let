@@ -61,29 +61,29 @@ const AddModal = ({ show, setShow }) => {
         console.log('value', val, quesNo );
 
         switch(quesNo){
-            case 0 : setQuesSave( { ...quesSave, type:val } );
+            case 0 : setQuesSave( { ...quesSave, type:val.toString() } );
             break ;
-            case 1 : setQuesSave( { ...quesSave, city:val } );
+            case 1 : setQuesSave( { ...quesSave, city:val.toString() } );
             break ;
-            case 2 : setQuesSave( { ...quesSave, area:val } );
+            case 2 : setQuesSave( { ...quesSave, area:val.toString() } );
             break ;
-            case 3 : setQuesSave( { ...quesSave, floor:val } );
+            case 3 : setQuesSave( { ...quesSave, floor:val.toString() } );
             break ;
-            case 4 : setQuesSave( { ...quesSave, toylet:val } );
+            case 4 : setQuesSave( { ...quesSave, toylet:val.toString() } );
             break ;
-            case 5 : setQuesSave( { ...quesSave, attachtoylet:val } );
+            case 5 : setQuesSave( { ...quesSave, attachtoylet:val.toString() } );
             break ;
-            case 6 : setQuesSave( { ...quesSave, varanda:val } );
+            case 6 : setQuesSave( { ...quesSave, varanda:val.toString() } );
             break ;
-            case 7 : setQuesSave( { ...quesSave, roomattach:val } );
+            case 7 : setQuesSave( { ...quesSave, roomattach:val.toString() } );
             break ;
-            case 8 : setQuesSave( { ...quesSave, gas:val } );
+            case 8 : setQuesSave( { ...quesSave, gas:val.toString() } );
             break ;
-            case 9 : setQuesSave( { ...quesSave, vara:val } );
+            case 9 : setQuesSave( { ...quesSave, vara:parseInt(val) } );
             break ;
-            case 10 : setQuesSave( { ...quesSave, advance:val } );
+            case 10 : setQuesSave( { ...quesSave, advance:val.toString() } );
             break ;
-            case 11 : setQuesSave( { ...quesSave, contact : val } );
+            case 11 : setQuesSave( { ...quesSave, contact : val.toString() } );
             break ;
         }
 
@@ -91,12 +91,14 @@ const AddModal = ({ show, setShow }) => {
     
     const onSubmit = async() => {
         if(Object.keys(quesSave).length === 12 ){
-            console.log('object', Object.keys(quesSave), quesSave );
+            console.log('object', quesSave );
             setShow(false)
             setQuesno(0)
             setQuesSave({})
 
-          const { data } = await API.post('/add/submit', { quesSave  } );
+          const { data } = await API.post('/add/submit', {  type: quesSave.type, city: quesSave.city, area: quesSave.area, floor: quesSave.floor, toylet: quesSave.toylet, 
+                                                            attachtoylet: quesSave.attachtoylet, varanda: quesSave.varanda, roomattach: quesSave.roomattach, gas: quesSave.gas, vara: quesSave.vara, 
+                                                            advance: quesSave.advance, contact: quesSave.contact }  );
 
           console.log('data from submit add', data );
 
@@ -121,6 +123,7 @@ const AddModal = ({ show, setShow }) => {
                         { quesarr[quesNo].radioOptions.map((v) => {
                             return(
                                 <Form.Check 
+                                    // key={}
                                     type={'radio'}
                                     id={v}
                                     label={ <span style={{ fontWeight: 'bold', margin: '0 5px' }} >  { v }  </span> }
