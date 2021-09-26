@@ -77,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class LandingPage extends Component {
+  
+
+
   render() {
     const {
       onSetSearch,
@@ -89,7 +92,7 @@ class LandingPage extends Component {
       searchField
     } = this.props;
 
-   
+    
     return (
       <>
         {/* <UpperHeader /> */}

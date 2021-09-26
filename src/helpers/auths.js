@@ -1,12 +1,12 @@
-import cookies from "js-cookie";
-
-export const userToken = cookies.get("token");
+import Cookies from 'js-cookie'
+export const userToken = Cookies.get("userToken");
 
 export const validAdmin = () => {
-  const userToken = cookies.get("token");
-
+  const userToken = Cookies.get("userToken");
+  console.log(userToken);
+  
   if (userToken) {
     return true;
   }
-  return true;
+  return false;
 };

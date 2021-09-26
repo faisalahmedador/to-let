@@ -4,35 +4,40 @@ import Header from "../Components/Header/Header";
 import LandingPage from "../Pages/LandingPage";
 import AdDetails from "../Pages/AdDetails";
 import Default from "../Pages/Default/Default";
-import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter  } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
-import AdSubmitPage from "../Pages/AdSubmitPage";
 import SearchResult from "../Pages/SearchResult";
-import ProfilePage from "../Pages/ProfilePage/ProfilePage";
+import AdminProtected from './adminProtectedRoute';
+import ProtectedRoute from './protectedRoute';
+import Login from '../Components/LogIn/LogIn';
+import Signup from "../Components/Signup/Signup";
+import ForgotPassword from "../Components/ForgotPassword/ForgotPassword";
 
-const Routes = () =>{
+const Routes = () => {
 
-    return(
-        <>
-        <UpperHeader />
-        <Header />
-        {/* <HeaderDiv /> */}
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/addetails" exact  component={AdDetails} />
-            <Route path='/submitads' exact  component={AdSubmitPage} />
-            <Route path= '/searchresult' exact component={SearchResult} />
-            <Route path= '/profile/:id' exact component={ProfilePage} />
-            <Route path="/notFound" component={Default} />
-            <Route path="*">
+  return (
+    <BrowserRouter>
+      <UpperHeader />
+      <Header />
+      {/* <HeaderDiv /> */}
+      <>
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/addetails" exact component={AdDetails} />
+          <Route path='/searchresult' exact component={SearchResult} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/forgotpassword' component={ForgotPassword} />
+          <AdminProtected component={ProtectedRoute} />
+          <Route path="/notFound" component={Default} />
+          <Route path="*">
             <Redirect to="/notFound" />
-            </Route>
-          </Switch>
-        </BrowserRouter>
-        <Footer />
-        </>
-    )
+          </Route>
+        </Switch>
+      </>
+      <Footer />
+    </BrowserRouter>
+  )
 
 }
 

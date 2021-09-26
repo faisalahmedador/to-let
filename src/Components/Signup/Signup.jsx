@@ -1,4 +1,4 @@
-import React, {useState, useRef } from 'react';
+import React, {useState, useRef, useEffect } from 'react';
 import { Form, Col, Button, Overlay, Tooltip, Row } from 'react-bootstrap';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import ReactDate from 'react-date-picker';
@@ -11,10 +11,12 @@ import { useForm } from "react-hook-form";
 import { signupAction } from "../../redux/Actions/SignupActions";
 
 import RentalHome from '../../Assets/images/RentalHome.jpg'
-import cookies from "js-cookie";
+import Cookies from "js-cookie";
 import "./_signup.scss";
 
 const Signup = () => {
+
+  let history = useHistory();
 
     // const [val, setVal ] = useState({first_name: '', last_name: '', number: '', pass: '' })
     // let history = useHistory()
@@ -71,16 +73,17 @@ const Signup = () => {
         console.log(data);
         dispatch(signupAction(data));
       };
-    
-      const { loading, success, error } = useSelector(
-        (state) => state.signinReducer
-      );
-    
-      if (error) {
-        console.log(error);
-      }
 
-   
+      const { loading, success, error } = useSelector(
+        (state) => state.signupReducer
+      );
+
+      useEffect(() =>{
+        if(success){
+          Cookies.set("userToken", success.response.data.token)
+          history.push('/');
+        }
+      }, [success])
 
   return (
     <section id="signup-section" 

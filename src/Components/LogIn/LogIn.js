@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { API } from "../../util/api";
 import { useForm } from "react-hook-form";
 import { signinAction } from "../../redux/Actions/SigninActions";
 import { Container, Col, Row } from "react-bootstrap";
 import RentalHome from "../../Assets/images/RentalHome.jpg";
-import cookies from "js-cookie";
+import Cookies from 'js-cookie'
 
 // import { loginRequest } from "../../redux/actions/loginActions";
 // import * as Auth from "../../helpers/auth";
@@ -14,6 +14,9 @@ import "./_login.scss";
 
 const LogIn = () => {
   let history = useHistory();
+  const location = useLocation();
+
+  console.log(location);
 
   // const [logInfo, setLoginfo] = useState({ number: "", pass: "" });
 
@@ -57,9 +60,14 @@ const LogIn = () => {
     (state) => state.signinReducer
   );
 
-  if (error) {
-    console.log(error);
-  }
+
+  useEffect(() =>{
+    if(success){
+      Cookies.set("userToken", success.response.data.token)
+      history.push('/');
+    }
+  },[success])
+
 
   return (
     <section
@@ -74,6 +82,7 @@ const LogIn = () => {
     >
       <section className="login-form">
         <div className="form-info">
+          {location.state.msg ? <p>login first to submit add</p> : ''}
           <h2>Login to continue</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input

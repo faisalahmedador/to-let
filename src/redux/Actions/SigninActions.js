@@ -2,6 +2,8 @@ import {
     SIGNIN_REQUEST,
     SIGNIN_SUCCESS,
     SIGNIN_FAILED,
+    USER_LOGOUT
+
   } from "../Constants";
   import axios from 'axios'
   import { BASE_API_URL } from "../../Components/configs";
@@ -27,4 +29,8 @@ import {
     }
   };
 
-  export {signinAction}
+  const logout = () => (dispatch) => {
+    dispatch({ type: USER_LOGOUT });
+  };
+
+  export {signinAction, logout}
