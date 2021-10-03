@@ -160,3 +160,55 @@ export const cities = [
 "Sunamganj",
 "Sylhet"
 ]
+
+export const questionArr = [
+    {
+        question: 'কি চাচ্ছেন?',
+        radioOptions: ['rent', 'sell']
+    },
+    {
+        question: 'কি ভাড়া দিবেন ?',
+        radioOptions: [ 'Flat', 'ApartMent', 'Male mess', 'Female mess', 'Sublet', 'Duplex', 'Foreigner Apartment', 'Paying Guest' ]
+
+    },
+    {
+        question: 'কি বিক্রি করবেন ?',
+        radioOptions: [ 'Flat', 'ApartMent','Duplex', 'Foreigner Apartment']
+
+    },
+    {
+        question: 'কয় তলায় ?'
+    },
+    {
+        question: 'টয়লেট/ওয়াশরুম কয়টি ?'
+    },
+    {
+        question: 'এটাচ টয়লেটসহ বেডরুম কয়টি ?'
+    },
+    {
+        question: 'বারান্দা কয়টি ?'
+    },
+    {
+        question: 'ড্রয়িং/ডাইনিং এটাচ নাকি আলাদা ?',
+        radioOptions: [ 'এটাচ', 'আলাদা' ] 
+    },
+    {
+        question: 'এলপি গ্যাস নাকি লাইনের গ্যাস ?',
+        radioOptions: [ 'এলপি', 'লাইন' ]
+    },
+    {
+        question: 'মাসিক ভাড়া কত ?'
+    },
+    {
+        question: 'এডভান্স কত ?'
+    },
+    {
+        question: 'বাসার এড্রেস (শহর)?'
+    },
+    {
+        question: 'বাসার এড্রেস (এলাকা)?'
+    },
+    {
+        question: 'আপনার কন্টাক্ট নাম্বার দিন'
+    }
+]

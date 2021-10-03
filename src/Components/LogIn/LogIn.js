@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory,useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { API } from "../../util/api";
 import { useForm } from "react-hook-form";
@@ -7,15 +7,13 @@ import { signinAction } from "../../redux/Actions/SigninActions";
 import { Container, Col, Row } from "react-bootstrap";
 import RentalHome from "../../Assets/images/RentalHome.jpg";
 import Cookies from 'js-cookie'
-
-// import { loginRequest } from "../../redux/actions/loginActions";
-// import * as Auth from "../../helpers/auth";
+import Alert from 'react-bootstrap/Alert'
 import "./_login.scss";
 
 const LogIn = () => {
   let history = useHistory();
   const location = useLocation();
-
+  const [show,setShow] = useState(true);
   console.log(location);
 
   // const [logInfo, setLoginfo] = useState({ number: "", pass: "" });
@@ -30,7 +28,7 @@ const LogIn = () => {
   //           number: logInfo.number,
   //           pass: logInfo.pass,
   //         });
-          
+
   //         history.push("/home");
   //       } catch (err) {
   //         alert(err?.response?.data?.message);
@@ -61,12 +59,12 @@ const LogIn = () => {
   );
 
 
-  useEffect(() =>{
-    if(success){
+  useEffect(() => {
+    if (success) {
       Cookies.set("userToken", success.response.data.token)
       history.push('/');
     }
-  },[success])
+  }, [success])
 
 
   return (
@@ -82,7 +80,10 @@ const LogIn = () => {
     >
       <section className="login-form">
         <div className="form-info">
-          {location.state.msg ? <p>login first to submit add</p> : ''}
+          {location.state && location.state.msg && show ? 
+          <Alert variant="warning" onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>You need to login/signup first to continue.</Alert.Heading>
+        </Alert> : ''}
           <h2>Login to continue</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
@@ -96,7 +97,7 @@ const LogIn = () => {
               className="form-input"
               placeholder="Password*"
               {...register("pass", { required: true })}
-              // onChange={(e) => setPass(e.target.value)}
+            // onChange={(e) => setPass(e.target.value)}
             />
 
             {error && "invalid email or password"}

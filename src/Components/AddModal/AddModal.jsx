@@ -1,52 +1,52 @@
 import React, { useState } from 'react';
 import {  Modal, Button, Form, InputGroup, FormControl, Dropdown,DropdownButton, ButtonGroup   } from 'react-bootstrap';
-import { cities } from '../../util/dummyData'
+import { cities,questionArr } from '../../util/dummyData'
 import { API } from '../../util/api';
 
 const AddModal = ({ show, setShow }) => {
 
-    let quesarr = [
-        {
-            q: 'কি ভাড়া দিবেন ?',
-            radioOptions: [ 'Flat', 'ApartMent', 'Male mess', 'Female mess', 'Sublet', 'Duplex', 'Foreigner Apartment', 'Paying Guest' ]
+    // let quesarr = [
+    //     {
+    //         q: 'কি ভাড়া দিবেন ?',
+    //         radioOptions: [ 'Flat', 'ApartMent', 'Male mess', 'Female mess', 'Sublet', 'Duplex', 'Foreigner Apartment', 'Paying Guest' ]
 
-        },
-        {
-            q: 'বাসার এড্রেস (শহর)?'
-        },
-        {
-            q: 'বাসার এড্রেস (এলাকা)?'
-        },
-        {
-            q: 'কয় তলায় ?'
-        },
-        {
-            q: 'টয়লেট/ওয়াশরুম কয়টি ?'
-        },
-        {
-            q: 'এটাচ টয়লেটসহ বেডরুম কয়টি ?'
-        },
-        {
-            q: 'বারান্দা কয়টি ?'
-        },
-        {
-            q: 'ড্রয়িং/ডাইনিং এটাচ নাকি আলাদা ?',
-            radioOptions: [ 'এটাচ', 'আলাদা' ] 
-        },
-        {
-            q: 'এলপি গ্যাস নাকি লাইনের গ্যাস ?',
-            radioOptions: [ 'এলপি', 'লাইন' ]
-        },
-        {
-            q: 'মাসিক ভাড়া কত ?'
-        },
-        {
-            q: 'এডভান্স কত ?'
-        },
-        {
-            q: 'আপনার কন্টাক্ট নাম্বার দিন'
-        }
-    ]
+    //     },
+    //     {
+    //         q: 'বাসার এড্রেস (শহর)?'
+    //     },
+    //     {
+    //         q: 'বাসার এড্রেস (এলাকা)?'
+    //     },
+    //     {
+    //         q: 'কয় তলায় ?'
+    //     },
+    //     {
+    //         q: 'টয়লেট/ওয়াশরুম কয়টি ?'
+    //     },
+    //     {
+    //         q: 'এটাচ টয়লেটসহ বেডরুম কয়টি ?'
+    //     },
+    //     {
+    //         q: 'বারান্দা কয়টি ?'
+    //     },
+    //     {
+    //         q: 'ড্রয়িং/ডাইনিং এটাচ নাকি আলাদা ?',
+    //         radioOptions: [ 'এটাচ', 'আলাদা' ] 
+    //     },
+    //     {
+    //         q: 'এলপি গ্যাস নাকি লাইনের গ্যাস ?',
+    //         radioOptions: [ 'এলপি', 'লাইন' ]
+    //     },
+    //     {
+    //         q: 'মাসিক ভাড়া কত ?'
+    //     },
+    //     {
+    //         q: 'এডভান্স কত ?'
+    //     },
+    //     {
+    //         q: 'আপনার কন্টাক্ট নাম্বার দিন'
+    //     }
+    // ]
 
     const [quesNo, setQuesno ] = useState(0)
     const [quesSave, setQuesSave] = useState({})
@@ -110,33 +110,36 @@ const AddModal = ({ show, setShow }) => {
 
     return (
         <div>
-            <Modal show={show} onHide={ () => onHide() }  backdrop="static"  centered size="lg" >
+            <Modal show={show} onHide={ () => onHide() }  backdrop="static"  centered size="sm" >
                 <Modal.Header closeButton >
-                <Modal.Title style={{ fontWeight: 'bold' }} > { quesarr[quesNo].q } </Modal.Title>
+                <Modal.Title style={{ fontWeight: 'bold' }} > { questionArr[quesNo].question } </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {
-                        quesarr[quesNo].radioOptions ?
-                        <InputGroup className="mb-3 " onClick={ (e) => saveFunc(e.target.id, quesNo ) } style={{ display: 'grid', textAlign: 'left' }} >
-                        { quesarr[quesNo].radioOptions.map((v) => {
+                        questionArr[quesNo].radioOptions ?
+                        <InputGroup className="mb-3 " key={quesNo} onClick={ (e) => saveFunc(e.target.id, quesNo ) } style={{ display: 'grid', textAlign: 'left',fontSize: "1.5rem" }} >
+                        { questionArr[quesNo].radioOptions.map((v) => {
                             return(
+                                <div className="mb-3">
                                 <Form.Check 
                                     type={'radio'}
                                     id={v}
-                                    label={ <span style={{ fontWeight: 'bold', margin: '0 5px' }} >  { v }  </span> }
+                                    label={ <span style={{ fontWeight: 'bold'}} >  { v }  </span> }
                                     name={`group${quesNo}`}
                                     // onClick={ (e) => console.log('from radio', e ) }
                                 />
+                                </div>
                             )
                         }) }
                         </InputGroup>
                         :
-                        quesarr[quesNo].q == 'বাসার এড্রেস (শহর)?' ?
+                        questionArr[quesNo].q == 'বাসার এড্রেস (শহর)?' ?
                        <DropdownButton
                             as={ButtonGroup}
                             // key={city}
+                            key={quesNo}
                             id={`city`}
-                            // variant={city.toLowerCase()}
+                            style={{ width: '100%'}}
                             title={'city'}
                             onSelect={ e => saveFunc(e, quesNo ) }
                         >
@@ -150,7 +153,7 @@ const AddModal = ({ show, setShow }) => {
 
                         </DropdownButton>
                         :
-                        quesarr[quesNo].q == 'বাসার এড্রেস (এলাকা)?' ?
+                        questionArr[quesNo].q == 'বাসার এড্রেস (এলাকা)?' ?
                         <InputGroup  className="mb-3 " onChange={(e) => saveFunc(e.target.value, quesNo ) } >
                             {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
                             <FormControl
