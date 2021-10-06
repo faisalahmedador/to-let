@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
@@ -14,12 +14,14 @@ import AddModal from "../AddModal/AddModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Actions/SigninActions";
 import { Redirect, useLocation } from "react-router-dom";
+import { SubmitQuestion } from "../../Context/submitAdFormContext";
 import Cookies from "js-cookie";
 
 const Header = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const [validUser, setValidUser] = useState(false);
+  const {open, question, questionNo} = useContext(SubmitQuestion);
 
   const dispatch = useDispatch();
 
@@ -73,6 +75,11 @@ const Header = () => {
     };
   }, [handleScroll]);
 
+  function openSubmitModal(){
+    open(true);
+    setShow(true);
+  }
+
   return (
     <section className="header-div-main" style={{ position: "relative" }}>
       <div
@@ -83,42 +90,6 @@ const Header = () => {
         }
         style={{ position }}
       >
-        {/* <div className="navbar navbar-expand-lg">
-          <Link to='/' className="navbar-brand">
-              LOGO
-          </Link>
-
-          <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div
-                className="collapse navbar-collapse "
-                id="navbarSupportedContent"
-                style={{ float: "right" }}
-              >
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <span>
-                      <Link to='/login'>
-
-                      </Link>
-                    </span>
-
-                  </li>
-
-                </ul>
-              </div>
-
-        </div> */}
         <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
           <Navbar.Brand href="/" className="logo-div">
             LOGO
@@ -134,7 +105,7 @@ const Header = () => {
                   </Nav.Link>
                 )}
 
-                <Button className="add-submit" onClick={() => setShow(true)}>
+                <Button className="add-submit" onClick={() => openSubmitModal()}>
                   Submit an Add
                 </Button>
 
@@ -165,7 +136,7 @@ const Header = () => {
 
         {show ? (
           validUser ? (
-            <AddModal show={show} setShow={setShow} />
+            <AddModal show={show} setShow={setShow} questionList = {question ? question : []} quesNo = {questionNo} />
           ) : (
             <Redirect to={{ pathname: "/login", state: { msg: true } }} />
           )

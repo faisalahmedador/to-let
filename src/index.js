@@ -17,6 +17,7 @@ import $ from "jquery";
 import Popper from "popper.js";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import SubmitQuestionProvider from "./Context/submitAdFormContext";
 
 import "./Style/main.scss";
 
@@ -36,7 +37,9 @@ const store = createStore(
 );
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <SubmitQuestionProvider>
+      <App />
+    </SubmitQuestionProvider>
   </Provider>,
   document.getElementById("root")
 );
