@@ -1,26 +1,29 @@
 import { React } from 'react';
-import { Dropdown,DropdownButton, ButtonGroup  } from 'react-bootstrap';
+import { Dropdown,DropdownButton, ButtonGroup, Form  } from 'react-bootstrap';
 
-const DropdownComponent = ({dropOptions,id}) => {
-
+const DropdownComponent = ({dropOptions,id, setQuesSave}) => {
+    console.log(dropOptions);
     return (
-        <DropdownButton
-            as={ButtonGroup}
+        <Form.Control
+            as='select'
             key={id}
             id={`city`}
             style={{ width: '100%' }}
             title={'city'}
-            onSelect={e => saveFunc(e, quesNo)}
+            onChange={e => {
+                let item = dropOptions.find(value => value.label === e.target.value);
+                setQuesSave(item.id)
+            }}
         >
             {
                 dropOptions.map(val => {
                     return (
-                        <Dropdown.Item eventKey={val}  > {val} </Dropdown.Item>
+                        <option eventKey={val.id}  > {val.label} </option>
                     )
                 })
             }
 
-        </DropdownButton>
+        </Form.Control>
     )
 }
 
