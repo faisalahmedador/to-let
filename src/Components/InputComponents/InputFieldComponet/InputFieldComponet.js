@@ -1,7 +1,7 @@
 import { React } from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
 
-const InputFieldComponent = ({ type, id,setQuesSave,value }) => {
+const InputFieldComponent = ({ type, id,setQuesSave }) => {
   return (
     <InputGroup
       className="mb-3 "

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   Button,
@@ -14,6 +14,8 @@ import { API } from "../../util/api";
 import RadioButtonComponent from "../InputComponents/RadioButtonComponent/RadioButtonComponent";
 import DropdownComponent from "../InputComponents/DropdownComponent/DropdownComponet";
 import InputFieldComponent from "../InputComponents/InputFieldComponet/InputFieldComponet";
+import AddressComponent from "../InputComponents/AddressComponent/AddressComponent";
+import MultiImageInput from 'react-multiple-image-input';
 
 const AddModal = ({
   show,
@@ -27,7 +29,8 @@ const AddModal = ({
   answerComplete,
 }) => {
   const [quesNo, setQuesno] = useState(0);
-  const [quesSave, setQuesSave] = useState('');
+  const [quesSave, setQuesSave] = useState({});
+  const [images, setImages] = useState({})
 
   const onHide = () => {
     setShow(false);
@@ -35,56 +38,21 @@ const AddModal = ({
     setQuesSave({});
   };
 
-  // const saveFunc = (val, quesNo) => {
-  //   console.log("value", val, quesNo);
-
-  //   switch (quesNo) {
-  //     case 0:
-  //       setQuesSave({ ...quesSave, type: val });
-  //       break;
-  //     case 1:
-  //       setQuesSave({ ...quesSave, city: val });
-  //       break;
-  //     case 2:
-  //       setQuesSave({ ...quesSave, area: val });
-  //       break;
-  //     case 3:
-  //       setQuesSave({ ...quesSave, floor: val });
-  //       break;
-  //     case 4:
-  //       setQuesSave({ ...quesSave, toylet: val });
-  //       break;
-  //     case 5:
-  //       setQuesSave({ ...quesSave, attachtoylet: val });
-  //       break;
-  //     case 6:
-  //       setQuesSave({ ...quesSave, varanda: val });
-  //       break;
-  //     case 7:
-  //       setQuesSave({ ...quesSave, roomattach: val });
-  //       break;
-  //     case 8:
-  //       setQuesSave({ ...quesSave, gas: val });
-  //       break;
-  //     case 9:
-  //       setQuesSave({ ...quesSave, vara: val });
-  //       break;
-  //     case 10:
-  //       setQuesSave({ ...quesSave, advance: val });
-  //       break;
-  //     case 11:
-  //       setQuesSave({ ...quesSave, contact: val });
-  //       break;
-  //   }
-  // };
 
   function handleNextItem() {
     if (answerComplete) {
       done(quesSave);
     } else {
-      next(quesSave);
+      if(quesSave){
+        next(quesSave);
+        setQuesSave({});
+      }else{
+        next(images);
+        setImages({});
+      }
+      
     }
-    setQuesSave('');
+    
   }
 
   function handlePreviousItem() {
@@ -108,6 +76,13 @@ const AddModal = ({
       );
     }
   };
+
+  if(images){
+    console.log(images);
+  }
+
+  
+  
 
   // console.log('ques save', quesSave );
 
@@ -145,8 +120,26 @@ const AddModal = ({
               id={questionNo}
               type={nextQuestion.inputTypeNumber ? "number" : "text"}
               setQuesSave={setQuesSave}
-              value={nextQuestion.value}
             />
+          )}
+
+          {nextQuestion.address && (
+              <AddressComponent  />
+          )}
+
+          {nextQuestion.selectImages && (
+            <MultiImageInput
+            theme={{
+                background: '#ffffff',
+                outlineColor: '#111111',
+                textColor: 'rgba(255,255,255,0.6)',
+                buttonColor: '#4f4f4f',
+                modalColor: '#ffffff'
+            }}
+            images={quesSave}
+            setImages={setQuesSave}
+            allowCrop={false}
+        />
           )}
         </Modal.Body>
         <Modal.Footer>
