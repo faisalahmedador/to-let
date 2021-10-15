@@ -1,20 +1,21 @@
 import { React } from 'react';
-import { Dropdown,DropdownButton, ButtonGroup, Form  } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
-const DropdownComponent = ({dropOptions,id, setQuesSave}) => {
-    console.log(dropOptions);
+const DropdownComponent = ({dropOptions,id, setQuesSave, value}) => {
     return (
+        <Form>
         <Form.Control
             as='select'
             key={id}
             id={`city`}
-            style={{ width: '100%' }}
+            style={{ width: '100%', fontSize: '1.5rem', fontWeight: '600' }}
             title={'city'}
             onChange={e => {
                 let item = dropOptions.find(value => value.label === e.target.value);
-                setQuesSave(item.id)
+                setQuesSave(item)
             }}
         >
+            <option disabled selected hidden>{value}</option>
             {
                 dropOptions.map(val => {
                     return (
@@ -24,6 +25,7 @@ const DropdownComponent = ({dropOptions,id, setQuesSave}) => {
             }
 
         </Form.Control>
+        </Form>
     )
 }
 

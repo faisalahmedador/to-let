@@ -332,6 +332,14 @@ export const questionList = [
     ],
   },
   {
+    question: "ড্রয়িং/ডাইনিং এটাচ নাকি আলাদা ?",
+    value: 'attached drawing/dining',
+    radioOptions: [
+      { id: 1, label: "এটাচ" },
+      { id: 2, label: "আলাদা" },
+    ],
+  },
+  {
     question: "এটাচ টয়লেটসহ বেডরুম কয়টি ?",
     value: 'attached toilet',
     dropOptions: [
@@ -365,14 +373,7 @@ export const questionList = [
       { id: 11, label: "১১" },
     ],
   },
-  {
-    question: "ড্রয়িং/ডাইনিং এটাচ নাকি আলাদা ?",
-    value: 'attached drawing/dining',
-    radioOptions: [
-      { id: 1, label: "এটাচ" },
-      { id: 2, label: "আলাদা" },
-    ],
-  },
+  
   {
     question: "এলপি গ্যাস নাকি লাইনের গ্যাস ?",
     value: 'gas',
@@ -400,7 +401,6 @@ export const questionList = [
 
   {
     question: "বাসার এড্রেস",
-    inputTypeNumber: false,
     dropOptionsDivision: [
       { id: 1, label: "চট্টগ্রাম" },
       { id: 2, label: "রাজশাহী" },
@@ -414,27 +414,28 @@ export const questionList = [
     dropOptionsZilla: [
       {
         id: 1, division: 'CHATTOGRAM', districts: [
-          { subId: 1, city: "CHATTOGRAM" }, 
-          { subId: 2, city: "COX’S  BAZAR" }, 
-          { subId: 3, city: "BANDARBAN" }, 
-          { subId: 4, city: "RANGAMATI" }, 
-          { subId: 5, city: "NOAKHALI" },
-          { subId: 6, city: "FENI" },
-          { subId: 7, city: "CUMILLA" },
-          { subId: 8, city: "CHANDPUR" },
-          { subId: 9, city: "BRAHMMANBARIA" },
-          { subId: 10, city: "KHAGRACHHARI" },
-          { subId: 11, city: "LAKSHMIPUR" }
+          { subId: 1, label: "CHATTOGRAM", }, 
+          { subId: 2, label: "COX’S  BAZAR" }, 
+          { subId: 3, label: "BANDARBAN" }, 
+          { subId: 4, label: "RANGAMATI" }, 
+          { subId: 5, label: "NOAKHALI" },
+          { subId: 6, label: "FENI" },
+          { subId: 7, label: "CUMILLA" },
+          { subId: 8, label: "CHANDPUR" },
+          { subId: 9, label: "BRAHMMANBARIA" },
+          { subId: 10, label: "KHAGRACHHARI" },
+          { subId: 11, label: "LAKSHMIPUR" }
         ]
       }
     ],
     dropOptionsUpoZilla: [
       {
         subId: 1, city: "CHATTOGRAM", upozillas: [
-          {subIdUpo: 1, upozilla: "Karnaphuli"} 
+          {subIdUpo: 1, label: "Karnaphuli"} 
         ]
       }
     ],
+    address: true,
     value: 'address'
   },
 

@@ -21,7 +21,7 @@ const Header = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const [validUser, setValidUser] = useState(false);
-  const { next, previous, done, close, open, nextQuestion, questionNo } =
+  const { next, previous, done, close, open, nextQuestion, questionNo,answerComplete } =
     useContext(SubmitQuestion);
 
   const dispatch = useDispatch();
@@ -149,6 +149,7 @@ const Header = () => {
               previous = {previous}
               close = {close}
               done = {done}
+              answerComplete={answerComplete}
             />
           ) : (
             <Redirect to={{ pathname: "/login", state: { msg: true } }} />

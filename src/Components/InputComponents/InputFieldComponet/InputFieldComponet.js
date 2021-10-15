@@ -1,20 +1,18 @@
 import { React } from "react";
-import { InputGroup, FormControl } from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 
-const InputFieldComponent = ({ type, id,setQuesSave }) => {
+const InputFieldComponent = ({ type, id, setQuesSave, value}) => {
   return (
-    <InputGroup
-      className="mb-3 "
-      onChange={(e) => setQuesSave(e.target.value)}
-    >
-      <FormControl
-        type={type}
-        key={id}
-        id={id.toString()}
-        aria-label="Default"
-        aria-describedby="inputGroup-sizing-default"
-      />
-    </InputGroup>
+    <Form>
+      <Form.Group as={Row} className="mb-3" controlId="para" key={id}>
+        <Form.Label column sm="4" >
+          {value}
+        </Form.Label>
+        <Col sm="8">
+          <Form.Control style={{fontSize: '1.5rem', fontWeight: '600'}} type={type} id={id} onChange={(e) => setQuesSave(e.target.value)} />
+        </Col>
+      </Form.Group>
+    </Form>
   );
 };
 

@@ -14,6 +14,7 @@ const SubmitQuestionProvider = ({ children }) => {
   };
 
   const next = (answer) => {
+    console.log(answerComplete);
     setAnswerList([
       ...answerList,
       {
@@ -22,9 +23,8 @@ const SubmitQuestionProvider = ({ children }) => {
     ]);
     if (questionNo === questionList.length - 2) {
       setAnswerComplete(true);
-    } else {
-      setAnswerComplete(true);
-    }
+    } 
+
     setNextQuestion(questionList[questionNo + 1]);
     setQuestionNo(questionNo + 1);
     console.log(answerList);
@@ -33,16 +33,24 @@ const SubmitQuestionProvider = ({ children }) => {
   const previous = () => {
     if (questionNo === questionList.length - 2) {
       setAnswerComplete(true);
-    } else {
-      setAnswerComplete(true);
-    }
+    } 
+
     setQuestionNo(questionNo - 1);
     setNextQuestion(questionList[questionNo - 1]);
-    setAnswerList(answerList.pop());
+    answerList.splice(answerList.length-1, 1);
+    console.log(answerList);
+    setAnswerList(answerList);
   };
 
-  const done = () => {
-    console.log("congrats");
+  const done = async(answer) => {
+    await setAnswerList([
+      ...answerList,
+      {
+        [nextQuestion.value]: answer,
+      }
+    ]);
+
+    console.log(answerList);
   };
 
   const close = () => {
