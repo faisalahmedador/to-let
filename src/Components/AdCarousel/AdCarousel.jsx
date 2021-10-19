@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import CardAds from "../../Components/CardAds/CardAds";
 import { addDetails } from "../../Assets/data/data";
-import { GrNext } from 'react-icons/gr';
-import { BsFillCaretRightFill, BsFillCaretLeftFill } from 'react-icons/bs'
-
+import { GrNext, GrPrevious} from 'react-icons/gr'
 const AdCarousel = () => {
 
     const [index, setIndex] = useState(0);
@@ -15,8 +13,8 @@ const AdCarousel = () => {
 
     return (
         <Carousel /* activeIndex={index} onSelect={handleSelect} */  
-        nextIcon={<BsFillCaretRightFill style={{ color: '#715EF1', fontSize: '20px' }}/>} 
-        prevIcon={< BsFillCaretLeftFill style={{ color: '#715EF1', fontSize: '20px' }} />  }
+        nextIcon={<GrNext size='2.5em' color='#715EF1' style={{backgroundColor: '#715EF1', padding: '4px 4px'}}/>} 
+        prevIcon={<GrPrevious size='2.5em' color='#715EF1' style={{backgroundColor: '#715EF1', padding: '4px 4px'}} />  }
         >
 
         {addDetails.map((data) => {

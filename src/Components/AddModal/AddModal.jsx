@@ -24,7 +24,7 @@ const AddModal = ({
 
   const onHide = () => {
     setShow(false);
-    // setQuesno(0);
+    close();
     setQuesSave({});
   };
 

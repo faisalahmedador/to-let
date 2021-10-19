@@ -100,33 +100,47 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto nav-elements">
-                {!validUser && (
-                  <Nav.Link href="/login" className="login">
-                    Login/Signup
-                  </Nav.Link>
-                )}
+                {!validUser ?
+                  <>
+                    <Nav.Link href="/login" className="login">
+                      Login/Signup
+                    </Nav.Link>
+                    <Button
+                      className="add-submit"
+                      disabled
+                    >
+                      Submit an Add
+                    </Button>
+                  </> 
+                  :
+                  <>
+                    <Button
+                      className="add-submit"
+                      onClick={() => openSubmitModal()}
+                    >
+                      Submit an Add
+                    </Button>
 
-                <Button
-                  className="add-submit"
-                  onClick={() => openSubmitModal()}
-                >
-                  Submit an Add
-                </Button>
-
-                {validUser && (
-                  <NavDropdown
-                    title={<CgProfile style={{ fontSize: "large" }} />}
-                    id="collasible-nav-dropdown"
-                  >
-                    <NavDropdown.Item href={"/profile/" + "2"}>
-                      Name
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={() => handleLogout()}>
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                )}
+                    <NavDropdown
+                      title={<CgProfile style={{ fontSize: "large" }} />}
+                      id="collasible-nav-dropdown"
+                      className='mr-3'
+                    >
+                      <NavDropdown.Item href={"/profile/" + "2"}>
+                        Name
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href='/myads'>
+                        Posted Ads
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item onClick={() => handleLogout()}>
+                        Logout
+                      </NavDropdown.Item>
+                      
+                    </NavDropdown>
+                  </>
+                }
               </Nav>
             </Navbar.Collapse>
           </div>

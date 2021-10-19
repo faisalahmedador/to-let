@@ -445,3 +445,154 @@ export const questionList = [
     value: 'contact no'
   },
 ];
+
+
+export const dummyAdds = [{
+  add: [{ type: { id: 1, label: 'ফ্লাট' } },
+
+
+  { floor: { id: 2, label: '২' } },
+
+
+  { rooms: { id: 3, label: '৩' } },
+
+
+  { toilet: { id: 7, label: '৭' } },
+
+
+  { attached_drawing_dining: { id: 1, label: 'এটাচ' } },
+
+
+  { attached_toilet: { id: 4, label: '৪' } },
+
+
+
+  { balcony: { id: 6, label: '৬' } },
+
+
+  { gas: { id: 1, label: 'এলপি' } },
+
+
+  { monthly_rent: "144" },
+
+
+  { advance: "11" },
+
+
+  { images: { 0: 'data:image/jpeg;base64,/9j/4gIcSUNDX1BST0ZJTEUAAQE…sdzi4guW+W4oG4IZ5XVvXUvQ+/bIgoyH+f+Ey103fvln/2Q==' } },
+
+
+  {
+    address: {
+      division: {},
+      road: {},
+      houseName: {},
+      union: {},
+      upozilla: {},
+      zilla: {}
+
+    }
+  }]
+},
+
+{
+  add: [{ type: { id: 1, label: 'ফ্লাট' } },
+
+
+  { floor: { id: 2, label: '২' } },
+
+
+  { rooms: { id: 3, label: '৩' } },
+
+
+  { toilet: { id: 7, label: '৭' } },
+
+
+  { attached_drawing_dining: { id: 1, label: 'এটাচ' } },
+
+
+  { attached_toilet: { id: 4, label: '৪' } },
+
+
+
+  { balcony: { id: 6, label: '৬' } },
+
+
+  { gas: { id: 1, label: 'এলপি' } },
+
+
+  { monthly_rent: "144" },
+
+
+  { advance: "11" },
+
+
+  { images: { 0: 'data:image/jpeg;base64,/9j/4gIcSUNDX1BST0ZJTEUAAQE…sdzi4guW+W4oG4IZ5XVvXUvQ+/bIgoyH+f+Ey103fvln/2Q==' } },
+
+
+  {
+    address: {
+      division: {},
+      road: {},
+      houseName: {},
+      union: {},
+      upozilla: {},
+      zilla: {}
+
+    }
+  }]
+},
+
+{
+  add: [{ type: { id: 1, label: 'ফ্লাট' } },
+
+
+  { floor: { id: 2, label: '২' } },
+
+
+  { rooms: { id: 3, label: '৩' } },
+
+
+  { toilet: { id: 7, label: '৭' } },
+
+
+  { attached_drawing_dining: { id: 1, label: 'এটাচ' } },
+
+
+  { attached_toilet: { id: 4, label: '৪' } },
+
+
+
+  { balcony: { id: 6, label: '৬' } },
+
+
+  { gas: { id: 1, label: 'এলপি' } },
+
+
+  { monthly_rent: "144" },
+
+
+  { advance: "11" },
+
+
+  { images: { 0: 'data:image/jpeg;base64,/9j/4gIcSUNDX1BST0ZJTEUAAQE…sdzi4guW+W4oG4IZ5XVvXUvQ+/bIgoyH+f+Ey103fvln/2Q==' } },
+
+
+  {
+    address: {
+      division: {},
+      road: {},
+      houseName: {},
+      union: {},
+      upozilla: {},
+      zilla: {}
+
+    }
+  }]
+},
+
+
+
+
+
+]
