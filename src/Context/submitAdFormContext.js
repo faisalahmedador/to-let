@@ -6,7 +6,7 @@ export const SubmitQuestion = createContext();
 const SubmitQuestionProvider = ({ children }) => {
   const [nextQuestion, setNextQuestion] = useState({});
   const [questionNo, setQuestionNo] = useState(0);
-  const [answerList, setAnswerList] = useState([]);
+  const [answerList, setAnswerList] = useState({});
   const [answerComplete, setAnswerComplete] = useState(false);
 
   const open = () => {
@@ -15,12 +15,9 @@ const SubmitQuestionProvider = ({ children }) => {
 
   const next = (answer) => {
     console.log(answerComplete);
-    setAnswerList([
-      ...answerList,
-      {
-        [nextQuestion.value]: answer,
-      }
-    ]);
+    let answerAdd = answerList;
+    answerAdd[nextQuestion.value] = answer;
+    setAnswerList(answerAdd);
     if (questionNo === questionList.length - 2) {
       setAnswerComplete(true);
     } 
@@ -37,18 +34,18 @@ const SubmitQuestionProvider = ({ children }) => {
 
     setQuestionNo(questionNo - 1);
     setNextQuestion(questionList[questionNo - 1]);
-    answerList.splice(answerList.length-1, 1);
+    // answerList.splice(answerList.length-1, 1);
+    let value = Object.keys(answerList)[Object.keys(answerList).length - 1];
+    let answerDel = delete answerList[value];
+
     console.log(answerList);
-    setAnswerList(answerList);
+    setAnswerList(answerDel);
   };
 
-  const done = async(answer) => {
-    await setAnswerList([
-      ...answerList,
-      {
-        [nextQuestion.value]: answer,
-      }
-    ]);
+  const done = (answer) => {
+    let answerAdd = answerList;
+    answerAdd[nextQuestion.value] = answer;
+    setAnswerList(answerAdd);
 
     console.log(answerList);
   };
