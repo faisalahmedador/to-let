@@ -1,6 +1,7 @@
 import { set } from "js-cookie";
 import { React, useEffect, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import * as zilaList from '../../../Assets/locations/zilas.json';
 import * as divisionList from '../../../Assets/locations/divisions.json';
 import * as upazilaList from '../../../Assets/locations/upazilas.json';
@@ -39,7 +40,7 @@ const AddressComponent = ({ nextQuestion, id, setQuesSave }) => {
     const setLocation = (locationInfo, type) => {
         if (type === 'division') {
             console.log(locationInfo)
-            setDivision(locationInfo.data)
+            setDivision(locationInfo)
         } else if (type === 'zilas') {
             setZila(locationInfo)
         } else if (type === 'upazilas') {
@@ -50,7 +51,10 @@ const AddressComponent = ({ nextQuestion, id, setQuesSave }) => {
     }
 
     useEffect(() => {
-        setLocation(divisionList[0], 'division');
+        fetch('http://barikoi.xyz/v1/api/MjY3NzpPOEJCNDNLSVZB/cities')
+            .then(response => response.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => setLocation(response.places, 'division'))
     }, [])
 
 
@@ -74,7 +78,7 @@ const AddressComponent = ({ nextQuestion, id, setQuesSave }) => {
                 {
                     divisions.map(val => {
                         return (
-                            <option id={val.id}  > {val.bn_name} </option>
+                            <option > {val} </option>
                         )
                     })
                 }
