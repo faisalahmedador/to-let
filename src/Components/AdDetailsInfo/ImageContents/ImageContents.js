@@ -5,7 +5,6 @@ import {Row, Col }  from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import { Carousel } from 'react-bootstrap';
 import { GrNext, GrPrevious} from 'react-icons/gr'
-import SliderImage from 'react-zoom-slider';
 import img1 from "../../../Assets/images/image1.jpg";
 import img2 from "../../../Assets/images/image2.jpg";
 import img3 from "../../../Assets/images/image3.jpg";

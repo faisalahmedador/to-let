@@ -9,7 +9,7 @@ import { Header } from "./redux/reducers/headerreducers";
 import { Add } from "./redux/reducers/addetailsreducers";
 import { signinReducer, logoutReducer } from "./redux/reducers/signinReducers";
 import { signupReducer } from "./redux/reducers/SignupReducers";
-import { adsubmitreducers } from "./redux/reducers/adsubmitreducers";
+import { adsubmitReducers } from "./redux/reducers/adsubmitreducers";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -26,7 +26,7 @@ const reducerCombined = combineReducers({
   Search,
   Header,
   Add,
-  adsubmitreducers,
+  adsubmitReducers,
   signinReducer,
   logoutReducer,
   signupReducer

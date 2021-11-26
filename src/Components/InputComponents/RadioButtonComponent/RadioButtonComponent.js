@@ -4,9 +4,8 @@ import { Form } from "react-bootstrap";
 const RadioButtonComponent = ({ radioOptions, id, setQuesSave}) => {
 
   const handleRadioOptions = (e) => {
-    let item = radioOptions.find(value => value.id.toString() === e.target.id);
-    console.log(item);
-    setQuesSave(item);
+    let {label} = radioOptions.find(value => value.id.toString() === e.target.id);
+    setQuesSave(label);
   }
 
   return (
@@ -19,7 +18,7 @@ const RadioButtonComponent = ({ radioOptions, id, setQuesSave}) => {
               id={value.id}
               label={
                 <span style={{ fontWeight: "600", marginLeft: "10px", fontSize: '1.5rem' }}>
-                  {value.label}
+                  {value.label_bn}
                 </span>
               }
               name={`group${id}`}

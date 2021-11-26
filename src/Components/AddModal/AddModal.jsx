@@ -86,7 +86,7 @@ const AddModal = ({
           )}
 
           {nextQuestion.address && (
-            <AddressComponent nextQuestion = {nextQuestion} id={questionNo} setQuesSave={setQuesSave} />
+            <AddressComponent nextQuestion={nextQuestion} id={questionNo} setQuesSave={setQuesSave} />
           )}
 
           {nextQuestion.selectImages && (

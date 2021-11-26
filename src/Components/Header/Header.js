@@ -50,6 +50,7 @@ const Header = () => {
   useEffect(() => {
     if (success) {
       Cookies.remove("userToken");
+      Cookies.remove("userId");
       setValidUser(Auth.validAdmin());
     }
   }, [success]);

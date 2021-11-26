@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import { questionList } from "../util/dummyData";
+import { useDispatch, useSelector } from "react-redux";
+import { adSubmitAction } from "../redux/Actions/AdSubmitActions";
 
 export const SubmitQuestion = createContext();
 
@@ -16,28 +18,25 @@ const SubmitQuestionProvider = ({ children }) => {
   const next = (answer) => {
     console.log(answerComplete);
     let answerAdd = answerList;
-    
-    
-      console.log(answer, nextQuestion.value);
-      console.log(answerAdd[nextQuestion.value])
-      answerAdd[nextQuestion.value] = answer;
-    
-    
-    setAnswerList(answerAdd);
-    if (questionNo === questionList.length - 2) {
-      setAnswerComplete(true);
-    } 
 
+    if (nextQuestion.value === 'address') {
+      answerAdd['division'] = answer.division;
+      answerAdd['area'] = answer.zila;
+      answerAdd['address'] = answer.houseName;
+      setAnswerComplete(true);
+    } else {
+      answerAdd[nextQuestion.value] = answer;
+    }
+    setAnswerList(answerAdd);
     setNextQuestion(questionList[questionNo + 1]);
     setQuestionNo(questionNo + 1);
     console.log(answerList);
   };
 
   const previous = () => {
-    if (questionNo === questionList.length - 2) {
+    if (questionNo === questionList.length - 1) {
       setAnswerComplete(true);
     } 
-
     setQuestionNo(questionNo - 1);
     setNextQuestion(questionList[questionNo - 1]);
     let value = Object.keys(answerList)[Object.keys(answerList).length - 1];
@@ -47,11 +46,12 @@ const SubmitQuestionProvider = ({ children }) => {
     setAnswerList(answerDel);
   };
 
+  const dispatch = useDispatch()
+
   const done = (answer) => {
     let answerAdd = answerList;
     answerAdd[nextQuestion.value] = answer;
-    setAnswerList(answerAdd);
-    console.log(answerList);
+    dispatch(adSubmitAction(answerAdd));
   };
 
   const close = () => {
@@ -59,6 +59,12 @@ const SubmitQuestionProvider = ({ children }) => {
     setQuestionNo(0);
     setAnswerList({});
   };
+
+  const {loading, add_post} = useSelector(state => state.adsubmitReducers)
+
+  if(add_post){
+    console.log(add_post);
+  }
 
   const contextValues = {
     next,

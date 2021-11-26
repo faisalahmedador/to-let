@@ -18,49 +18,6 @@ const Signup = () => {
 
   let history = useHistory();
 
-    // const [val, setVal ] = useState({first_name: '', last_name: '', number: '', pass: '' })
-    // let history = useHistory()
-
-    // console.log('val', val ) ;
-
-    // const onSubmit = async(e) => {
-    //     e.preventDefault();
-    //     console.log('e', val );
-    //     if(val.first_name != '' && val.last_name != '' && val.number != '' && val.pass != ''){
-
-    //         if(val.number.length === 11 ){
-
-    //         try{
-    //             let values = {
-    //                 first_name: val.first_name, 
-    //                 last_name: val.last_name , 
-    //                 number: val.number, 
-    //                 password: val.pass
-    //             }
-
-    //             const { data } = await API.post('/signup', values );
-    //             console.log('api data', data );
-    //             localStorage.setItem('token', data.token )
-    //             history.push('/home')
-
-    //         }
-    //         catch(err){
-    //             alert(err?.response?.data?.message)
-    //         }
-
-
-    
-    //         }
-    //         else{
-    //             alert('Please give valid number of 11 digit, don\'t add +88 in front')
-    //         }
-
-    //     }
-    //     else{
-    //         alert('please fill all field')
-    //     }
-    // }
-
     const {
         register,
         handleSubmit,
@@ -80,7 +37,8 @@ const Signup = () => {
 
       useEffect(() =>{
         if(success){
-          Cookies.set("userToken", success.response.data.token)
+          Cookies.set("userToken", success.response.data.token);
+          Cookies.set("userId", success.response.data.user_info.id);
           history.push('/');
         }
       }, [success])
@@ -122,7 +80,7 @@ const Signup = () => {
             <input
               className="form-input"
               placeholder="Number"
-              {...register("number", { required: true })}
+              {...register("phone_number", { required: true })}
               // onChange={(e) => setPass(e.target.value)}
             />
 
