@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { questionList } from "../util/dummyData";
 import { useDispatch, useSelector } from "react-redux";
 import { adSubmitAction } from "../redux/Actions/AdSubmitActions";
+import { useHistory } from "react-router-dom";
 
 export const SubmitQuestion = createContext();
 
@@ -10,6 +11,7 @@ const SubmitQuestionProvider = ({ children }) => {
   const [questionNo, setQuestionNo] = useState(0);
   const [answerList, setAnswerList] = useState({});
   const [answerComplete, setAnswerComplete] = useState(false);
+  let history = useHistory();
 
   const open = () => {
     setNextQuestion(questionList[questionNo]);
@@ -53,6 +55,7 @@ const SubmitQuestionProvider = ({ children }) => {
     answerAdd[nextQuestion.value] = answer;
     dispatch(adSubmitAction(answerAdd));
   };
+
 
   const close = () => {
     setNextQuestion({});

@@ -12,14 +12,26 @@ const adSubmitAction = (data) => async (dispatch) => {
   dispatch({ type: SUBMIT_NEW_ADD_REQUEST, payload: { data } });
   try {
     const token = Cookies.get("userToken");
+    let formData = new FormData();
+
+    for (let entries in data) {
+      if (entries === "images") {
+        let images = data[entries];
+        for (let image in images) {
+          formData.append(`image_${image}`, images[image]);
+        }
+      } else {
+        formData.append(entries, data[entries])
+      }
+    }
+
+    console.log(formData.entries());
+
     const response = await axios({
       method: "post",
       url: `${BASE_API_URL}/add/submit`,
-      data: JSON.stringify(data),
-      headers: {
-        "Content-Type": `application/json`,
-        Authorization: `Bearer ${token}`,
-      },
+      data: formData,
+      headers: { 'Content-Type': 'multipart/form-data' },
     });
 
     if (response.data) {

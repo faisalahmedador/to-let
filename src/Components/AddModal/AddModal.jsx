@@ -46,6 +46,8 @@ const AddModal = ({
     setQuesSave({});
   }
 
+  
+
   return (
     <div>
       <Modal
