@@ -63,11 +63,6 @@ const SubmitQuestionProvider = ({ children }) => {
     setAnswerList({});
   };
 
-  const {loading, add_post} = useSelector(state => state.adsubmitReducers)
-
-  if(add_post){
-    console.log(add_post);
-  }
 
   const contextValues = {
     next,

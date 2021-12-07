@@ -10,6 +10,7 @@ import { Add } from "./redux/reducers/addetailsreducers";
 import { signinReducer, logoutReducer } from "./redux/reducers/signinReducers";
 import { signupReducer } from "./redux/reducers/SignupReducers";
 import { adsubmitReducers } from "./redux/reducers/adsubmitreducers";
+import { getUserAdsReducers } from "./redux/reducers/getuseradreducers";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -29,7 +30,8 @@ const reducerCombined = combineReducers({
   adsubmitReducers,
   signinReducer,
   logoutReducer,
-  signupReducer
+  signupReducer,
+  getUserAdsReducers
 });
 const store = createStore(
   reducerCombined,

@@ -3,10 +3,9 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import { useCallback } from "react";
-import { connect } from "react-redux";
 import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
 import * as Auth from "../../helpers/auths";
-import { Link } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import "./_header.scss";
 import { Button } from "react-bootstrap";
@@ -81,6 +80,16 @@ const Header = () => {
     open(true);
     setShow(true);
   }
+
+  const {loading, add_post} = useSelector(state => state.adsubmitReducers);
+  const history = useHistory();
+
+  useEffect(() => {
+    if(add_post){
+      setShow(false);
+      history.push('/myads');
+    }
+  }, [add_post])
 
   return (
     <section className="header-div-main" style={{ position: "relative" }}>
