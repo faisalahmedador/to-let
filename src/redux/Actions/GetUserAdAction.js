@@ -14,7 +14,7 @@ import {
           const apiKey = Cookies.get("userToken");
           const response = await axios({
               method: "get",
-              url: `${BASE_API_URL}/user/ads`,
+              url: `${BASE_API_URL}/user/ads/${id}`,
               params: { id },
               headers: { "Content-Type": "application/json"}
           });
