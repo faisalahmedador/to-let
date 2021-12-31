@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
@@ -20,8 +20,7 @@ const Header = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const [validUser, setValidUser] = useState(false);
-  const { next, previous, done, close, open, nextQuestion, questionNo,answerComplete } =
-    useContext(SubmitQuestion);
+
 
   const dispatch = useDispatch();
 
@@ -77,7 +76,6 @@ const Header = () => {
   }, [handleScroll]);
 
   function openSubmitModal() {
-    open(true);
     setShow(true);
   }
 
@@ -167,13 +165,6 @@ const Header = () => {
             <AddModal
               show={show}
               setShow={setShow}
-              nextQuestion={nextQuestion}
-              questionNo={questionNo}
-              next = {next}
-              previous = {previous}
-              close = {close}
-              done = {done}
-              answerComplete={answerComplete}
             />
           ) : (
             <Redirect to={{ pathname: "/login", state: { msg: true } }} />

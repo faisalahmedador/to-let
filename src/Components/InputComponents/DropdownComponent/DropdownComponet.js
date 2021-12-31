@@ -1,7 +1,12 @@
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 
-const DropdownComponent = ({dropOptions,id, setQuesSave, value}) => {
+const DropdownComponent = ({dropOptions,id, setQuesSave, value, quesSave}) => {
+    const [dropValue, setDropValue] = useState(false);
+
+    // useEffect(() => {
+    //     if(quesSave)
+    // }, [quesSave])
     return (
         <Form>
         <Form.Control
@@ -15,14 +20,26 @@ const DropdownComponent = ({dropOptions,id, setQuesSave, value}) => {
                 setQuesSave(label)
             }}
         >
-            <option disabled selected hidden>{value}</option>
+            
+            {<option disabled selected={Object.keys(quesSave).length ? false : true} hidden>{value}</option>}
+
             {
                 dropOptions.map(val => {
-                    return (
-                        <option eventKey={val.id}  > {val.label_bn} </option>
-                    )
+                    if( (Object.keys(quesSave).length && val.label === quesSave)){
+                        return (
+                            <option eventKey={val.id} selected> {val.label_bn} </option>
+                        )
+                    }else {
+                        return (
+                            <option eventKey={val.id}  > {val.label_bn} </option>
+                        )
+                    }
+                    
                 })
             }
+             
+            
+            
 
         </Form.Control>
         </Form>

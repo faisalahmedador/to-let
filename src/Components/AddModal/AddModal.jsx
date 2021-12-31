@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Modal,
   Button
@@ -8,19 +8,19 @@ import DropdownComponent from "../InputComponents/DropdownComponent/DropdownComp
 import InputFieldComponent from "../InputComponents/InputFieldComponet/InputFieldComponet";
 import AddressComponent from "../InputComponents/AddressComponent/AddressComponent";
 import MultiImageInput from 'react-multiple-image-input';
+import { SubmitQuestion } from "../../Context/submitAdFormContext";
 
 const AddModal = ({
   show,
   setShow,
-  nextQuestion,
-  questionNo,
-  next,
-  previous,
-  close,
-  done,
-  answerComplete,
 }) => {
   const [quesSave, setQuesSave] = useState({});
+  const { next, previous, done, close, open, nextQuestion, questionNo, answerList } =
+  useContext(SubmitQuestion);
+
+  useEffect(() => {
+    open(true);
+  }, [open, show])
 
   const onHide = () => {
     setShow(false);
@@ -30,20 +30,19 @@ const AddModal = ({
 
 
   function handleNextItem() {
-    if (answerComplete) {
+    if (nextQuestion.value === 'contact_no') {
       done(quesSave);
-      setQuesSave({});
     } else {
       next(quesSave);
-      setQuesSave({});
-
     }
+    let answer = answerList[Object.keys(answerList)[questionNo + 1]]
+      answer ? setQuesSave(answer) : setQuesSave({});
 
   }
 
   function handlePreviousItem() {
     previous();
-    setQuesSave({});
+    setQuesSave(answerList[Object.keys(answerList)[questionNo - 1]]);
   }
 
   
@@ -68,6 +67,7 @@ const AddModal = ({
               radioOptions={nextQuestion.radioOptions}
               id={questionNo}
               setQuesSave={setQuesSave}
+              quesSave={quesSave}
             />
           )}
           {nextQuestion.dropOptions && (
@@ -76,6 +76,7 @@ const AddModal = ({
               id={questionNo}
               setQuesSave={setQuesSave}
               value={nextQuestion.value}
+              quesSave={quesSave}
             />
           )}
           {nextQuestion.inputTypeNumber && (
@@ -84,11 +85,12 @@ const AddModal = ({
               type={nextQuestion.inputTypeNumber ? "number" : "text"}
               setQuesSave={setQuesSave}
               value={nextQuestion.value}
+              quesSave={quesSave}
             />
           )}
 
           {nextQuestion.address && (
-            <AddressComponent nextQuestion={nextQuestion} id={questionNo} setQuesSave={setQuesSave} />
+            <AddressComponent nextQuestion={nextQuestion} id={questionNo} setQuesSave={setQuesSave} quesSave={quesSave}/>
           )}
 
           {nextQuestion.selectImages && (
@@ -119,12 +121,12 @@ const AddModal = ({
                 variant="primary"
                 onClick={() => handleNextItem()}
               >
-                {answerComplete ? "done" : "next"}
+                {nextQuestion.value === 'contact_no' ? "done" : "next"}
               </Button> : <Button
                 variant="primary"
                 disabled
               >
-                {answerComplete ? "done" : "next"}
+                {nextQuestion.value === 'contact_no' ? "done" : "next"}
               </Button>}
           </>
         </Modal.Footer>
