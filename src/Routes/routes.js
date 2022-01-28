@@ -12,6 +12,7 @@ import ProtectedRoute from './protectedRoute';
 import Login from '../Components/LogIn/LogIn';
 import Signup from "../Components/Signup/Signup";
 import ForgotPassword from "../Components/ForgotPassword/ForgotPassword";
+import advertisementDetails from '../Pages/advertisementDetails/advertisementDetails';
 
 const Routes = () => {
 
@@ -23,7 +24,7 @@ const Routes = () => {
       <>
         <Switch>
           <Route path="/" exact component={LandingPage} />
-          <Route path="/addetails" exact component={AdDetails} />
+          <Route path="/addetails" exact component={advertisementDetails} />
           <Route path='/searchresult' exact component={SearchResult} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />

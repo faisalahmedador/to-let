@@ -23,6 +23,7 @@
     "react": "^16.14.0",
     "react-bootstrap": "^1.5.2",
     "react-bootstrap-range-slider": "^2.0.2",
+    "react-carousel-minimal": "^1.4.1",
     "react-date-picker": "^8.1.1",
     "react-dom": "^16.14.0",
     "react-hook-form": "^7.11.1",
