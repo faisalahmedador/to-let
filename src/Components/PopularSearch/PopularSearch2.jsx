@@ -31,7 +31,7 @@ const PopularSearch2 = () => {
             <Row>
             
                 <Col lg={4} xs={12}>
-                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Dhaka </h4>
+                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Dhaka </h4>
                     <div >
                     { 
                     dhakaarea.map((v, i) => {
@@ -44,7 +44,7 @@ const PopularSearch2 = () => {
                 </Col>
 
                 <Col lg={4} xs={12}>
-                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Chittagong </h4>
+                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Chittagong </h4>
                     <div >
                     { 
                     ctgarea.map((v, i) => {
@@ -57,7 +57,7 @@ const PopularSearch2 = () => {
                 </Col>
 
                 <Col lg={4} xs={12}>
-                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Khulna </h4>
+                    <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Khulna </h4>
                     <div >
                     { 
                     dhakaarea.map((v, i) => {
@@ -74,7 +74,7 @@ const PopularSearch2 = () => {
             <Row>
 
             <Col lg={4} xs={12}>
-                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Rajshahi </h4>
+                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Rajshahi </h4>
                 <div >
                 { 
                 ctgarea.map((v, i) => {
@@ -87,7 +87,7 @@ const PopularSearch2 = () => {
             </Col>
 
             <Col lg={4} xs={12}>
-                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Sylhet </h4>
+                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Sylhet </h4>
                 <div >
                 { 
                 dhakaarea.map((v, i) => {
@@ -100,7 +100,7 @@ const PopularSearch2 = () => {
             </Col>
 
             <Col lg={4} xs={12}>
-                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0' }} > Barisal </h4>
+                <h4 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '10px  0 10px 0', textAlign: 'center' }} > Barisal </h4>
                 <div >
                 { 
                 dhakaarea.map((v, i) => {
