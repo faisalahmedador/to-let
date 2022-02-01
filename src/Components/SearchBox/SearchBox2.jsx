@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Row,
@@ -11,6 +11,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { API } from '../../util/api';
 
 const SearchBox2 = () => {
 
