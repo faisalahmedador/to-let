@@ -3,32 +3,55 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import { useCallback } from "react";
-import { connect } from "react-redux";
 import { setShadow, setPosition } from "../../redux/Actions/HeaderActions";
 import * as Auth from "../../helpers/auths";
-import { Link } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 import "./_header.scss";
+import { Button } from "react-bootstrap";
+import AddModal from "../AddModal/AddModal";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/Actions/SigninActions";
+import { Redirect, useLocation } from "react-router-dom";
+import { SubmitQuestion } from "../../Context/submitAdFormContext";
+import Cookies from "js-cookie";
 
-const mapStateToProps = (state) => {
-  //console.log(state.position);
-  return {
-    position: state.Header.position,
-    shadow: state.Header.shadow,
+const Header = () => {
+  const location = useLocation();
+  const [show, setShow] = useState(false);
+  const [validUser, setValidUser] = useState(false);
+
+
+  const dispatch = useDispatch();
+
+  const onSetShadow = (data) => {
+    dispatch(setShadow(data));
   };
-};
 
-const mapDispatchToProps = (dispatch) => ({
-  onSetposition: (text) => {
-    dispatch(setPosition(text));
-  },
-  onSetShadow: (text) => {
-    dispatch(setShadow(text));
-  },
-});
+  const onSetposition = (data) => {
+    dispatch(setPosition(data));
+  };
 
-const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
-  // const [shadow, setShadow] = useState(false);
-  // const [position, setposition] = useState("absolute");
+  const { position, shadow } = useSelector((state) => state.Header);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  useEffect(() => {
+    setValidUser(Auth.validAdmin());
+    console.log(Auth.validAdmin());
+  }, [location]);
+
+  const { success } = useSelector((state) => state.logoutReducer);
+
+  useEffect(() => {
+    if (success) {
+      Cookies.remove("userToken");
+      Cookies.remove("userId");
+      setValidUser(Auth.validAdmin());
+    }
+  }, [success]);
 
   const handleScroll = useCallback(() => {
     if (window.scrollY < 76) {
@@ -52,6 +75,20 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
     };
   }, [handleScroll]);
 
+  function openSubmitModal() {
+    setShow(true);
+  }
+
+  const {loading, add_post} = useSelector(state => state.adsubmitReducers);
+  const history = useHistory();
+
+  useEffect(() => {
+    if(add_post){
+      setShow(false);
+      history.push('/myads');
+    }
+  }, [add_post])
+
   return (
     <section className="header-div-main" style={{ position: "relative" }}>
       <div
@@ -71,98 +108,73 @@ const Header = ({ onSetposition, position, onSetShadow, shadow }) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto nav-elements">
+                {!validUser ?
+                  <>
+                    <Nav.Link href="/login" className="login">
+                      Login/Signup
+                    </Nav.Link>
+                    <Button
+                      className="add-submit"
+                      disabled
+                    >
+                      Submit an Add
+                    </Button>
+                  </> 
+                  :
+                  <>
+                    <Button
+                      className="add-submit"
+                      onClick={() => openSubmitModal()}
+                    >
+                      Submit an Add
+                    </Button>
 
-                {/* <NavDropdown title="Location" className="drop-location">
-                  <NavDropdown.Item href="#action/3.1">Dhaka</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Chittagong
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Khulna</NavDropdown.Item>
-                </NavDropdown> */}
-
-                <Nav.Link href="#deets" className="login">
-                  Log in
-                </Nav.Link>
-                <Nav.Link href="/submitads" className="add-submit">
-                  Submit An Add
-                </Nav.Link>
+                    <NavDropdown
+                      title={<CgProfile style={{ fontSize: "large" }} />}
+                      id="collasible-nav-dropdown"
+                      className='mr-3'
+                    >
+                      <NavDropdown.Item href={"/profile/" + "2"}>
+                        Name
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href='/myads'>
+                        Posted Ads
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item onClick={() => handleLogout()}>
+                        Logout
+                      </NavDropdown.Item>
+                      
+                    </NavDropdown>
+                  </>
+                }
               </Nav>
             </Navbar.Collapse>
           </div>
         </Navbar>
 
-        {/* <div class="navbar navbar-expand-lg navbar-light bg-light header-div--nav-bar">
-          <Link class="navbar-brand" to="/" className="logo-div">
-            Navbar
-          </Link>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto nav-elements">
-              <li class="nav-item">
-                <Link class="nav-link add-submit" to="/submitads">
-                  Submit an add
-                </Link>
-              </li>
-              {Auth.validAdmin() ? (
-                <Link to="/" className="login nav-link">
-                  Faisal Ahmed
-                </Link>
-              ) : (
-                <Link to="/" className="login nav-link">
-                  login
-                </Link>
-              )}
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown link
-                </a>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <a class="dropdown-item" href="#">
-                    Action
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Another action
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div> */}
+        {/* {validUser && show ? (
+          <AddModal show={show} setShow={setShow} />
+        ) : (
+          <Redirect to="/login" />
+        )} */}
+
+        {show ? (
+          validUser ? (
+            <AddModal
+              show={show}
+              setShow={setShow}
+            />
+          ) : (
+            <Redirect to={{ pathname: "/login", state: { msg: true } }} />
+          )
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+// export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

@@ -16,7 +16,7 @@ const UpperHeader = () => {
   );
 
   return (
-    <>
+    <div className="nav-header-div">
       <nav className="navbar navbar-expand-lg  bg-light nav-header">
         <div style={{ display: 'flex', alignItems: 'center' }}>
         <a  href="#">
@@ -48,7 +48,7 @@ const UpperHeader = () => {
 
         <VidModal/>
       </nav>
-    </>
+    </div>
   );
 };
 export default UpperHeader;

@@ -30,7 +30,7 @@ import PopularSearch2 from "../Components/PopularSearch/PopularSearch2";
 import AdCarousel from "../Components/AdCarousel/AdCarousel";
 
 const mapStateToProps = (state) => {
-   console.log(state.Search);
+  console.log(state.Search);
   return {
     searchField: state.Search.searchField,
     catagory: state.Search.catagory,
@@ -77,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class LandingPage extends Component {
+
+
+
   render() {
     const {
       onSetSearch,
@@ -89,73 +92,20 @@ class LandingPage extends Component {
       searchField
     } = this.props;
 
-   
+
     return (
       <>
-        {/* <UpperHeader /> */}
         <div>
-          {/* <Header /> */}
           <Parallax>
             <Hero max="true">
               <div style={{ width: "70%", marginTop: '15%' }}>
-                {/* <SearchBox
-                  setSearch={onSetSearch}
-                  locationRef={onSetLocation}
-                  bedRef={onSetBed}
-                  bathRef={onSetBath}
-                  selectedLocation={this.props.location}
-                  selectedCatagory={this.props.catagory}
-                  selectedBed={this.props.bed}
-                  selectedBath={this.props.bath}
-                  priceRefMin={onSetLowerLimit}
-                  priceRefMax={onSetUpperLimit}
-                  selectedLowerPrice={this.props.lower_limit}
-                  selectedUpperPrice={this.props.upper_limit}
-                  priceUpdate={this.props.priceUpdate}
-                  typeRef={onSetCatagory}
-                /> */}
-
-                <SearchBox2/>
-
+                <SearchBox2 />
               </div>
             </Hero>
           </Parallax>
-          {/* <Catagory setCatagory={onSetCatagory} /> */}
-          <Catagory2 setCatagory={onSetCatagory}  />
-          {/* <PopularSearch /> */}
-          <PopularSearch2/>
-
-          <AdCarousel/>
-
-          {/* <h1
-            style={{
-              paddingTop: "1%",
-              display: "flex",
-              justifyContent: "left",
-              paddingLeft: "12%",
-            }}
-          >
-            Recent Ads
-          </h1>
-          {addDetails.map((data) => {
-            return (
-              <CardAds
-                id={data.id}
-                description={data.description}
-                area={data.area}
-                location={data.location}
-                specification={data.specification}
-                price={data.price}
-                available={data.available}
-                contact={data.contact}
-                verified={data.verified}
-                img={data.img}
-              />
-            );
-          })} */}
-          
-
-          {/* <Footer /> */}
+          <Catagory2 setCatagory={onSetCatagory} />
+          <PopularSearch2 />
+          <AdCarousel />
         </div>
       </>
     );

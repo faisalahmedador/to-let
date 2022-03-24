@@ -28,7 +28,7 @@ const Rent = () => {
 
   const handleNext = (data) => {
     // e.preventDefault();
-    console.log(data);
+    console.log(data, "faisal");
     let data_cache = finalData;
     for (var key in data) {
       // console.log(data[key])

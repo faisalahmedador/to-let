@@ -4,7 +4,7 @@ import {
   SUBMIT_NEW_ADD_FAILED,
 } from "../Constants";
 
-function adsubmitreducers(state = {}, action) {
+function adsubmitReducers(state = {}, action) {
   switch (action.type) {
     case SUBMIT_NEW_ADD_REQUEST:
       return { loading: true };
@@ -20,4 +20,4 @@ function adsubmitreducers(state = {}, action) {
   }
 }
 
-export {adsubmitreducers}
+export {adsubmitReducers}

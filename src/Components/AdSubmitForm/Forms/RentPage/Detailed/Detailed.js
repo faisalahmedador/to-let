@@ -6,8 +6,10 @@ import MultiImageInput from "react-multiple-image-input";
 
 const Detailed = ({handleNext, handleBack}) =>{
     const { register, errors, handleSubmit } = useForm();
+    const [images, setImages] = useState({});
     const onSubmit = (data) => {
         console.log(data);
+        data.img = images;
         handleNext(data);
         // dispatch(adSubmitAction(data));
       };
@@ -20,10 +22,18 @@ const Detailed = ({handleNext, handleBack}) =>{
         height: 200,
       };
 
-      const [images, setImages] = useState({});
+     
+
+      if(images){
+        console.log(images)
+      }
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Detailed Information</h2>
+        
+
+
+        
         <div className="row">
           <div className="col-md-12">
             <CKEditor

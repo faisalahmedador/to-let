@@ -1,16 +1,12 @@
-export const validAdmin = ()=>{
-    //eslint-disable-next-line
-    // const userToken = Cookie.get('userToken')
-    // return true;
-    // console.log(userToken)
-    // if(userToken )
-    // {
-    //     return true;
-    // }
-    // else {
-    //     return false;
-    // }
+import Cookies from 'js-cookie'
+export const userToken = Cookies.get("userToken");
 
-    return true
-     
-}
+export const validAdmin = () => {
+  const userToken = Cookies.get("userToken");
+  console.log(userToken);
+  
+  if (userToken) {
+    return true;
+  }
+  return false;
+};

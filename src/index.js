@@ -7,35 +7,42 @@ import thunkMiddleware from "redux-thunk";
 import { Search } from "./redux/reducers/landingpagereducers";
 import { Header } from "./redux/reducers/headerreducers";
 import { Add } from "./redux/reducers/addetailsreducers";
-import {  adsubmitreducers} from './redux/reducers/adsubmitreducers'
-// import ScrollToTop from './ScrollToTop';
-//import './index.css';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import { signinReducer, logoutReducer } from "./redux/reducers/signinReducers";
+import { signupReducer } from "./redux/reducers/SignupReducers";
+import { adsubmitReducers } from "./redux/reducers/adsubmitreducers";
+import { getUserAdsReducers } from "./redux/reducers/getuseradreducers";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
+import $ from "jquery";
+import Popper from "popper.js";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter as Router } from "react-router-dom";
+import SubmitQuestionProvider from "./Context/submitAdFormContext";
+
 import "./Style/main.scss";
 
 const logger = createLogger();
-const reducerCombined = combineReducers({ Search, Header,Add,  adsubmitreducers });
+const reducerCombined = combineReducers({
+  Search,
+  Header,
+  Add,
+  adsubmitReducers,
+  signinReducer,
+  logoutReducer,
+  signupReducer,
+  getUserAdsReducers
+});
 const store = createStore(
   reducerCombined,
   applyMiddleware(thunkMiddleware, logger)
 );
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-    
-      {/* <ScrollToTop /> */}
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Router>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <SubmitQuestionProvider>
+      <App />
+    </SubmitQuestionProvider>
+  </Provider>,
   document.getElementById("root")
 );
 
