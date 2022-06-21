@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import {Router} from 'react-router-dom'
 import "./App.css";
-
-
-
 import Routes from './Routes/routes'
 
 
