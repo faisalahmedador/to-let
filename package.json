@@ -28,16 +28,19 @@
     "react-hook-form": "^7.11.1",
     "react-icons": "^3.11.0",
     "react-image-lightbox": "^5.1.1",
+    "react-multi-carousel": "^2.8.1",
     "react-multiple-image-input": "^1.0.0",
     "react-paginate": "^8.1.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0",
+    "react-touch-carousel": "^0.10.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "serve": "^13.0.2",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "swiper": "^8.2.4"
   },
   "scripts": {
     "dev": "env-cmd -f .env.development react-scripts start",
