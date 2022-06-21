@@ -1,7 +1,8 @@
 import React from 'react'
 import UpperHeader from "../Components/UpperHeader/UpperHeader";
 import Header from "../Components/Header/Header";
-import LandingPage from "../Pages/LandingPage/LandingPage";
+import LandingPage from "../Pages/landing-page/LandingPage";
+import AdDetails from "../Pages/AdDetails";
 import Default from "../Pages/Default/Default";
 import { Switch, Route, Redirect, BrowserRouter  } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
