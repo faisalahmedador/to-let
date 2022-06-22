@@ -5,9 +5,9 @@ import './Catagory2.scss';
 
 const Catagory2 = ( { setCatagory } ) => {
     return (
-        <Container fluid className='catagories-div' >
+        <Container fluid style={{ margin: '20px', width: 'auto'  }} className='catagories-div' >
 
-            <h5 className='header'>Catagories</h5>
+            <h5 style={{ textDecoration: 'underline', fontWeight: 'bold', fontSize: '20px', color: 'rgba(0,0,0,.8)', margin: '0 0 30px 0' }} >Catagories</h5>
 
             <Row style={{ textAlign: 'center' }} >
                 <Col xs={12} lg={2}>

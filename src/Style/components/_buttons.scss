@@ -40,14 +40,3 @@
   // box-shadow: 0px 8px 15px 4px rgba(0,0,0,0.65);
   // background: $mainGray;
 }
-
-.button-default-style {
-  height: calc(1.5em + 1rem + 1px);
-  font-size: 1.5rem !important;
-}
-
-.button-default-style:hover {
-  color: $primaryColor !important;
-  background-color: #ffffff;
-  box-shadow: $boxShadow;
-}

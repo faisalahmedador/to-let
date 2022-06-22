@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import "./_cardads.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import {Button} from "react-bootstrap";
 
 const CardAds = ({ 
   id,
@@ -32,36 +31,91 @@ const CardAds = ({
 
   return (
     <>
-      <div className="container-fluid my-4" id="card-container">
+      <div className="container-fluid" id="card-container">
         <Card id="card-style">
           <div className="row card-div">
-            <div className="col-6 pr-0">
-              <img src={viewImg} style={{ width: "100%", maxHeight: "140px" }} alt={'img'} />
-              <div className="specification-image">
-                {/* <Cardads2  img={img} /> */}
-                  {img.map((i, index) => {
-                    return (
-                          <img src={i.img} alt="img" onClick={() => setViewimg(i.img)} />
-                    );
-                  })}
-              </div>
+            <div className="col-md-3">
+              <img src={viewImg} style={{ width: "270px", height: "230px" }} />
             </div>
-            <div className="col-6 px-0">
-              <div className={'d-block my-4 mx-5'}>
-                <h4 className={'price-tag'}>{price}/- month</h4>
-                <p className={'location'}>{location}</p>
-                <p className={'description'}>{description}</p>
-                <div className={'specification'}>
-                  <p className={'mr-4'}>Bedroom: {specification.bedroom}</p>
-                  <p>Bathroom: {specification.bathroom}</p>
-                </div>
-              </div>
-              <div className={'text-left my-4 mx-5'}>
-                <Button className={'button-default-style mr-2'}>Call</Button>
-                <Link className={'button-default-style btn btn-primary'} to="/addetails">
-                  View details
-                </Link>
-              </div>
+            <div className="col-md-9">
+              <ListGroup>
+                <ListGroup.Item className="details">
+                  <h2 className="title">{description}</h2>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <div className="specification">
+                    <p>
+                      Location:
+                      <span> {location} </span>
+                    </p>
+                  </div>
+                </ListGroup.Item>
+                <ListGroup.Item className="details">
+                  <div className="specification">
+                    <p>
+                      Bedroom:
+                      <span>{specification.bedroom}</span>
+                    </p>
+                    <p>
+                      Bathroom:
+                      <span> {specification.bathroom}</span>
+                    </p>
+                    <p>
+                      Area:
+                      <span> {area}</span>
+                    </p>
+                    <p>
+                      Rent:
+                      <span> {price} </span>
+                    </p>
+                  </div>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <div className="specification">
+                    <p>
+                      Available from:
+                      <span> {available} </span>
+                    </p>
+                    <p>
+                      User Verified:
+                      <span>
+                        {" "}
+                        {!verified ? (
+                          <FcDisapprove style={{ fontSize: "15px" }} />
+                        ) : (
+                          <FcApproval style={{ fontSize: "15px" }} />
+                        )}
+                      </span>
+                    </p>
+                    <p>
+                      Contact No:
+                      <span> {contact} </span>
+                    </p>
+                  </div>
+                </ListGroup.Item>
+                <ListGroup.Item className="details">
+                  <div className="specification-image">
+                    {/* <Cardads2  img={img} /> */}
+                    <div>
+                      {img.map((i, index) => {
+                        return (
+                          <a
+                            onClick={() => {
+                              setViewimg(i.img);
+                            }}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <img src={i.img} alt="img" />
+                          </a>
+                        );
+                      })}
+                    </div>
+                    <Link className="button-default--card" to="/addetails">
+                      View details
+                    </Link>
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
             </div>
             {/* className='col-md-9'{" "} */}
           </div>
