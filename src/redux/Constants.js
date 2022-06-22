@@ -9,11 +9,6 @@ export const CHANGE_UPPER_LIMIT = 'CHANGE_UPPER_LIMIT'
 export const CHANGE_PROPERTY_TYPE = 'CHANGE_PROPERTY_TYPE'
 
 
-//header
-
-export const SHADOW = 'SHADOW';
-export const POSITION = 'POSITION' 
-
 //adDetials
 
 export const CHANGE_IMAGE_1 = 'CHANGE_IMAGE_1'

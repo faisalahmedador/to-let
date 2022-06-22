@@ -47,21 +47,24 @@
 .popular-search-div{
 
     .per-link{
-        //margin-left: 170px;
+        margin-left: 170px;
         margin-bottom: 5px;
         text-align: start;
 
         a{
             color: $primaryColor;
             font-weight: bold;
+            font-size: 15px;
 
             &:hover{
-                text-decoration: underline;
+                background-color: $primaryColor;
+                color: white;
+                padding: 3px;
             }
         }
 
         @media (max-width: 500px) {
-            //margin-left: 125px;
+            margin-left: 125px;
         }
     }
 }

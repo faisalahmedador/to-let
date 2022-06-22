@@ -1,0 +1,114 @@
+@import "../../Style/abstracts/variable";
+@import "../../Style/abstracts/mixins";
+
+#catagory {
+  // background: $mainGray;
+  background-color: white;
+  border-radius: 5px 5px;
+  margin: auto;
+  width: 80%;
+  padding: 1%;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // box-shadow: -2px 1px 23px -5px #000000;
+  // margin-bottom: 2%;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+ 
+}
+.catagories-div{
+  // display: flex;
+  justify-content: center;
+  // width: fit-content;
+  padding: 5px;
+  // box-shadow: 0 0 1px rgba(0,0,0,.55);
+  // border: none;
+  
+
+  .catagory-links {
+    display: flex;
+    justify-content: space-around;
+    //align-items: center;
+    //opacity: 1.0;
+    // border: 1px;
+  
+    .link {
+      color: $mainBlack;
+      font-size: $default-font-size;
+      font-weight: 600;
+      opacity: 1;
+      margin: 0 10px;
+      padding: 5px;
+      // text-align: center;
+      @media(max-width:500px){
+        border: 1px solid rgba(0, 0, 0, .15);
+        margin: 0;
+      } 
+      span {
+        display: flex;
+        flex-direction: column;
+        color: $mainBlack;
+        font-size: $default-font-size;
+        font-weight: 600;
+        align-items: center;
+
+        img{
+          width: 3rem;
+        }
+      }
+    }
+  
+    .link:hover {
+      // -webkit-box-shadow: 0px 8px 15px 4px rgba(0,0,0,0.65); 
+      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .55);
+      border-radius: 1.5rem;
+      background-color: $primaryColor;
+      // color: white;
+      span{
+        color: white;
+      }
+    }
+  
+    // p,Link{
+    //   color: $mainBlack;
+    //   font-size: $default-font-size;
+    //   font-weight: 600;
+    //   opacity: 1;
+    // }
+    Link:hover {
+      background: white;
+    }
+    @include respond(tab-land) {
+      //justify-content: start;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+}
+
+
+#sublet {
+  @media (max-width: 1200px) {
+    padding-left: 20px;
+  }
+}
+
+#bachelor {
+  @media (max-width: 1200px) {
+    padding-left: 20px;
+  }
+}
+
+
+@media(max-width: 600px){
+  .catagories-div{
+    display: block;
+  }
+}

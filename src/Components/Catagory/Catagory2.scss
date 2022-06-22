@@ -1,20 +1,19 @@
 @import '../../Style/abstracts/variable';
 
 .catagories-div{
-    margin: 20px;
-    width: auto;
     .row{
         background-color:  $primaryColor;
-        padding: 10px;
+        padding: 10px 0;
         border-radius: .5rem;
         .link{
             color: white;
             font-weight: bold;
+            
             &:hover{
-                box-shadow: $boxShadow;
+                box-shadow: 0 0 9px -2px rgba(0,0,0,.5);
                 padding: 10px;
-                border: 1px solid $borderColor;
-                border-radius: 5px;
+                background-color: white;
+                color: $primaryColor;
             }
         }
     }

@@ -1,49 +1,85 @@
 @import '../../Style/abstracts/variable';
 
 #card-container{
-    .card-div{
-        overflow: hidden;
-        max-height: 200px;
-        .price-tag {
-            color: $primaryColor;
-            font-weight: bold;
-            font-size: 2rem;
-        }
+    border-radius: $default-border-radius;
+    padding: 2rem ;
+    @media (max-width: 1200px) {
+        padding: 15px;
+    }
 
-        .specification{
-            display: flex;
-            color: $primaryColor;
-            font-weight: bold;
-        }
+    .button-default--card:hover{
+        background-color: $primaryColor;
+        box-shadow:  0 0 11px 5px rgba(0,0,0,.2);
+        color: white;
+        border: none;
+    }
 
-        .specification-image{
-            display: flex;
-            justify-content: space-evenly;
-            margin: 10px 0;
-            img{
-                max-height: 36px;
-                width: 50px;
-                cursor: pointer;
-            }
-        }
+    .title{
+        color: white;
+    }
+    .specification{
+        color: $primaryColor;
+        font-weight: bold;
+    }
 
-        .card-buttons {
-            text-align: right;
-        }
+    .list-group-item{
+        background-color: rgba(#f3f3f3, .2);
+    }
 
-        @media(max-width: 500px){
-            max-height: fit-content;
-        }
+    .details{
+        background-color: $primaryColor;
     }
 }
 
-//#card-style{
-//    width: 80%;
-//    margin: auto;
-//    @media (max-width: 1200px) {
-//        width: 100%;
-//    }
-//    @media(max-width: 500px){
-//        overflow: hidden;
-//    }
-//}
+#card-style{
+    width: 80%;
+    margin: auto;
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+    @media(max-width: 500px){
+        overflow: hidden;
+    }
+}
+
+.card-div{
+    overflow: hidden; 
+    max-height: 23rem;
+
+    @media(max-width: 500px){
+        max-height: fit-content;
+    }
+}
+
+
+.specification{
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    span{
+        font-size: $default-font-size;
+        font-weight: 600;
+    }
+}
+
+
+
+.specification-image{
+    display: flex;
+    justify-content: space-between;
+    
+    a{
+        padding: 5px;
+    }
+    img{
+        width: 50px;
+        height: 30px;
+
+        @media (max-width: 1200px) {
+            width: 30px;
+            height: 20px;
+    
+        }
+    }
+}
