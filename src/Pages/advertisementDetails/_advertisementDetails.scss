@@ -1,6 +1,5 @@
 .advertisement-main {
   margin-top: 3%;
-  background-color: #ebebe9;
   padding-top: 1rem;
 
   .carousel-container {
@@ -65,5 +64,16 @@
       justify-content: space-between;
     }
   }
+
+  .strict-fixed {
+    position: fixed;
+    top: 118px;
+  }
+
+  .normal-fixed {
+    position: fixed;
+    top: 218px;
+  }
+
 
 }

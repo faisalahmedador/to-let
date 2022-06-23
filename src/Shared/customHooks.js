@@ -1,6 +1,6 @@
 import {useState, useCallback, useEffect} from "react";
 
- export function HeaderScrollControl() {
+ export function ScrollControl() {
      const [shadow, setShadow] = useState(false);
      const [position, setPosition] = useState("absolute");
 
@@ -27,17 +27,20 @@ import {useState, useCallback, useEffect} from "react";
 
 export function AdvertisementScrollControl() {
     const [reachedBottom, isReachedBottom] = useState(false);
-
+    const [top, setTop] = useState(false);
+    const [smallScreen, isSmallScreen] = useState(false);
     const onAdvertisementScroll = useCallback(() => {
+        console.log(window.innerWidth, "innerwidth")
         const advertisementElement = document.getElementById("advertisement");
-        console.log(advertisementElement?.scrollHeight - window.scrollY);
-        if(advertisementElement?.scrollHeight - window.scrollY < 550) {
-            isReachedBottom(true);
+        if(window.innerWidth <= 768) {
+            isSmallScreen(true);
+        }else {
+            isSmallScreen(false);
+            isReachedBottom(advertisementElement?.scrollHeight - window.scrollY < 550)
+            setTop(window.scrollY > 36)
         }
-        else {
-            isReachedBottom(false)
-        }
-    }, [reachedBottom]);
+
+    }, [reachedBottom, top, smallScreen]);
     useEffect(() => {
         window.addEventListener("scroll", onAdvertisementScroll);
         return () => {
@@ -47,7 +50,7 @@ export function AdvertisementScrollControl() {
 
 
 
-    return reachedBottom;
+    return {reachedBottom, top, smallScreen};
 
 }
 
