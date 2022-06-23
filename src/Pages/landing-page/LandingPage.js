@@ -17,7 +17,6 @@ import PopularSearch2 from "../../Components/PopularSearch/PopularSearch2";
 import AdCarousel from "../../Components/AdCarousel/AdCarousel";
 import './_landingPage.scss';
 import SwipperCarousel from "../../Components/AdCarousel/SwipperCarousel";
-
 const mapStateToProps = (state) => {
   console.log(state.Search);
   return {

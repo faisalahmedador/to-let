@@ -1,85 +1,49 @@
 @import '../../Style/abstracts/variable';
 
 #card-container{
-    border-radius: $default-border-radius;
-    padding: 2rem ;
-    @media (max-width: 1200px) {
-        padding: 15px;
-    }
-
-    .button-default--card:hover{
-        background-color: $primaryColor;
-        box-shadow:  0 0 11px 5px rgba(0,0,0,.2);
-        color: white;
-        border: none;
-    }
-
-    .title{
-        color: white;
-    }
-    .specification{
-        color: $primaryColor;
-        font-weight: bold;
-    }
-
-    .list-group-item{
-        background-color: rgba(#f3f3f3, .2);
-    }
-
-    .details{
-        background-color: $primaryColor;
-    }
-}
-
-#card-style{
-    width: 80%;
-    margin: auto;
-    @media (max-width: 1200px) {
-        width: 100%;
-    }
-    @media(max-width: 500px){
+    .card-div{
         overflow: hidden;
-    }
-}
+        max-height: 200px;
+        .price-tag {
+            color: $primaryColor;
+            font-weight: bold;
+            font-size: 2rem;
+        }
 
-.card-div{
-    overflow: hidden; 
-    max-height: 23rem;
+        .specification{
+            display: flex;
+            color: $primaryColor;
+            font-weight: bold;
+        }
 
-    @media(max-width: 500px){
-        max-height: fit-content;
-    }
-}
+        .specification-image{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 10px 0;
+            img{
+                max-height: 36px;
+                width: 50px;
+                cursor: pointer;
+            }
+        }
 
+        .card-buttons {
+            text-align: right;
+        }
 
-.specification{
-   
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    span{
-        font-size: $default-font-size;
-        font-weight: 600;
-    }
-}
-
-
-
-.specification-image{
-    display: flex;
-    justify-content: space-between;
-    
-    a{
-        padding: 5px;
-    }
-    img{
-        width: 50px;
-        height: 30px;
-
-        @media (max-width: 1200px) {
-            width: 30px;
-            height: 20px;
-    
+        @media(max-width: 500px){
+            max-height: fit-content;
         }
     }
 }
+
+//#card-style{
+//    width: 80%;
+//    margin: auto;
+//    @media (max-width: 1200px) {
+//        width: 100%;
+//    }
+//    @media(max-width: 500px){
+//        overflow: hidden;
+//    }
+//}
