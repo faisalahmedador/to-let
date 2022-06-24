@@ -46,7 +46,11 @@
   font-size: 1.5rem !important;
 }
 
-.button-default-style:hover {
+.button-default-style:hover,
+.button-default-style:focus,
+.button-default-style:visited,
+.button-default-style:active,
+.button-default-style:not(:disabled):not(.disabled):active{
   color: $primaryColor !important;
   background-color: #ffffff;
   box-shadow: $boxShadow;

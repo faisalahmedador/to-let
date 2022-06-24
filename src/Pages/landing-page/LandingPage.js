@@ -11,7 +11,7 @@ import {
 } from "../../redux/Actions/LandingPageActions";
 import Hero from "../../Components/Hero/Hero";
 import Parallax from "../../Components/Parallax/Parallax";
-import SearchBox2 from "../../Components/SearchBox/SearchBox2";
+import SearchBox from "../../Components/SearchBox/SearchBox";
 import Catagory2 from "../../Components/Catagory/Catagory2";
 import PopularSearch2 from "../../Components/PopularSearch/PopularSearch2";
 import AdCarousel from "../../Components/AdCarousel/AdCarousel";
@@ -87,7 +87,7 @@ class LandingPage extends Component {
           <Parallax>
             <Hero max="true">
               <div className={'search-box-wrapper'}>
-                <SearchBox2 />
+                <SearchBox />
               </div>
             </Hero>
           </Parallax>

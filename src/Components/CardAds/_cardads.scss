@@ -3,7 +3,8 @@
 #card-container{
     .card-div{
         overflow: hidden;
-        max-height: 200px;
+        max-height: 500px;
+        min-height: 200px;
         .price-tag {
             color: $primaryColor;
             font-weight: bold;

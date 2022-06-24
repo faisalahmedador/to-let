@@ -13,10 +13,9 @@ const AdvertisementDetails = () => {
 
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = data => console.log(data);
-    const reachedBottom = AdvertisementScrollControl();
-    console.log(reachedBottom);
+    const {reachedBottom, top, smallScreen} = AdvertisementScrollControl();
     useEffect(() => {
-      window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
     }, []);
     const data = [
         {
@@ -312,7 +311,8 @@ const AdvertisementDetails = () => {
                                                     as="li"
                                                     className="d-flex justify-content-between align-items-start"
                                                 >
-                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle style={{color: '#715EF1'}}
+                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle
+                                                        style={{color: '#715EF1'}}
                                                         className={'mr-3'}/> 24 Hour CC TV
                                                         coverage</h4>
 
@@ -321,14 +321,16 @@ const AdvertisementDetails = () => {
                                                     as="li"
                                                     className="d-flex justify-content-between align-items-start"
                                                 >
-                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle style={{color: '#715EF1'}}
+                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle
+                                                        style={{color: '#715EF1'}}
                                                         className={'mr-3'}/> Prayer room facilities</h4>
                                                 </ListGroup.Item>
                                                 <ListGroup.Item
                                                     as="li"
                                                     className="d-flex justify-content-between align-items-start"
                                                 >
-                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle style={{ color: '#715EF1'}}
+                                                    <h4 style={{fontWeight: 'bold'}}><BsCheckCircle
+                                                        style={{color: '#715EF1'}}
                                                         className={'mr-3'}/> Security Gourd</h4>
                                                 </ListGroup.Item>
                                             </ListGroup>
@@ -343,10 +345,12 @@ const AdvertisementDetails = () => {
                     </Col>
 
                     <Col md={4}>
-                        <div className={reachedBottom ? 'position-relative' : 'position-fixed'}>
-                            <h2>Send Owner a message</h2>
+                        <div className={smallScreen ? '' :
+                            reachedBottom ? 'position-relative' : top ? 'strict-fixed' : 'normal-fixed'}
+                        >
+                            <h2 className={'header'}>Send Owner a message</h2>
                             <Form onSubmit={handleSubmit(onSubmit)}>
-                                <Form.Row>
+                                <Form.Row className={'justify-content-center'}>
                                     <Col xs={8} style={{margin: '15px 0'}}>
                                         <p style={{
                                             margin: '0',

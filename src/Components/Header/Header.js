@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../redux/Actions/SigninActions";
 import {Redirect, useLocation} from "react-router-dom";
 import Cookies from "js-cookie";
-import {HeaderScrollControl} from "../../Shared/customHooks";
+import {ScrollControl} from "../../Shared/customHooks";
 
 const Header = () => {
     const location = useLocation();
@@ -37,7 +37,7 @@ const Header = () => {
         }
     }, [success]);
 
-    const {position, shadow} = HeaderScrollControl();
+    const {position, shadow} = ScrollControl();
     console.log(position, shadow);
 
     function openSubmitModal() {

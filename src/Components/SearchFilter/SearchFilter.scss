@@ -1,0 +1,26 @@
+@import "../../Style/abstracts/variable";
+.search-filter {
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+@media (max-width: 992px) {
+  .search-filter {
+    margin-top: 45px;
+  }
+}
+
+.search-input {
+  font-size: 1.5rem;
+}
+.option-visible {
+  margin: 5px 0 5px 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.chevron-button {
+  font-size: 2em;
+  margin-top: 2px;
+}

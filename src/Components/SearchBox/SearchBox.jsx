@@ -12,10 +12,11 @@ import {
 } from "react-bootstrap";
 import {useHistory} from "react-router";
 import {API} from '../../util/api';
-import './SearchBox2.scss'
+import './SearchBox.scss'
 import {BiChevronDown, BiChevronUp, BiCurrentLocation} from "react-icons/all";
+import {Link} from "react-router-dom";
 
-const SearchBox2 = () => {
+const SearchBox = () => {
 
     const [searchObj, setSearchobj] = useState({})
     const [showMoreOption, toggleShowMoreOption] = useState(false)
@@ -41,21 +42,21 @@ const SearchBox2 = () => {
 
                 <Form.Row className={'align-items-end'}>
                     <Col lg={10} xs={10} style={{margin: '5px 0'}}>
-                        <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}>Location</p>
+                        <p className={'label-style'}>Location</p>
                         <Form.Control size='lg' className={'search-input'}
                                       onChange={(e) => setSearchobj({...searchObj, area: e.target.value})}/>
                     </Col>
                     <Col lg={2} xs={2} style={{margin: '5px 0'}}>
-                        <Button className={'button-default-style'}>
+                        <Link to={'/searchresult'} className={'btn btn-primary button-default-style'}>
                             Find
-                        </Button>
+                        </Link>
                     </Col>
                 </Form.Row>
                 {
                     showMoreOption && <Form.Row>
 
                         {/*<Col lg={4} xs={12} style={{margin: '5px 0'}}>*/}
-                        {/*    <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}> Select*/}
+                        {/*    <p className='label-style> Select*/}
                         {/*        City </p>*/}
                         {/*    <Form.Control as="select" size="lg" placeholder='Select City'*/}
                         {/*                  onChange={e => setSearchobj({...searchObj, city: e.target.value})}>*/}
@@ -70,7 +71,7 @@ const SearchBox2 = () => {
                         {/*</Col>*/}
 
                         <Col lg={3} xs={3} style={{margin: '5px 0'}}>
-                            <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}>
+                            <p className={'label-style'}>
                                 Type </p>
                             <Form.Control as="select" size="lg" placeholder='Select Type'
                                           onChange={e => setSearchobj({...searchObj, type: e.target.value})}>
@@ -86,7 +87,7 @@ const SearchBox2 = () => {
                         </Col>
 
                     <Col lg={3} xs={3} style={{margin: '5px 0'}}>
-                    <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}>
+                    <p className={'label-style'}>
                     Bed </p>
                     <Form.Control as="select" size="lg" placeholder='Select Bed'
                     onChange={e => setSearchobj({...searchObj, bed: e.target.value})}>
@@ -102,7 +103,7 @@ const SearchBox2 = () => {
                     </Col>
 
                     <Col lg={3} xs={3} style={{margin: '5px 0'}}>
-                    <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}> Min
+                    <p className={'label-style'}> Min
                     Price </p>
                     <Form.Control as="select" size="lg" placeholder='Minimum Price'
                     onChange={e => setSearchobj({...searchObj, min: e.target.value})}>
@@ -118,7 +119,7 @@ const SearchBox2 = () => {
                     </Col>
 
                     <Col lg={3} xs={3} style={{margin: '5px 0'}}>
-                    <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}> Max
+                    <p className={'label-style'}> Max
                     Price </p>
                     <Form.Control as="select" size="lg" placeholder='Maximum Price'
                     onChange={e => setSearchobj({...searchObj, max: e.target.value})}>
@@ -133,7 +134,7 @@ const SearchBox2 = () => {
                     </Col>
 
                 {/*<Col lg={3} xs={12} style={{margin: '5px 0'}}>*/}
-                {/*    <p style={{margin: '0', color: '#715EF1', fontWeight: 'bold', textAlign: 'left'}}> Select*/}
+                {/*    <p className='label-style> Select*/}
                 {/*        Bath </p>*/}
                 {/*    <Form.Control as="select" size="lg" placeholder='Select Bath'*/}
                 {/*                  onChange={e => setSearchobj({...searchObj, bath: e.target.value})}>*/}
@@ -169,4 +170,4 @@ const SearchBox2 = () => {
     );
 };
 
-export default SearchBox2;
+export default SearchBox;
