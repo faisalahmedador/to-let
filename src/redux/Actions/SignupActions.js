@@ -11,7 +11,7 @@ import {
     try {
       const response = await axios({
         method: "post",
-        url: `${BASE_API_URL}/signup`,
+        url: `${BASE_API_URL}/api/users`,
         data: JSON.stringify(data),
         headers: {
           "Content-Type": `application/json`,

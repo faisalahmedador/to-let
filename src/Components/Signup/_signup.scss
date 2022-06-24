@@ -95,6 +95,11 @@
   border: 1px solid $primaryColor;
   border-radius: 4px;
   margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+#signup-section .signup-form .form-info .form-input:focus {
+  outline: none;
 }
 
 #signup-section .signup-form .form-info .form-input::-webkit-input-placeholder {

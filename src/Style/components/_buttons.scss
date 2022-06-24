@@ -46,6 +46,13 @@
   font-size: 1.5rem !important;
 }
 
+.button-default-style:disabled:hover {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666 !important;
+  box-shadow: none;
+}
+
 .button-default-style:hover,
 .button-default-style:focus,
 .button-default-style:visited,
@@ -54,4 +61,8 @@
   color: $primaryColor !important;
   background-color: #ffffff;
   box-shadow: $boxShadow;
+}
+
+.border-1-primary {
+  border: 1px solid $primaryColor;
 }

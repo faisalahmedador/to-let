@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import * as Auth from "../../helpers/auths";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {CgProfile} from "react-icons/cg";
 import "./_header.scss";
 import {Button} from "react-bootstrap";
@@ -65,9 +65,9 @@ const Header = () => {
                 style={{position}}
             >
                 <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
-                    <Navbar.Brand href="/" className="logo-div">
+                    <Link to="/" className="logo-div">
                         LOGO
-                    </Navbar.Brand>
+                    </Link>
 
                     <div>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
@@ -75,11 +75,11 @@ const Header = () => {
                             <Nav className="ml-auto nav-elements">
                                 {!validUser ?
                                     <>
-                                        <Nav.Link href="/login" className="login">
+                                        <Link to="/login" className={'btn btn-primary button-default-style mr-3'}>
                                             Login/Signup
-                                        </Nav.Link>
+                                        </Link>
                                         <Button
-                                            className="add-submit"
+                                            className="btn btn-primary button-default-style"
                                             disabled
                                         >
                                             Submit an Add
@@ -88,7 +88,7 @@ const Header = () => {
                                     :
                                     <>
                                         <Button
-                                            className="add-submit"
+                                            className="btn btn-primary button-default-style"
                                             onClick={() => openSubmitModal()}
                                         >
                                             Submit an Add
@@ -99,15 +99,15 @@ const Header = () => {
                                             id="collasible-nav-dropdown"
                                             className='mr-3'
                                         >
-                                            <NavDropdown.Item href={"/profile/" + "2"}>
+                                            <Link to={"/profile/" + "2"} className={'btn btn-primary button-default-style'}>
                                                 Name
-                                            </NavDropdown.Item>
+                                            </Link>
                                             <NavDropdown.Divider/>
-                                            <NavDropdown.Item href='/myads'>
+                                            <Link to='/myads' className={'btn btn-primary button-default-style'}>
                                                 Posted Ads
-                                            </NavDropdown.Item>
+                                            </Link>
                                             <NavDropdown.Divider/>
-                                            <NavDropdown.Item onClick={() => handleLogout()}>
+                                            <NavDropdown.Item onClick={() => handleLogout()} className={'btn btn-primary button-default-style'}>
                                                 Logout
                                             </NavDropdown.Item>
 
