@@ -1,9 +1,5 @@
 import React, {useState, useRef, useEffect } from 'react';
 import { Form, Col, Button, Overlay, Tooltip, Row } from 'react-bootstrap';
-import { AiFillQuestionCircle } from 'react-icons/ai';
-import ReactDate from 'react-date-picker';
-
-import { API } from '../../util/api';
 import { useHistory, Link } from 'react-router-dom'
 
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +23,6 @@ const Signup = () => {
       const dispatch = useDispatch();
     
       const onSubmit = (data) => {
-        console.log(data);
         dispatch(signupAction(data));
       };
 
@@ -37,8 +32,8 @@ const Signup = () => {
 
       useEffect(() =>{
         if(success){
-          Cookies.set("userToken", success.response.data.token);
-          Cookies.set("userId", success.response.data.user_info.id);
+          Cookies.set("userToken", success.response.token);
+          Cookies.set("userId", success.response.data.id);
           history.push('/');
         }
       }, [success])
@@ -56,50 +51,35 @@ const Signup = () => {
 
           <h5>Its quick and easy.</h5>
           <form onSubmit={handleSubmit(onSubmit)}>
-          <Row>
-            <Col md={6} className='pr-0'>
             <input
-              className="form-input"
-              {...register("first_name", { required: true })}
-              // onChange={(e) => setUser(e.target.value)}
-              placeholder="First name"
+                className="form-input"
+                {...register("name", { required: true })}
+                // onChange={(e) => setUser(e.target.value)}
+                placeholder="name"
             />
-            </Col>
-
-            <Col md={6}>
-            <input
-              className="form-input"
-              {...register("last_name", { required: true })}
-              // onChange={(e) => setUser(e.target.value)}
-              placeholder="Last name"
-            />
-            </Col>
-
-          </Row>
 
             <input
               className="form-input"
-              placeholder="Number"
-              {...register("phone_number", { required: true })}
+              placeholder="email"
+              {...register("email", { required: true })}
               // onChange={(e) => setPass(e.target.value)}
             />
 
             <input
               className="form-input"
               placeholder="Password"
+              type={'password'}
               {...register("password", { required: true })}
               // onChange={(e) => setPass(e.target.value)}
             />
 
             {error && "invalid email or password"}
-
-
             {(errors.email || errors.password) && console.log(errors.email)}
-            <input className="button log" type="submit" value="Sign Up" />
+            <input className="btn border-1-primary button-default-style d-block w-100 my-2" type="submit" value="Sign Up" />
           </form>
 
           <span className="line">or</span>
-          <Link className="button sign" to="/logIn">
+          <Link className="btn border-1-primary button-default-style d-block w-100 my-2" to="/logIn">
             Log In
           </Link>
         </div>
