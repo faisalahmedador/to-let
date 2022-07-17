@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { signinAction } from "../../redux/Actions/SigninActions";
 import { Container, Col, Row } from "react-bootstrap";
 import RentalHome from '../../Assets/images/RentalHome.jpg'
-import cookies from "js-cookie";
 import "./_forgotPassword.scss";
 
 const ForgotPassword = () => {
@@ -32,11 +31,6 @@ const ForgotPassword = () => {
     console.log(error);
   }
 
-  // useEffect(() =>{
-  //   if(success.token){
-  //     cookies.set('token', success.token)
-  //   }
-  // }, [success])
 
   return (
     <section id="forgot-section" 

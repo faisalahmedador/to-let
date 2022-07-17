@@ -6,36 +6,43 @@ import * as Auth from "../../helpers/auths";
 import {Link, useHistory} from "react-router-dom";
 import {CgProfile} from "react-icons/cg";
 import "./_header.scss";
-import {Button} from "react-bootstrap";
 import AddModal from "../AddModal/AddModal";
 import {useDispatch, useSelector} from "react-redux";
-import {logout} from "../../redux/Actions/SigninActions";
+import {logout, signinAction} from "../../redux/Actions/SigninActions";
 import {Redirect, useLocation} from "react-router-dom";
-import Cookies from "js-cookie";
 import {ScrollControl} from "../../Shared/customHooks";
+import {removeUserId, removeUserToken} from "../../helpers/localStorer";
 
 const Header = () => {
-    const location = useLocation();
     const [show, setShow] = useState(false);
     const [validUser, setValidUser] = useState(false);
-    const dispatch = useDispatch();
-    const handleLogout = () => {
-        dispatch(logout());
-    };
+    const location = useLocation();
 
     useEffect(() => {
         setValidUser(Auth.validAdmin());
-    }, [location]);
+    },[location])
 
-    const {success} = useSelector((state) => state.logoutReducer);
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(signinAction("logged_out"));
+    };
+    const {logged_out} = useSelector((state) => state.signinReducer);
+    const {loading, add_post} = useSelector(state => state.adsubmitReducers);
 
+    const history = useHistory();
     useEffect(() => {
-        if (success) {
-            Cookies.remove("userToken");
-            Cookies.remove("userId");
+        if(logged_out) {
+            removeUserToken();
+            removeUserId();
             setValidUser(Auth.validAdmin());
+            // history.push('/');
         }
-    }, [success]);
+        if (add_post) {
+            setShow(false);
+            history.push('/userAds');
+        }
+    }, [add_post, logged_out]);
+
 
     const {position, shadow} = ScrollControl();
     console.log(position, shadow);
@@ -44,24 +51,9 @@ const Header = () => {
         setShow(true);
     }
 
-    const {loading, add_post} = useSelector(state => state.adsubmitReducers);
-    const history = useHistory();
-
-    useEffect(() => {
-        if (add_post) {
-            setShow(false);
-            history.push('/myads');
-        }
-    }, [add_post])
-
-    return (
-        <section  className="header-div-main" style={{position: "relative"}}>
+    return (<section className="header-div-main" style={{position: "relative"}}>
             <div
-                className={
-                    shadow
-                        ? "header-div header-div--floating"
-                        : "header-div header-div--hero "
-                }
+                className={shadow ? "header-div header-div--floating" : "header-div header-div--hero "}
                 style={{position}}
             >
                 <Navbar collapseOnSelect expand="md" className="header-div--nav-bar">
@@ -73,47 +65,43 @@ const Header = () => {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="ml-auto nav-elements">
-                                {!validUser ?
-                                    <>
-                                        <Link to="/login" className={'btn btn-primary button-default-style mr-3'}>
-                                            Login/Signup
+                                {!validUser ? <>
+                                    <Link to="/login" className={'btn btn-primary button-default-style mr-3'}>
+                                        Login/Signup
+                                    </Link>
+                                    <Link
+                                        className="btn btn-primary disabled button-default-style"
+                                        disabled
+                                    >
+                                        Submit an Add
+                                    </Link>
+                                </> : <>
+                                    <Link
+                                        className="btn btn-primary button-default-style mr-3"
+                                        onClick={() => openSubmitModal()}
+                                    >
+                                        Submit an Add
+                                    </Link>
+
+                                    <NavDropdown
+                                        title={<CgProfile style={{fontSize: "large"}}/>}
+                                        id="collasible-nav-dropdown"
+                                        className='btn btn-primary button-default-style p-0'
+                                    >
+                                        <Link to={"/profile/" + "2"}
+                                              className={'dropdown-item-style'}>
+                                            Name
                                         </Link>
-                                        <Button
-                                            className="btn btn-primary button-default-style"
-                                            disabled
-                                        >
-                                            Submit an Add
-                                        </Button>
-                                    </>
-                                    :
-                                    <>
-                                        <Button
-                                            className="btn btn-primary button-default-style"
-                                            onClick={() => openSubmitModal()}
-                                        >
-                                            Submit an Add
-                                        </Button>
+                                        <Link to='/userAds' className={'dropdown-item-style'}>
+                                            Posted Ads
+                                        </Link>
+                                        <Link onClick={() => handleLogout()}
+                                              className={'dropdown-item-style'}>
+                                            Logout
+                                        </Link>
 
-                                        <NavDropdown
-                                            title={<CgProfile style={{fontSize: "large"}}/>}
-                                            id="collasible-nav-dropdown"
-                                            className='mr-3'
-                                        >
-                                            <Link to={"/profile/" + "2"} className={'btn btn-primary button-default-style'}>
-                                                Name
-                                            </Link>
-                                            <NavDropdown.Divider/>
-                                            <Link to='/myads' className={'btn btn-primary button-default-style'}>
-                                                Posted Ads
-                                            </Link>
-                                            <NavDropdown.Divider/>
-                                            <NavDropdown.Item onClick={() => handleLogout()} className={'btn btn-primary button-default-style'}>
-                                                Logout
-                                            </NavDropdown.Item>
-
-                                        </NavDropdown>
-                                    </>
-                                }
+                                    </NavDropdown>
+                                </>}
                             </Nav>
                         </Navbar.Collapse>
                     </div>
@@ -125,21 +113,12 @@ const Header = () => {
           <Redirect to="/login" />
         )} */}
 
-                {show ? (
-                    validUser ? (
-                        <AddModal
+                {show ? (validUser ? (<AddModal
                             show={show}
                             setShow={setShow}
-                        />
-                    ) : (
-                        <Redirect to={{pathname: "/login", state: {msg: true}}}/>
-                    )
-                ) : (
-                    ""
-                )}
+                        />) : (<Redirect to={{pathname: "/login", state: {msg: true}}}/>)) : ("")}
             </div>
-        </section>
-    );
+        </section>);
 };
 // export default connect(mapStateToProps, mapDispatchToProps)(Header);
 export default Header;

@@ -1,18 +1,18 @@
 import {
-  SUBMIT_NEW_ADD_REQUEST,
-  SUBMIT_NEW_ADD_SUCCESS,
-  SUBMIT_NEW_ADD_FAILED,
+  SUBMIT_NEW_AD_REQUEST,
+  SUBMIT_NEW_AD_SUCCESS,
+  SUBMIT_NEW_AD_FAILED,
 } from "../Constants";
 
 function adsubmitReducers(state = {}, action) {
   switch (action.type) {
-    case SUBMIT_NEW_ADD_REQUEST:
+    case SUBMIT_NEW_AD_REQUEST:
       return { loading: true };
-    case SUBMIT_NEW_ADD_SUCCESS:
+    case SUBMIT_NEW_AD_SUCCESS:
       // SINGLEInfo(action.payload);
       return { loading: false, add_post: action.payload };
 
-    case SUBMIT_NEW_ADD_FAILED:
+    case SUBMIT_NEW_AD_FAILED:
       return { loading: false, error: action.payload };
 
     default:

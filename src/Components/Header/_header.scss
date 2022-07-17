@@ -37,6 +37,25 @@
     .nav-elements {
       font-size: $mid-font-size;
       font-weight: 700;
+
+
+      .dropdown-menu {
+        left: -81px !important;
+        min-width: 12rem !important;
+        .dropdown-item-style {
+          display: block;
+          font-size: 1.5rem;
+          margin: 10px;
+          color: $btnColor;
+        }
+        .dropdown-item-style:hover,
+        .dropdown-item-style:visited,
+        .dropdown-item-style:focus,
+        .dropdown-item-style:active {
+          color: $btnColor;
+          text-decoration: underline;
+        }
+      }
     }
 
     .drop-location {
@@ -57,5 +76,18 @@
     .add-submit:active {
       color: white !important;
     }
+
   }
+
+   .navbar-light .navbar-nav .nav-link:hover {
+     box-shadow: none !important;
+     background-color: $bgWhite !important;
+     color: $primaryColor !important;
+   }
+
+   .btn-primary.disabled, .btn-primary:disabled {
+     color: $mainWhite;
+     background-color: $primaryColor;
+     border-color: $primaryColor;
+   }
 }

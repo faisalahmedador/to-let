@@ -8,7 +8,7 @@ const ProtectedRoute = () => {
   return (
     <Switch>
         <Route path= '/profile/:id' exact component={ProfilePage} />
-        <Route path='/myads' exact component={UserAddList} />
+        <Route path='/userAds' exact component={UserAddList} />
         <Route path='/myads/:id' exact component={AdInfoPage} />
         
     </Switch>

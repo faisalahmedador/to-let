@@ -10,37 +10,37 @@ const Catagory2 = ( { setCatagory } ) => {
             <h5 className='header'>Catagories</h5>
 
             <Row style={{ textAlign: 'center' }} >
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("duplex")}>
                     duplex
                 </Link>
                 </Col>
 
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("apartment")}>
                      apartment
                 </Link>
                 </Col>
 
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("Familyhouse")}>
                     Familyhouse
                 </Link>
                 </Col>
 
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("sublet")}>
                     sublet
                 </Link>
                 </Col>
 
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("bachelor")}>
                     bachelor
                 </Link>
                 </Col>
 
-                <Col xs={12} lg={2}>
+                <Col sm={4} md={2} lg={2}>
                 <Link to="#" className='link' onClick={() => setCatagory("forsale")}>
                     forsale
                 </Link>

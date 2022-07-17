@@ -1,11 +1,13 @@
 import {
     SIGNUP_REQUEST,
     SIGNUP_SUCCESS,
-    SIGNUP_FAILED,
-   } from "../Constants";
+    SIGNUP_FAILED, SIGNUP_LOGGEDOUT,
+} from "../Constants";
    
    function signupReducer(state = {}, action) {
      switch (action.type) {
+         case SIGNUP_LOGGEDOUT:
+             return { logged_out: true}
        case SIGNUP_REQUEST:
          return { loading: true };
        case SIGNUP_SUCCESS:

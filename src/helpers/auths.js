@@ -1,12 +1,6 @@
-import Cookies from 'js-cookie'
-export const userToken = Cookies.get("userToken");
+import {getUserToken} from "./localStorer";
 
 export const validAdmin = () => {
-  const userToken = Cookies.get("userToken");
-  console.log(userToken);
-  
-  if (userToken) {
-    return true;
-  }
-  return false;
+  const userToken = getUserToken();
+  return !!userToken;
 };

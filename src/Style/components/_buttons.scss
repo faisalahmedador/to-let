@@ -44,9 +44,13 @@
 .button-default-style {
   height: calc(1.5em + 1rem + 1px);
   font-size: 1.5rem !important;
+  color: $btnColor;
+  font-weight: 500;
+  border: 1px solid $mainGray;
+
 }
 
-.button-default-style:disabled:hover {
+.button-default-style:disabled {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666 !important;
@@ -55,14 +59,14 @@
 
 .button-default-style:hover,
 .button-default-style:focus,
-.button-default-style:visited,
 .button-default-style:active,
 .button-default-style:not(:disabled):not(.disabled):active{
-  color: $primaryColor !important;
+  color: $btnColor;
   background-color: #ffffff;
   box-shadow: $boxShadow;
+  border: 1px solid $primaryColor;
 }
 
 .border-1-primary {
-  border: 1px solid $primaryColor;
+  border: 1px solid $mainGray;
 }

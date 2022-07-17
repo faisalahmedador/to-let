@@ -113,7 +113,7 @@ const AddModal = ({
                 <Modal.Footer>
                     <>
                         {questionNo !== 0 && (
-                            <Button variant="primary" onClick={() => handlePreviousItem()}>
+                            <Button className={'button-default-style'} variant="primary" onClick={() => handlePreviousItem()}>
                                 Previous
                             </Button>
                         )}
@@ -122,11 +122,13 @@ const AddModal = ({
                             <Button
                                 variant="primary"
                                 onClick={() => handleNextItem()}
+                                className={'button-default-style'}
                             >
                                 {nextQuestion.value === 'contact_no' ? "done" : "next"}
                             </Button> : <Button
                                 variant="primary"
                                 disabled
+                                className={'button-default-style disabled'}
                             >
                                 {nextQuestion.value === 'contact_no' ? "done" : "next"}
                             </Button>}

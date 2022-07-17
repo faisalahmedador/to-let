@@ -6,10 +6,14 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import { Search } from "./redux/reducers/landingpagereducers";
 import { Add } from "./redux/reducers/addetailsreducers";
-import { signinReducer, logoutReducer } from "./redux/reducers/signinReducers";
+import { signinReducer} from "./redux/reducers/signinReducers";
 import { signupReducer } from "./redux/reducers/SignupReducers";
 import { adsubmitReducers } from "./redux/reducers/adsubmitreducers";
 import { getUserAdsReducers } from "./redux/reducers/getuseradreducers";
+import {adDeleteReducer} from "./redux/reducers/adDeleteReducer";
+import { getThanaReducer, getDistrictReducer, getPostOfficeReducer, getDivisionReducer} from "./redux/reducers/getAddressReducers";
+import {adUpdateReducer} from "./redux/reducers/adUpdateReducer";
+import {getAdDetailsReducers} from "./redux/reducers/getAdDetailsReducer";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -25,9 +29,15 @@ const reducerCombined = combineReducers({
   Add,
   adsubmitReducers,
   signinReducer,
-  logoutReducer,
   signupReducer,
-  getUserAdsReducers
+  getUserAdsReducers,
+  getThanaReducer,
+  getDistrictReducer,
+  getPostOfficeReducer,
+  getDivisionReducer,
+  adDeleteReducer,
+  adUpdateReducer,
+  getAdDetailsReducers
 });
 const store = createStore(
   reducerCombined,

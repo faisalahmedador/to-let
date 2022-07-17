@@ -1,18 +1,18 @@
 import {
-    GET_USER_ADD_REQUEST,
-    GET_USER_ADD_SUCCESS,
-    GET_USER_ADD_FAILED,
+    GET_USER_AD_REQUEST,
+    GET_USER_AD_SUCCESS,
+    GET_USER_AD_FAILED,
   } from "../Constants";
   
   function getUserAdsReducers(state = {}, action) {
     switch (action.type) {
-      case GET_USER_ADD_REQUEST:
+      case GET_USER_AD_REQUEST:
         return { loading: true };
-      case GET_USER_ADD_SUCCESS:
+      case GET_USER_AD_SUCCESS:
         // SINGLEInfo(action.payload);
         return { loading: false, ads: action.payload };
   
-      case GET_USER_ADD_FAILED:
+      case GET_USER_AD_FAILED:
         return { loading: false, error: action.payload };
   
       default:

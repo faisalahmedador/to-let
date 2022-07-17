@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { questionList } from "../util/dummyData";
 import { useDispatch, useSelector } from "react-redux";
-import { adSubmitAction } from "../redux/Actions/AdSubmitActions";
+import { adSubmitAction } from "../redux/Actions/SubmitActions";
 
 export const SubmitQuestion = createContext();
 
@@ -31,12 +31,19 @@ const SubmitQuestionProvider = ({ children }) => {
   const dispatch = useDispatch()
 
   const done = (answer) => {
-    let answerAdd = answerList;
+    let answerAdd = {};
+    for(const key in answerList) {
+      if(key === 'address') {
+        answerAdd['division'] = answerList.address.division;
+        answerAdd['district'] = answerList.address.district;
+        answerAdd['thana'] = answerList.address.thana
+        answerAdd['postCode'] = answerList.address.sub_office
+        answerAdd['address'] = answerList.address.address;
+      }else {
+        answerAdd[key] = answerList[key];
+      }
+    }
     answerAdd[nextQuestion.value] = answer;
-    answerAdd['division'] = answerAdd.address.division;
-    answerAdd['area'] = answerAdd.address.zila;
-    answerAdd['address'] = answerAdd.address.houseName;
-    delete answerAdd.address;
     console.log(answerAdd);
     dispatch(adSubmitAction(answerAdd));
   };

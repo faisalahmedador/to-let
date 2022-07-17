@@ -1,79 +1,92 @@
-import { React, useEffect, useState } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
-const AddressComponent = ({ nextQuestion, id, setQuesSave, quesSave }) => {
-    const [divisions, setDivision] = useState([]);
-    const [zila, setZila] = useState([])
-    const [selectedDiv, setSelectedDiv] = useState();
-    const [selectedZila, setSelectedZila] = useState();
-    const [houseName, setHouseName] = useState();
+import {React, useEffect, useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {Form, Row, Col, Button} from "react-bootstrap";
+import {getDistricts, getDivisions, getPostOffices, getThanas} from "../../../redux/Actions/GetAddressActions";
+import {getDistrictReducer, getPostOfficeReducer, getThanaReducer} from "../../../redux/reducers/getAddressReducers";
 
+const AddressComponent = ({nextQuestion, id, setQuesSave, quesSave}) => {
+    const [divisionList, setDivisionList] = useState([]);
+    const [districtList, setDistrictList] = useState([])
+    const [thanaList, setThanaList] = useState([])
+    const [postOfficeList, setPostOfficeList] = useState([])
+
+    const [address, setAddress] = useState({
+        division: '',
+        district: '',
+        thana: '',
+        sub_office: '',
+        address: ''
+    })
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        if (selectedDiv && selectedZila && houseName) {
-            let address = {
-                division: selectedDiv,
-                zila: selectedZila,
-                houseName: houseName
-            }
-
-            setQuesSave(address);
+        dispatch(getDivisions())
+    }, [])
+    const {loading_divisions, divisions, error_divisions} = useSelector(state => state.getDivisionReducer)
+    const {loading_districts, districts, error_districts} = useSelector(state => state.getDistrictReducer)
+    const {loading_thanas, thanas, error_thanas} = useSelector(state => state.getThanaReducer)
+    const {loading_post_offices, postOffices, error_post_offices} = useSelector(state => state.getPostOfficeReducer)
+    useEffect(() => {
+        if (divisions) {
+            setDivisionList(divisions.response.data.data)
+            setDistrictList([]);
+            setThanaList([]);
+            setPostOfficeList([]);
         }
+        if (districts) {
+            setDistrictList(districts.response.data.data);
+            setThanaList([]);
+            setPostOfficeList([])
+        }
+        if (thanas) {
+            setThanaList(thanas.response.data.data);
+            setPostOfficeList([]);
+        }
+        if (postOffices) {
+            setPostOfficeList(postOffices.response.data.data)
+        }
+    }, [districts, divisions, postOffices, thanas])
 
-    }, [houseName, selectedDiv, selectedZila, setQuesSave])
+    console.log(quesSave)
 
-
-    useEffect(() => {
-        fetch('http://barikoi.xyz/v1/api/MjY3NzpPOEJCNDNLSVZB/cities')
-            .then(response => response.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => {
-                setDivision(response.places)
-                if(quesSave && Object.keys(quesSave).length){
-                    const { areas } = response.places.find(value => value.name === quesSave.division);
-                    setZila(areas);
-                }
-            })
-    }, [quesSave])
+    function updateQuestion(answer) {
+        if(answer?.address !== '') setQuesSave(answer)
+    }
 
     const handleDivisionChange = (division) => {
-        const { name, areas } = divisions.find(value => value.name === division);
-        setSelectedDiv(name);
-        setZila(areas);
-        if(quesSave && Object.keys(quesSave).length){
-            let address = {
-                division: name,
-                zila: quesSave.zila,
-                houseName: quesSave.houseName
-            }
-            setQuesSave(address); 
-        }
+        const newAddress = {...address, division: division, district: '', thana: '', sub_office: ''};
+        setAddress(newAddress);
+        updateQuestion(newAddress)
+        dispatch(getDistricts(division));
     }
 
-    const handleZilaChange = zila => {
-        setSelectedZila(zila);
-        if(quesSave && Object.keys(quesSave).length){
-            let address = {
-                division: quesSave.division,
-                zila: zila,
-                houseName: quesSave.houseName
-            }
-            setQuesSave(address); 
-        }
+    const handleDistrictChange = (district) => {
+        const newAddress = {...address, district: district, thana: '', sub_office: ''};
+        setAddress(newAddress);
+        updateQuestion(newAddress)
+        dispatch(getThanas(district));
     }
 
-    const handleHouseName = house => {
-        setHouseName(house);
-        if(quesSave && Object.keys(quesSave).length){
-            let address = {
-                division: quesSave.division,
-                zila: quesSave.zila,
-                houseName: house
-            }
-            setQuesSave(address); 
-        }
+    const handleThanaChange = (thana) => {
+        const newAddress = {...address, thana: thana, sub_office: ''};
+        setAddress(newAddress);
+        updateQuestion(newAddress)
+        dispatch(getPostOffices(thana))
     }
 
+    const handlePostOfficeChange = (sub_office) => {
+        const newAddress = {...address, sub_office: sub_office};
+        setAddress(newAddress);
+        updateQuestion(newAddress)
+    }
 
+    const handleAddressChange = (addressName) => {
+        console.log(addressName)
+        const newAddress = {...address, address: addressName};
+        setAddress(newAddress);
+        updateQuestion(newAddress)
+    }
 
 
     return (
@@ -82,25 +95,15 @@ const AddressComponent = ({ nextQuestion, id, setQuesSave, quesSave }) => {
                 as='select'
                 key={id}
                 id={`city`}
-                style={{ fontSize: '1.5rem', fontWeight: '600' }}
+                style={{fontSize: '1.5rem', fontWeight: '600'}}
                 title={'city'}
                 className='mb-3'
                 onChange={e => handleDivisionChange(e.target.value)}
             >
-                <option disabled selected={quesSave && Object.keys(quesSave).length ? false : true} hidden>division</option>
+                <option disabled selected={!(quesSave?.division)} hidden>division</option>
                 {
-                    divisions.map(val => {
-                        if(quesSave && Object.keys(quesSave).length && val.name === quesSave.division){
-                            return (
-                                <option selected> {val.name} </option>
-                            )
-                        }else {
-                            return (
-                                <option > {val.name} </option>
-                            )
-                        }
-                        
-                    })
+                    divisionList.map(val =>
+                        <option selected={val.division === quesSave?.division}> {val.division} </option>)
                 }
 
             </Form.Control>
@@ -109,37 +112,62 @@ const AddressComponent = ({ nextQuestion, id, setQuesSave, quesSave }) => {
                 as='select'
                 key={id}
                 id={`zilla`}
-                style={{ fontSize: '1.5rem', fontWeight: '600' }}
+                style={{fontSize: '1.5rem', fontWeight: '600'}}
                 title={'zilla'}
                 className='mb-3'
-                onChange={e => handleZilaChange(e.target.value)}
+                onChange={e => handleDistrictChange(e.target.value)}
             >
-                <option disabled selected={quesSave && Object.keys(quesSave).length ? false : true} hidden>Zilla</option>
+                <option disabled selected={!(quesSave?.district)} hidden>district</option>
                 {
-                    zila.length && zila.map(val => {
-                        if(quesSave && Object.keys(quesSave).length && val.name === quesSave.zila){
-                            return (
-                                <option selected> {val.name} </option>
-                            )
-                        }else {
-                            return (
-                                <option > {val.name} </option>
-                            )
-                        }
-                       
-                    })
+                    districtList.length &&
+                    districtList.map(val =>
+                        <option selected={val.district === quesSave.district}> {val.district} </option>)
                 }
 
             </Form.Control>
 
-            <Form.Group as={Row} className="mb-3" controlId="para">
-                <Form.Label style={{ fontSize: '1.5rem', fontWeight: '600' }} column sm="4">
-                    Address
-                </Form.Label>
-                <Col sm="8">
-                    <Form.Control defaultValue={quesSave && quesSave.houseName ? quesSave.houseName : ''} type='text' style={{ fontSize: '1.5rem', fontWeight: '600' }} id={id} onChange={(e) => handleHouseName(e.target.value)} />
-                </Col>
-            </Form.Group>
+
+            <Form.Control
+                as='select'
+                key={id}
+                id={`thana`}
+                style={{fontSize: '1.5rem', fontWeight: '600'}}
+                title={'thana'}
+                className='mb-3'
+                onChange={e => handleThanaChange(e.target.value)}
+            >
+                <option disabled selected={!(quesSave?.thana)} hidden>thana</option>
+                {
+                    thanaList.length &&
+                    thanaList.map(val =>
+                        <option selected={val.thana === quesSave.thana}> {val.thana} </option>)
+                }
+
+            </Form.Control>
+
+
+            <Form.Control
+                as='select'
+                key={id}
+                id={`postOffice`}
+                style={{fontSize: '1.5rem', fontWeight: '600'}}
+                title={'postOffice'}
+                className='mb-3'
+                onChange={e => handlePostOfficeChange(e.target.value)}
+            >
+                <option disabled selected={!(quesSave?.sub_office)} hidden>post office</option>
+                {
+                    postOfficeList.length &&
+                    postOfficeList.map(val =>
+                        <option selected={val.sub_office === quesSave.sub_office}> {val.sub_office} </option>)
+                }
+
+            </Form.Control>
+
+            <Form.Control defaultValue={quesSave && quesSave.address ? quesSave.address : ''}
+                          type='text' style={{fontSize: '1.5rem', fontWeight: '600'}} id={id}
+                          placeholder={'address'}
+                          onChange={(e) => handleAddressChange(e.target.value)}/>
         </Form>
     )
 }

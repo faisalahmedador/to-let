@@ -8,13 +8,12 @@
         padding: 10px;
         border-radius: .5rem;
         .link{
-            color: white;
-            font-weight: bold;
+            color: rgb(232, 230, 227);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
             &:hover{
-                box-shadow: $boxShadow;
-                padding: 10px;
-                border: 1px solid $borderColor;
-                border-radius: 5px;
+                text-decoration: underline;
             }
         }
     }

@@ -1,24 +1,23 @@
+@import "../../Style/abstracts/variable";
 .userads {
   margin-top: 50px;
   width: 100%;
-  .table thead {
-    background-color: #715ef1;
-  }
-
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //
   table thead th {
-    border: none;
-    padding: 15px;
-    font-size: 13px;
-    font-weight: 700;
-    color: white;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $mainBlack;
+    text-align: center;
   }
   table tbody td {
-    border: none;
-    padding: 15px;
-    font-size: 14px;
-    background: #fff;
-    border-bottom: 2px solid #715ef1;
-    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5rem;
+
   }
 }
 .page-link {

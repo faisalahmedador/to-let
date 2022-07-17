@@ -1,19 +1,23 @@
 import {
-    SIGNIN_REQUEST,
-    SIGNIN_SUCCESS,
-    SIGNIN_FAILED,
-    USER_LOGOUT
+  SIGNIN_REQUEST,
+  SIGNIN_SUCCESS,
+  SIGNIN_FAILED,
+  USER_LOGOUT, SIGNIN_LOGGEDOUT
 
-  } from "../Constants";
+} from "../Constants";
   import axios from 'axios'
   import { BASE_API_URL } from "../../Components/configs";
 
   const signinAction = (data) => async (dispatch) => {
+    if(data === 'logged_out') {
+      dispatch({ type: SIGNIN_LOGGEDOUT, payload: {data}})
+      return;
+    }
     dispatch({ type: SIGNIN_REQUEST, payload: { data } });
     try {
       const response = await axios({
         method: "post",
-        url: `${BASE_API_URL}/login`,
+        url: `${BASE_API_URL}/api/authenticate`,
         data: JSON.stringify(data),
         headers: {
           "Content-Type": `application/json`,
@@ -29,8 +33,4 @@ import {
     }
   };
 
-  const logout = () => (dispatch) => {
-    dispatch({ type: USER_LOGOUT });
-  };
-
-  export {signinAction, logout}
+  export {signinAction}

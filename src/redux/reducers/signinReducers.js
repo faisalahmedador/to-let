@@ -2,11 +2,13 @@ import {
   SIGNIN_REQUEST,
   SIGNIN_SUCCESS,
   SIGNIN_FAILED,
-  USER_LOGOUT,
+  USER_LOGOUT, SIGNIN_LOGGEDOUT,
 } from "../Constants";
 
 function signinReducer(state = {}, action) {
   switch (action.type) {
+    case SIGNIN_LOGGEDOUT:
+      return { logged_out: true}
     case SIGNIN_REQUEST:
       return { loading: true };
     case SIGNIN_SUCCESS:
@@ -20,13 +22,4 @@ function signinReducer(state = {}, action) {
   }
 }
 
-function logoutReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_LOGOUT:
-      return { success: "logout" };
-    default:
-      return state;
-  }
-}
-
-export { signinReducer, logoutReducer };
+export { signinReducer };

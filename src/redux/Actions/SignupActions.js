@@ -1,12 +1,16 @@
 import {
-    SIGNUP_REQUEST,
-    SIGNUP_SUCCESS,
-    SIGNUP_FAILED,
-  } from "../Constants";
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILED, SIGNUP_LOGGEDOUT,
+} from "../Constants";
   import axios from 'axios'
   import { BASE_API_URL } from "../../Components/configs";
 
   const signupAction = (data) => async (dispatch) => {
+    if(data === 'logged_out') {
+      dispatch({ type: SIGNUP_LOGGEDOUT, payload: {data}})
+      return;
+    }
     dispatch({ type: SIGNUP_REQUEST, payload: { data } });
     try {
       const response = await axios({
